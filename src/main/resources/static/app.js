@@ -6,6 +6,7 @@ export default {
           <nav>
             <router-link to="/">Home</router-link>
             <router-link to="/about">About</router-link>
+            <router-link to="/films">Films</router-link>
           </nav>
         
           <main>
