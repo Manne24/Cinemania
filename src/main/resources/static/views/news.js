@@ -1,7 +1,7 @@
 export default {
     template:`
     <div>
-        <h2 class="title">Films</h2>
+        <h2 class="title">Nyheter</h2>
     </div>
     `
 }
