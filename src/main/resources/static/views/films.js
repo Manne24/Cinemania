@@ -1,7 +1,13 @@
+import filmList from '../components/filmList.js'
+
 export default {
+    components:{
+        filmList
+    },
     template:`
     <div>
-        <h2 class="title">Films</h2>
+        <h2>Films</h2>
+        <filmList />
     </div>
     `
 }
