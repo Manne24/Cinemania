@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+    font-family: "Poiret One", cursive;
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+body{
+    background-color: darkred;
+    height: 100vh;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 4em;
+}
+
+
+#meny-rad {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+}
+
+#meny-rad a {
+    font-family: "Spirax", cursive;
+    color: white;
+    text-decoration: none;
+    font-size: 38px;
+    margin: 0 20px;
+}

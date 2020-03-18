@@ -2,9 +2,11 @@ import Vue from "./libs/vue.esm.browser.js";
 import VueRouter from "./libs/vue-router.esm.browser.js";
 Vue.use(VueRouter);
 
-import home from "./views/home.js";
-import about from "./views/about.js";
-import films from "./views/films.js"
+import cinemania from "./views/Cinemania.js";
+import films from "./views/films.js";
+import login from "./views/login.js";
+import news from "./views/news.js";
+import tickets from "./views/tickets.js";
 
 export const router = new VueRouter({
   mode: "history",
@@ -13,19 +15,31 @@ export const router = new VueRouter({
     {
       name: "home",
       path: "/",
-      component: home
-    },
-
-    {
-      name: "about",
-      path: "/about",
-      component: about
+      component: cinemania
     },
 
     {
       name: "films",
       path: "/films",
       component: films
+    },
+
+    {
+      name: "login",
+      path: "/login",
+      component: login
+    },
+
+    {
+      name: "news",
+      path: "/news",
+      component: news
+    },
+
+    {
+      name: "tickets",
+      path: "/tickets",
+      component: tickets
     }
   ]
 });

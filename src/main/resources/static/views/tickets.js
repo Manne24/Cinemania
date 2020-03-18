@@ -1,7 +1,7 @@
 export default {
     template:`
     <div>
-        <h2>Home</h2>
+        <h2 class="title">Biljetter</h2>
     </div>
     `
 }
