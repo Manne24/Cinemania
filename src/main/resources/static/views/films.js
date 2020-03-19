@@ -7,8 +7,8 @@ export default {
         frameborder="0"></iframe> -->
     <h1>Films</h1>
         <ul>
-        <li v-for="film of films"
-        :key="film.id">
+        <li v-for="film of films" :key="film.id">
+        <!-- <doneItem v-for="(doneItem, i) of done" :key="doneItem.title + i" :doneItem="doneItem" /> -->
         <img :src="film.image" alt="film image"><br>
         <!-- id: {{ film.id }} <br> -->
         title: {{ film.title }} <br>
