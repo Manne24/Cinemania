@@ -13,6 +13,7 @@ public class Film {
     private String title;
     private String description;
     private String director;
+    private String image;
 
     public Film() {
     }
@@ -47,5 +48,13 @@ public class Film {
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
