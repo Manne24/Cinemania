@@ -1,6 +1,6 @@
 
 export default {
-    template:`
+    template: `
     <div>
  <!--    <iframe id="ytplayer" type="text/html" width="640" height="360"
         src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
@@ -23,11 +23,5 @@ export default {
         films() {
             return this.$store.state.films
         }
-    },
-        async created() {
-            let films = await fetch('/rest/films')
-            films = await films.json()
-            console.log(films)
-            this.$store.commit('setFilms', films)
-        }
     }
+}
