@@ -14,28 +14,28 @@ public class FilmController {
     @Autowired
     FilmService filmService;
 
-    @GetMapping("/owners")
+    @GetMapping("/films")
     public List<Film> getAllOwners() {
-        return filmService.findAllOwners();
+        return filmService.findAllFilms();
     }
 
-    @GetMapping("/owners/email/{email}")
+   /* @GetMapping("/owners/email/{email}")
     public Film getAllOwnersEmail(@PathVariable String email) {
         return email.findOwnerByEmail(email);
-    }
+    }*/
 
-    @GetMapping("/owners/{id}")
-    public Film getOneOwner(@PathVariable int id){
-        return filmService.findOneOwner(id);
-    }
+    /*@GetMapping("/films/{id}")
+    public Film getOneFilm(@PathVariable int id){
+        return filmService.findOneFilm(id);
+    }*/
 
-    @PostMapping("/owners")
-    public Film createNewOwner(@RequestBody Film film) {
-        return filmService.addNewOwner(film);
-    }
+    /*@PostMapping("/films")
+    public Film createNewFilm(@RequestBody Film film) {
+        return filmService.addNewFilm(film);
+    }*/
 
-    @DeleteMapping("/owners/{id}")
-    public String deleteOneOwner(@PathVariable int id) { /*PathVariable to get variable in route*/
+    @DeleteMapping("/films/{id}")
+    public String deleteOneFilm(@PathVariable int id) { /*PathVariable to get variable in route*/
         try {
             filmService.deleteById(id);
             return "Success";
@@ -44,8 +44,8 @@ public class FilmController {
         }
     }
 
-    @PutMapping("/owners") /*Route*/
-    public String updateOwner(@RequestBody Film film) {
+    @PutMapping("/films") /*Route*/
+    public String updateFilm(@RequestBody Film film) {
         try {
             filmService.updateFilm(film);
             return "Success";
