@@ -12,7 +12,7 @@ export default {
         title: {{ film.title }} <br>
         director: {{ film.director }} <br>
         description: {{ film.description}} <br>
-        <button @click="showTrailer">Trailer</button>
+        <!-- <button @click="showTrailer">Trailer</button> -->
         <hr>
         </li>
     </ul>
@@ -22,11 +22,11 @@ export default {
         films() {
             return this.$store.state.films
         }
-    },
+    }/* ,
     methods: {
         showTrailer(){
             let trailer = 
             console.log('film.trailer')
         }
-    }
+    } */
 }
