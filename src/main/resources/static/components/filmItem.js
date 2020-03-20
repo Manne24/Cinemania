@@ -21,3 +21,32 @@ export default {
         }
     }
 }
+
+/* 
+
+export default {
+    template: `
+    <div 
+    @click="removeCard"
+    class="card-done"
+    >
+    <h2 >{{ doneItem.title }}</h2>
+   </div>
+    `,
+    props: ['doneItem'],
+    data() {
+        return {
+            isOpen: false
+        }
+    },
+    methods: {
+        onCardClick() {
+            this.isOpen = !this.isOpen
+            this.$refs.card.style.setProperty('height', this.isOpen ? '100%' : '93px')
+        },
+        removeCard() {
+            this.$store.commit('removeDone', this.doneItem)
+            this.$store.commit('appendProject', this.doneItem)
+        }
+    }
+} */
