@@ -25,8 +25,8 @@ export const router = new VueRouter({
       component: films
     },
     {
+      name: 'filmInfo',
       path: '/films/:id',
-      name: 'films',
       component: filmInfo
     },
     {

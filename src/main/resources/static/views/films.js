@@ -30,22 +30,3 @@ export default {
         }
     }
 }
-
-/* import doneItem from './doneItem.js'
-
-            export default {
-                components: {
-                    doneItem
-                },
-                template: `
-                <section>
-                    <doneItem v-for="(doneItem, i) of done" :key="doneItem.title + i" :doneItem="doneItem" />
-                </section>
-             
-             `,
-                computed: {
-                    done() {
-                        return this.$store.state.done
-                    }
-                }
-            } */
