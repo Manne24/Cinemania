@@ -11,9 +11,8 @@ export default {
          :key="film.id"
          @click="goToFilmInfo(film.id)">
         <img :src="film.image" alt="film image"><br>
-        title: {{ film.title }} <br>
-        director: {{ film.director }} <br>
-        description: {{ film.description}} <br>
+        {{ film.title }} <br>
+        length: will add on Monday
         <!-- <button @click="showTrailer">Trailer</button> -->
     </div>
    </div>
