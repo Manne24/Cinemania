@@ -1,5 +1,5 @@
-import addNewUser from '../components/addNewUser.js'
 import usersList from '../components/usersList.js'
+import addNewUser from '../components/addNewUser.js'
 
 export default {
     components: {
@@ -11,7 +11,9 @@ export default {
         <h2 class="title">Login</h2>
 
         <h2 class="title">Register</h2>
+
         <addNewUser />
+
         <usersList />
 
     </div>

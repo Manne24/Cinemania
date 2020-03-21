@@ -6,7 +6,7 @@ export default {
                 <hr>
                 user_id: {{ user.user_id }} <br>
                 name: {{ user.name }}<br>
-                email: {{ user.email }}<br>
+                email: {{ user.email }}
                 <hr>
             </li>
         </ul>

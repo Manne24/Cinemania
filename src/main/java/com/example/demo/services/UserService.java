@@ -22,4 +22,8 @@ public class UserService {
 
         return user;
     }
+
+    public User createNewUser(User newUser){
+        return userRepo.save(newUser);
+    }
 }
