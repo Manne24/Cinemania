@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -11,7 +12,19 @@ public class User {
     private int user_id;
     private String name;
     private String email;
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     private String password;
+
+    @Transient
+    private List<User> users;
 
     public User() {
     }

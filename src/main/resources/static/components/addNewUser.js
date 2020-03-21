@@ -18,7 +18,7 @@ export default {
      return  {
        userName: '',
        email: '',
-       password: '',
+       password: ''
      }
     },
     computed: {
