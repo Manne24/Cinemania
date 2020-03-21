@@ -7,7 +7,7 @@ export default {
      <h1>{{film.title}}</h1>
      <iframe width="640" height="360" :src="film.trailer" frameborder="0"></iframe>
     <section>
-        <img :src="film.image" alt="film image"><br>
+       <!--  <img :src="film.image" alt="film image"><br> -->
         title: {{ film.title }} <br>
         director: {{ film.director }} <br>
         description: {{ film.description}} <br>
