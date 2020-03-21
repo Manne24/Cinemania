@@ -21,8 +21,10 @@ export default {
                 director: '',
                 description: '',
                 trailer: ''
-            }
-
+            },
+            api: {
+                url: 'https://www.googleapis.com/youtube/v3/playlistItems',
+              }
         }
     },
     async created() {
