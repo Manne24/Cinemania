@@ -1,9 +1,11 @@
+
+var player;
+
 export default {
     template: `
      <div>
      <h1>{{film.title}}</h1>
-<iframe src="https://www.youtube.com/watch?v=film.trailer"
-        frameborder="0"></iframe>
+     <iframe width="640" height="360" :src="film.trailer" frameborder="0"></iframe>
     <section>
         <img :src="film.image" alt="film image"><br>
         title: {{ film.title }} <br>
@@ -22,9 +24,6 @@ export default {
                 description: '',
                 trailer: ''
             },
-            api: {
-                url: 'https://www.googleapis.com/youtube/v3/playlistItems',
-              }
         }
     },
     async created() {
@@ -36,7 +35,7 @@ export default {
 
         this.film = film
     },
-    /* methods: {
+    methods: {
         onYouTubeIframeAPIReady() {
             // sets the size of the player to 0
             // because we don't want to watch the videos,
@@ -49,6 +48,6 @@ export default {
                 }
             })
         }
-    } */
+    } 
 }
 /* player.loadVideoById(album[songIndex].ytId) */
