@@ -11,7 +11,7 @@ export default {
         title: {{ film.title }} <br>
         director: {{ film.director }} <br>
         description: {{ film.description}} <br>
-        <button>Trailer</button>
+        <button>Buy ticket</button>
         </section>
    </div>
     `,
@@ -36,7 +36,7 @@ export default {
         this.film = film
     },
     methods: {
-        onYouTubeIframeAPIReady() {
+        
             // sets the size of the player to 0
             // because we don't want to watch the videos,
             // only to trigger music playback
