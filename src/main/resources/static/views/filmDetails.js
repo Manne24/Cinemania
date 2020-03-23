@@ -1,3 +1,4 @@
+
 export default {
     template: `
      <div>
@@ -14,6 +15,7 @@ export default {
         year of production: <br>
         genre: <br>
         <button class="button-buy-ticket" @click="goToTickets">Buy ticket</button>
+        <button class="button-buy-ticket" @click="handleSearch('film.title')">Test API</button>
         </section>
    </div>
     `,
@@ -26,6 +28,8 @@ export default {
                 description: '',
                 trailer: ''
             },
+            imdbInfo: [
+            ]
         }
     },
     async created() {
@@ -40,7 +44,28 @@ export default {
     methods: {
         goToTickets() {
             this.$router.push('/tickets/')
+        },
+        handleSearch() {
+            this.films = [];
+            fetch('http://www.omdbapi.com/?i=tt3896198&apikey=87748bc7')
+                .then((res) => { return res.json() })
+                .then((res) => {
+                    this.imdbInfo = res;
+                    console.log(this.imdbInfo.Error)
+                })
         }
+    },
+     created() {
+        fetch('http://www.omdbapi.com/?t=Fast&apikey=87748bc7')
+            .then((res) => { return res.json() })
+            .then((res) => {
+                this.imdbInfo = res;
+                console.log(this.imdbInfo.Error)
+            })
 
-    }
-} 
+            /* http://www.omdbapi.com/?t=apikey=[87748bc7]&/?t=' + title */
+    } 
+}
+
+
+
