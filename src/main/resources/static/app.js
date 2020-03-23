@@ -17,12 +17,18 @@ export default {
           </main>
     
         </div>
-    
       `,
       async created() {
-        let films = await fetch('/rest/films')
-        films = await films.json()
-        console.log(films)
-        this.$store.commit('setFilms', films)
-    }
-}
+          let films = await fetch('/rest/films')
+          films = await films.json()
+          console.log(films)
+          this.$store.commit('setFilms', films)
+      },
+
+      async created(){
+        let users = await fetch('/rest/users')
+        users = await users.json()
+  
+        this.$store.commit('setUsers', users)
+      }
+};
