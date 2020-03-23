@@ -50,8 +50,18 @@ export default {
                     this.imdbInfo = res;
                 })
         }
+    },
+    mounted() {
+        this.imdbInfo
     }
-
+    /* created:() {
+        fetch('http://www.omdbapi.com/?t=Fast&apikey=87748bc7')
+            .then((res) => { return res.json() })
+            .then((res) => {
+                this.imdbInfo = res;
+                console.log(this.imdbInfo.Error)
+            })
+    }  */
 }
 
 
