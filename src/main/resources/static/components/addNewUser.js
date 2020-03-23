@@ -33,7 +33,6 @@ export default {
                 !this.email.trim() &&
                 !this.password.trim())
                 {
-                  // input-fälten får inte vara tomma!
                   return
                 }
     
@@ -50,20 +49,11 @@ export default {
               },
               body: JSON.stringify(user)
             })
-            // plockar ut objektet ur responsen
-            // och lägger i samma variabel
-            // som vi fick responsen i
+           
             result = await result.json()
-    
-            // när vi fått ett svar från servern
-            // så får vi tillbaka samma objekt igen,
-            // fast med ett nytt färskt ID, direkt
-            // från databasen. Denna vill vi lägga till
-            // i vår store lista med pets.
     
             this.$store.commit('appendUser', result)
     
-            // tömmer fälten 
             this.userName = ''
             this.email = ''
             this.password = ''
