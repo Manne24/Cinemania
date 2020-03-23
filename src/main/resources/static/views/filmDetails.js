@@ -1,4 +1,3 @@
-
 export default {
     template: `
      <div>
@@ -25,10 +24,9 @@ export default {
                 image: '',
                 director: '',
                 description: '',
-                trailer: '',
-
+                trailer: ''
             },
-            imdbInfo: [
+            imdbInfo: [ 
             ]
         }
     },
@@ -41,7 +39,6 @@ export default {
 
         this.film = film
     },
-    
     methods: {
         goToTickets() {
             this.$router.push('/tickets/')
@@ -51,7 +48,6 @@ export default {
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.imdbInfo = res;
-                    console.log(this.imdbInfo)
                 })
         }
     },
