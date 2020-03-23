@@ -1,6 +1,3 @@
-
-var player;
-
 export default {
     template: `
      <div>
@@ -11,7 +8,12 @@ export default {
         title: {{ film.title }} <br>
         director: {{ film.director }} <br>
         description: {{ film.description}} <br>
-        <button>Buy ticket</button>
+        language: <br>
+        length: <br>
+        age: <br>
+        year of production: <br>
+        genre: <br>
+        <button class="button-buy-ticket" @click="goToTickets">Buy ticket</button>
         </section>
    </div>
     `,
@@ -36,18 +38,9 @@ export default {
         this.film = film
     },
     methods: {
-        
-            // sets the size of the player to 0
-            // because we don't want to watch the videos,
-            // only to trigger music playback
-            player = new YT.Player('yt-player', {
-                height: '800',
-                width: '1200',
-                events: {
-                    'onStateChange': onPlayerStateChange
-                }
-            })
+        goToTickets() {
+            this.$router.push('/tickets/')
         }
-    } 
-}
-/* player.loadVideoById(album[songIndex].ytId) */
+
+    }
+} 

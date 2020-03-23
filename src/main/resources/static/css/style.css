@@ -1,14 +1,16 @@
-/* *{
+ *{
     box-sizing: border-box;
-    font-family: "Poiret One", cursive;
+    font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
     margin: 0;
 }
 
+
 body{
-    background-color: darkred;
     height: 100vh;
+    margin: 20px;
 }
+
 
 .title {
     text-align: center;
@@ -20,23 +22,36 @@ body{
 #meny-rad {
     text-align: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
+    /* background-color: rgba(0, 0, 0, 0.6); */
     width: 100%;
 }
 
 #meny-rad a {
-    font-family: "Spirax", cursive;
-    color: white;
+   /*  font-family: "Spirax", cursive;
+    color: white; */
     text-decoration: none;
     font-size: 38px;
     margin: 0 20px;
-} */
+} 
+
+.button-buy-ticket {
+    cursor: pointer;
+    padding: 10px;
+    background-color: gold;
+    margin-top: 10px;
+}
 
 .filmcard {
-    background-color: aquamarine;
+    background-color: gold;
     width: 40%;
     padding: 10px;
     margin-bottom: 10px;
     cursor: pointer;
     border-radius: 10px;
+    
+}
+
+iframe {
+    padding: 10px;
+
 }
