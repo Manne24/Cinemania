@@ -7,15 +7,15 @@ export default {
     <section>
        <!--  <img :src="film.image" alt="film image"><br> -->
         title: {{ film.title }} <br>
-        director: {{ film.director }} <br>
-        description: {{ film.description}} <br>
-        language: <br>
-        length: <br>
-        age: <br>
-        year of production: <br>
-        genre: <br>
+        director: {{ imdbInfo.Director }} <br>
+        description: {{ imdbInfo.Plot}} <br>
+        language: {{imdbInfo.Language}}<br>
+        length: {{imdbInfo.Runtime}} <br>
+        age: {{imdbInfo.Rated}} <br>
+        year of production: {{imdbInfo.Year}} <br>
+        genre: {{imdbInfo.Genre}}<br>
         <button class="button-buy-ticket" @click="goToTickets">Buy ticket</button>
-        <button class="button-buy-ticket" @click="handleSearch('film.title')">Test API</button>
+        <button @click="getImdbInfo(film.title)">Get API</button>
         </section>
    </div>
     `,
@@ -26,7 +26,8 @@ export default {
                 image: '',
                 director: '',
                 description: '',
-                trailer: ''
+                trailer: '',
+
             },
             imdbInfo: [
             ]
@@ -41,30 +42,31 @@ export default {
 
         this.film = film
     },
+    
     methods: {
         goToTickets() {
             this.$router.push('/tickets/')
         },
-        handleSearch() {
-            this.films = [];
-            fetch('http://www.omdbapi.com/?i=tt3896198&apikey=87748bc7')
+        getImdbInfo(title) {
+            fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + title)
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.imdbInfo = res;
-                    console.log(this.imdbInfo.Error)
+                    console.log(this.imdbInfo)
                 })
         }
     },
-     created() {
+    mounted() {
+        this.imdbInfo
+    },
+    /* created:() {
         fetch('http://www.omdbapi.com/?t=Fast&apikey=87748bc7')
             .then((res) => { return res.json() })
             .then((res) => {
                 this.imdbInfo = res;
                 console.log(this.imdbInfo.Error)
             })
-
-            /* http://www.omdbapi.com/?t=apikey=[87748bc7]&/?t=' + title */
-    } 
+    }  */
 }
 
 
