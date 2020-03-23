@@ -52,7 +52,7 @@ export default {
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.imdbInfo = res;
-                    console.log(this.imdbInfo)
+                    console.log(this.imdbInfo.Error)
                 })
         }
     },
