@@ -7,6 +7,7 @@ import films from "./views/films.js";
 import login from "./views/login.js";
 import news from "./views/news.js";
 import tickets from "./views/tickets.js";
+import filmDetails from "./views/filmDetails.js";
 
 export const router = new VueRouter({
   mode: "history",
@@ -23,7 +24,11 @@ export const router = new VueRouter({
       path: "/films",
       component: films
     },
-
+    {
+      name: 'filmDetails',
+      path: '/films/:id',
+      component: filmDetails
+    },
     {
       name: "login",
       path: "/login",

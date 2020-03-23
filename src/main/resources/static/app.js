@@ -18,7 +18,6 @@ export default {
     
         </div>
       `,
-      
       async created() {
           let films = await fetch('/rest/films')
           films = await films.json()
