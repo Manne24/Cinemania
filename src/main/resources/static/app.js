@@ -24,11 +24,10 @@ export default {
           console.log(films)
           this.$store.commit('setFilms', films)
       },
-
       async created(){
         let users = await fetch('/rest/users')
         users = await users.json()
   
         this.$store.commit('setUsers', users)
       }
-};
+}
