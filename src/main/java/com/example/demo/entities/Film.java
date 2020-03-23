@@ -14,6 +14,7 @@ public class Film {
     private String description;
     private String director;
     private String image;
+    private String trailer;
 
     public Film() {
     }
@@ -56,5 +57,13 @@ public class Film {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
     }
 }
