@@ -1,11 +1,9 @@
-
 export default {
     template: `
      <div>
      <h1>{{film.title}}</h1>
      <iframe width="640" height="360" :src="film.trailer" frameborder="0"></iframe>
     <section>
-       <!--  <img :src="film.image" alt="film image"><br> -->
         title: {{ film.title }} <br>
         director: {{ imdbInfo.Director }} <br>
         description: {{ imdbInfo.Plot}} <br>
@@ -26,10 +24,9 @@ export default {
                 image: '',
                 director: '',
                 description: '',
-                trailer: '',
-
+                trailer: ''
             },
-            imdbInfo: [
+            imdbInfo: [ 
             ]
         }
     },
@@ -42,7 +39,6 @@ export default {
 
         this.film = film
     },
-    
     methods: {
         goToTickets() {
             this.$router.push('/tickets/')
@@ -52,21 +48,10 @@ export default {
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.imdbInfo = res;
-                    console.log(this.imdbInfo.Error)
                 })
         }
-    },
-    mounted() {
-        this.imdbInfo
-    },
-    /* created:() {
-        fetch('http://www.omdbapi.com/?t=Fast&apikey=87748bc7')
-            .then((res) => { return res.json() })
-            .then((res) => {
-                this.imdbInfo = res;
-                console.log(this.imdbInfo.Error)
-            })
-    }  */
+    }
+
 }
 
 
