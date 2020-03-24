@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/rest")
@@ -24,7 +25,7 @@ public class ScreeningController {
     }
 
     @GetMapping("/screenings/{screening_id}")
-    public Screening getOneScreening(@PathVariable int screening_id){
+    public Optional<Screening> getOneScreening(@PathVariable int screening_id){
         return screeningService.findOneScreening(screening_id);
     }
 }
