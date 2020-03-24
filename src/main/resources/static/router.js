@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 import cinemania from "./views/Cinemania.js";
 import films from "./views/films.js";
 import login from "./views/login.js";
-import signup from "./views/signUp.js"
+import signup from "./views/signup.js"
 import news from "./views/news.js";
 import tickets from "./views/tickets.js";
 import filmDetails from "./views/filmDetails.js";
