@@ -30,9 +30,7 @@ export default {
                 description: '',
                 trailer: ''
             },
-            imdbInfo: [
-            ],
-            loading: false
+            imdbInfo: []
         }
     },
     async created() {
@@ -47,12 +45,14 @@ export default {
             .then((res) => { return res.json() })
             .then((res) => {
                 this.imdbInfo = res;
+                console.log(this.imdbInfo)
             })
+            /* .catch(error => console.log(error)); */
 
     },
     methods: {
         goToTickets(id) {
-            this.$router.push('/tickets/' + id)
+            this.$router.push('/tickets/')
             console.log(id)
         }
     }

@@ -34,6 +34,13 @@ body{
     margin: 0 20px;
 } 
 
+.button-sort-films {
+    cursor: pointer;
+    padding: 10px;
+    background-color: greenyellow;
+    margin: 10px;
+}
+
 .button-buy-ticket {
     cursor: pointer;
     padding: 10px;

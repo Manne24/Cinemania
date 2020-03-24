@@ -18,9 +18,9 @@ export const store = new Vuex.Store({
       state.users = users
     },
 
-
-    appendUser(state, user){
+    appendUser(state, user) {
       state.users.push(user)
-    }
+    },
+
   },
 });
