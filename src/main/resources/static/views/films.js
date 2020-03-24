@@ -24,7 +24,7 @@ export default {
          @click="goToFilmInfo(film.id)">
         <img :src="film.image" alt="film image"><br>
         {{ film.title | to-uppercase }} <br>
-        {{ film.rated }} <br>
+        {{ film.rated | to-uppercase }} <br>
         
     </div>
    </div>
