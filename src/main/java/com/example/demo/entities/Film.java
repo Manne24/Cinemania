@@ -13,8 +13,9 @@ public class Film {
     private String title;
     private String description;
     private String director;
-    private String image;
+    private String image;   
     private String trailer;
+    /*private int imdb;*/
 
     public Film() {
     }
@@ -66,4 +67,12 @@ public class Film {
     public void setTrailer(String trailer) {
         this.trailer = trailer;
     }
+
+    /*public int getImdb() {
+        return imdb;
+    }
+
+    public void setImdb(int imdb) {
+        this.imdb = imdb;
+    }*/
 }
