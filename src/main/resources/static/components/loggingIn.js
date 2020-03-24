@@ -9,6 +9,8 @@ export default {
         <button @click="performLogin">Login</button>
 
         <p>Don't have an account?</p>
+        <button @click="goToSignUp">Click here</button>
+
       </div>
     `,
     data() {
