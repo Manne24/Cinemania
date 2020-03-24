@@ -13,7 +13,7 @@ export default {
         year of production: {{imdbInfo.Year}} <br>
         genre: {{imdbInfo.Genre}}<br>
         <button class="button-buy-ticket" @click="goToTickets">Buy ticket</button>
-        <button @click="getImdbInfo(film.title)">Get API</button>
+        <!-- <button @click="getImdbInfo(film.title)">Get API</button> -->
         </section>
    </div>
     `,
@@ -34,26 +34,25 @@ export default {
 
         let film = await fetch('/rest/films/' + this.$route.params.id)
         film = await film.json()
-
         console.log(film)
-
         this.film = film
-    },
-    methods: {
-        goToTickets() {
-            this.$router.push('/tickets/')
-        },
-        getImdbInfo(title) {
-            fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + title)
+
+        
+        fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + film.title)
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.imdbInfo = res;
                 })
-        }
+
     },
+    methods: {
+        goToTickets() {
+            this.$router.push('/tickets/')
+        }
+    }/* ,
     mounted() {
         this.imdbInfo
-    }
+    } */
     /* created:() {
         fetch('http://www.omdbapi.com/?t=Fast&apikey=87748bc7')
             .then((res) => { return res.json() })
