@@ -1,12 +1,15 @@
 export default {
     template: `
      <form @submit.prevent="submitNewUser">
+      <label>User name :</label>
        <input v-model="userName" type="text" 
        required
        placeholder="Enter user name ...">
+       <label>Email :</label>
        <input v-model="email" type="text" 
        required
        placeholder="Enter user email ...">
+       <label>Password :</label>
        <input v-model="password" type="text" 
        required
        placeholder="Enter user password ...">
