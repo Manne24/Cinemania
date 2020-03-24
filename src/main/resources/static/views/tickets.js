@@ -14,6 +14,7 @@ export default {
                 </select>
                 <button>Book Movie</button>
         </form>
+        <p>{{film.id}}</p>
     </div>
     `,
         computed: {

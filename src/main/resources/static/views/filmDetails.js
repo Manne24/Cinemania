@@ -14,12 +14,12 @@ export default {
         age: {{imdbInfo.Rated}} <br>
         year of production: {{imdbInfo.Year}} <br>
         genre: {{imdbInfo.Genre}}<br>
-        <button class="button-buy-ticket" @click="goToTickets" >Buy ticket</button>
+        <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
         </section>
-        <p v-if="!film.trailer == null">Video loading...</p>
-        <p v-else>Video loaded</p>
-</div>  
-   </p>
+      <!--   <p v-if="!film.trailer == null">Video loading...</p>
+        <p v-else>Video loaded</p> -->
+        </div>  
+  
     `,
     data() {
         return {
@@ -51,8 +51,9 @@ export default {
 
     },
     methods: {
-        goToTickets() {
-            this.$router.push('/tickets/')
+        goToTickets(id) {
+            this.$router.push('/tickets/' + id)
+            console.log(id)
         }
     }
 }
