@@ -1,10 +1,12 @@
 export default {
     template: `
      <div>
-     <h1>{{film.title}}</h1>
-     <iframe width="640" height="360" :src="film.trailer" frameborder="0"></iframe>
-    <section>
-        title: {{ film.title }} <br>
+        <h1>{{film.title}}</h1>
+        <section class="iframe">
+        <iframe width="640" height="360" :src="film.trailer" frameborder="0" allowtransparency="true" ></iframe>
+        </section>
+        <section>
+        title: {{ imdbInfo.Title }} <br>
         director: {{ imdbInfo.Director }} <br>
         description: {{ imdbInfo.Plot}} <br>
         language: {{imdbInfo.Language}}<br>
@@ -12,10 +14,12 @@ export default {
         age: {{imdbInfo.Rated}} <br>
         year of production: {{imdbInfo.Year}} <br>
         genre: {{imdbInfo.Genre}}<br>
-        <button class="button-buy-ticket" @click="goToTickets">Buy ticket</button>
-        <!-- <button @click="getImdbInfo(film.title)">Get API</button> -->
+        <button class="button-buy-ticket" @click="goToTickets" >Buy ticket</button>
         </section>
-   </div>
+        <p v-if="!film.trailer == null">Video loading...</p>
+        <p v-else>Video loaded</p>
+</div>  
+   </p>
     `,
     data() {
         return {
@@ -27,7 +31,8 @@ export default {
                 trailer: ''
             },
             imdbInfo: [
-            ]
+            ],
+            loading: false
         }
     },
     async created() {
