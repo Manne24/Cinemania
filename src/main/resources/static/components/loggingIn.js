@@ -7,6 +7,8 @@ export default {
         <label>Password :</label>
         <input v-model="password" type="password" placeholder="password...">
         <button @click="performLogin">Login</button>
+
+        <p>Don't have an account?</p>
       </div>
     `,
     data() {
@@ -18,21 +20,6 @@ export default {
     methods: {
       async performLogin() {
   
-        // const credentials = `email=${
-        //   encodeURIComponent(this.email)
-        // }&password=${
-        //   encodeURIComponent(this.password)}`
-  
-        // let loginRes = await fetch("/rest/users", {
-        //   method: "POST",
-        //   body: credentials,
-        //   headers: {
-        //     "Content-Type": "application/x-www-form-urlencoded"
-        //   }
-        // });
-  
-        //console.log(loginRes);
-
         this.email = ''
         this.password = ''
       }

@@ -4,17 +4,16 @@ import loggingIn from '../components/loggingIn.js'
 
 export default {
     components: {
-        addNewUser,
         usersList,
-        loggingIn
+        loggingIn,
+        addNewUser
       },
     template:`
     <div>
-        <h2 class="title">Login</h2>
+        <h3>Login</h3>
         <loggingIn />
 
-        <h2 class="title">Register</h2>
-
+        <h3>Sign up</h3>
         <addNewUser />
 
     
