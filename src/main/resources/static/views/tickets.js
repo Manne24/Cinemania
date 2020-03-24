@@ -1,10 +1,15 @@
+// import ticketList from '../components/ticketList.js'
 export default {
+/*     components: {
+        ticketList
+    }, */
     template:`
     <div>
         <h2 class="title">Biljetter</h2>
+        <!-- <ticketList/> -->
         <form @submit.prevent>
             <h4>Book Movie Ticket</h4>
-            <div v-for="film of films" :key="film.id">
+            <div v-for="( film, i ) of films" :key="film.id" class="'item-' + i">
                 {{film.title}}
                 <select>
                     <option v-for="screening of screenings" 
