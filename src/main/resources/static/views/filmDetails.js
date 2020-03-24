@@ -26,7 +26,7 @@ export default {
                 description: '',
                 trailer: ''
             },
-            imdbInfo: [ 
+            imdbInfo: [
             ]
         }
     },
@@ -37,30 +37,19 @@ export default {
         console.log(film)
         this.film = film
 
-        
+
         fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + film.title)
-                .then((res) => { return res.json() })
-                .then((res) => {
-                    this.imdbInfo = res;
-                })
+            .then((res) => { return res.json() })
+            .then((res) => {
+                this.imdbInfo = res;
+            })
 
     },
     methods: {
         goToTickets() {
             this.$router.push('/tickets/')
         }
-    }/* ,
-    mounted() {
-        this.imdbInfo
-    } */
-    /* created:() {
-        fetch('http://www.omdbapi.com/?t=Fast&apikey=87748bc7')
-            .then((res) => { return res.json() })
-            .then((res) => {
-                this.imdbInfo = res;
-                console.log(this.imdbInfo.Error)
-            })
-    }  */
+    }
 }
 
 
