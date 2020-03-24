@@ -18,7 +18,7 @@ public class ScreeningService {
        return (List<Screening>) screeningRepo.findAll();
    }
 
-   public Optional<Screening> getOneScreening(int id) {
+   public Optional<Screening> findOneScreening(int id) {
        return screeningRepo.findById(id);
    }
 
