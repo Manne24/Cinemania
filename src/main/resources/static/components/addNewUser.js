@@ -1,21 +1,40 @@
 export default {
     template: `
-     <form @submit.prevent="submitNewUser">
-      <label>User name :</label>
-       <input v-model="userName" type="text" 
-       required
-       placeholder="Enter user name ...">
-       <label>Email :</label>
-       <input v-model="email" type="text" 
-       required
-       placeholder="Enter user email ...">
-       <label>Password :</label>
-       <input v-model="password" type="text" 
-       required
-       placeholder="Enter user password ...">
 
-       <button>Submit</button>
-     </form>
+    <div class="addUser">
+      <h3>Sign up</h3>
+      <p>Please fill in this form to create an account.</p> 
+      <form @submit.prevent="submitNewUser">
+        <label>User name :</label>
+        <input v-model="userName" type="text" required
+        placeholder="Enter user name ...">
+        
+        <label>Email :</label>
+        <input v-model="email" type="text" required
+        placeholder="Enter user email ...">
+        
+        <label>Password :</label>
+        <input v-model="password" type="password" required
+        placeholder="Enter user password ...">
+        
+        <label>Repeat Password</label>
+        <input type="password2" type="password2" required 
+        placeholder="Repeat Password ..."> 
+        
+        <label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Cinemania & Privacy</a>.</p>
+
+        <div class="clearfix">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <button type="submit" class="signupbtn">Submit</button>
+        </div>
+        
+      </form>
+    </div>
+
     `,
     data() {
      return  {
