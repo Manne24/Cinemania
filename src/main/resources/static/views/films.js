@@ -38,13 +38,6 @@ export default {
         goToFilmInfo(id) {
             this.$router.push('/films/' + id)
         },
-        /* sortByAge() {
-             const filmsSortedByAge = this.$store.state.films.filter((film) => {
-                 return film.rated === 'g'
-             })
-             console.log(filmsSortedByAge)
- 
-         }  */
     },
     computed: {
         films() {
