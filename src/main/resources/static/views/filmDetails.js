@@ -1,10 +1,12 @@
 export default {
     template: `
      <div>
-     <h1>{{film.title}}</h1>
-     <iframe width="640" height="360" :src="film.trailer" frameborder="0"></iframe>
-    <section>
-        title: {{ film.title }} <br>
+        <h1>{{film.title}}</h1>
+        <section class="iframe">
+        <iframe width="640" height="360" :src="film.trailer" frameborder="0" allowtransparency="true" ></iframe>
+        </section>
+        <section>
+        title: {{ imdbInfo.Title }} <br>
         director: {{ imdbInfo.Director }} <br>
         description: {{ imdbInfo.Plot}} <br>
         language: {{imdbInfo.Language}}<br>
@@ -12,10 +14,12 @@ export default {
         age: {{imdbInfo.Rated}} <br>
         year of production: {{imdbInfo.Year}} <br>
         genre: {{imdbInfo.Genre}}<br>
-        <button class="button-buy-ticket" @click="goToTickets">Buy ticket</button>
-        <!-- <button @click="getImdbInfo(film.title)">Get API</button> -->
+        <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
         </section>
-   </div>
+      <!--   <p v-if="!film.trailer == null">Video loading...</p>
+        <p v-else>Video loaded</p> -->
+        </div>  
+  
     `,
     data() {
         return {
@@ -26,8 +30,7 @@ export default {
                 description: '',
                 trailer: ''
             },
-            imdbInfo: [ 
-            ]
+            imdbInfo: []
         }
     },
     async created() {
@@ -37,30 +40,22 @@ export default {
         console.log(film)
         this.film = film
 
-        
-        fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + film.title)
-                .then((res) => { return res.json() })
-                .then((res) => {
-                    this.imdbInfo = res;
-                })
 
-    },
-    methods: {
-        goToTickets() {
-            this.$router.push('/tickets/')
-        }
-    }/* ,
-    mounted() {
-        this.imdbInfo
-    } */
-    /* created:() {
-        fetch('http://www.omdbapi.com/?t=Fast&apikey=87748bc7')
+        fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + film.title)
             .then((res) => { return res.json() })
             .then((res) => {
                 this.imdbInfo = res;
-                console.log(this.imdbInfo.Error)
+                console.log(this.imdbInfo)
             })
-    }  */
+            /* .catch(error => console.log(error)); */
+
+    },
+    methods: {
+        goToTickets(id) {
+            this.$router.push('/tickets/')
+            console.log(id)
+        }
+    }
 }
 
 

@@ -15,7 +15,7 @@ public class Film {
     private String director;
     private String image;   
     private String trailer;
-    /*private int imdb;*/
+    private String rated;
 
     public Film() {
     }
@@ -68,11 +68,11 @@ public class Film {
         this.trailer = trailer;
     }
 
-    /*public int getImdb() {
-        return imdb;
+    public String getRated() {
+        return rated;
     }
 
-    public void setImdb(int imdb) {
-        this.imdb = imdb;
-    }*/
+    public void setRated(String rated) {
+        this.rated = rated;
+    }
 }
