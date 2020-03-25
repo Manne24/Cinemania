@@ -1,20 +1,17 @@
-/* import ticketItem from './ticketItem.js'
+import ticketItem from './ticketItem.js'
 export default {
-    componetns :{
+    components :{
         ticketItem
-    },
+    }, 
     template: `
-    <div>
-        <ticketItem v-for="film of films" :key="film.id" :film="film"/>
+    <div id="ticketList">
+         <ticketItem v-for="(film, i) of films" :key="film.id" :film="film" :class="'boxItem-' + i"/>
     </div>
     `
 ,
-computed: {
+ computed: {
     films() {
         return this.$store.state.films
-    },
-    screenings() {
-        return this.$store.state.screenings
-    }
-}
-} */
+        }
+    } 
+} 
