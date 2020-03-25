@@ -5,38 +5,20 @@ export default {
     <h1>Films</h1>
 
         <button
-        v-for="(rating, index) in filmFilter" 
-        :item="rating"
-        :key="index"
-        @click="filter = rating"
+         v-for="(rating, i) in filmFilterAge" 
+        :key="rating.age + i"
+        @click="filmFilterKey = rating.age"
         class="button-sort-films"
-        >{{ rating }}
+        >{{ rating.age }}
         </button>
-
-       <!--  <button 
-        @click="filmFilterKey = 'all'" 
-        class="button-sort-films"
-        >ALL</button>
-
-        <button 
-        @click="filmFilterKey = 'children'" 
-        class="button-sort-films"
-        >G-RATED</button>
-
-        <button 
-        @click="filmFilterKey = 'adult'" 
-        class="button-sort-films"
-        >R-RATED</button>-->
 
         <div class="filmcard" 
          v-for="film of films"
-         v-if="film[filmFilterKey] === filter || filter === 'all'"
-         :item="film"
          :key="film.id"
          @click="goToFilmInfo(film.id)">
         <img :src="film.image" alt="film image"><br>
-        {{ film.title }} <br>
-        {{ film.rated }} <br>
+        {{ film.title | to-uppercase }} <br>
+        {{ film.rated | to-uppercase }} <br>
         
     </div>
    </div>
@@ -44,8 +26,11 @@ export default {
     data() {
         return {
             filmFilterKey: 'all',
-            filmFilter: ["all", "children", "adult"],
-            filter: "all"
+            filmFilterAge: [
+                { age: "all" },
+                { age: "children" },
+                { age: "adult" }
+            ]
         }
     },
     methods: {
@@ -55,6 +40,7 @@ export default {
     },
     computed: {
         films() {
+            console.log(this.filmFilterKey)
             return this[this.filmFilterKey]
         },
         all() {
@@ -70,9 +56,4 @@ export default {
     }
 }
 
-/* :class="{active: entry == filter}" 
-| to-uppercase 
-| to-uppercase 
-
-*/
 
