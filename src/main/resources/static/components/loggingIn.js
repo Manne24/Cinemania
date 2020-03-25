@@ -24,6 +24,11 @@ export default {
   
         this.email = ''
         this.password = ''
+      },
+
+      goToSignUp(){
+        location.href ="/signup";
+
       }
     }
   }
