@@ -19,8 +19,8 @@ export default {
         <img :src="film.image" alt="film image"><br>
         {{ film.title | to-uppercase }} <br>
         {{ film.rated | to-uppercase }} <br>
-        
-    </div>
+        </div>
+    
    </div>
     `,
     data() {
