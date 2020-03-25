@@ -37,8 +37,9 @@ body{
 .button-sort-films {
     cursor: pointer;
     padding: 10px;
-    background-color: greenyellow;
+    background-color: pink;
     margin: 10px;
+    border-radius: 10px;
 }
 
 .button-buy-ticket {
