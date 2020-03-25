@@ -5,9 +5,9 @@ export default {
     
           <nav id="meny-rad">
             <router-link to="/">Cinemania</router-link>
-            <router-link to="/tickets">Biljetter</router-link>
-            <router-link to="/films">Filmer</router-link>
-            <router-link to="/news">Nyheter</router-link>
+            <router-link to="/tickets">Tickets</router-link>
+            <router-link to="/films">Films</router-link>
+            <router-link to="/news">News</router-link>
             <router-link to="/login">Login</router-link>
           </nav>
         
