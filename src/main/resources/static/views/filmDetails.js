@@ -16,8 +16,6 @@ export default {
         genre: {{imdbInfo.Genre}}<br>
         <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
         </section>
-      <!--   <p v-if="!film.trailer == null">Video loading...</p>
-        <p v-else>Video loaded</p> -->
         </div>  
   
     `,
@@ -47,7 +45,7 @@ export default {
                 this.imdbInfo = res;
                 console.log(this.imdbInfo)
             })
-            /* .catch(error => console.log(error)); */
+            /* .catch(error => console.log(error)); ASK JOHAN */
 
     },
     methods: {
