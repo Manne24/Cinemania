@@ -3,7 +3,17 @@ export default {
     template: `
     <div>
     <h1>Films</h1>
-        <button 
+
+        <button
+        v-for="(rating, index) in filmFilter" 
+        :item="rating"
+        :key="index"
+        @click="filter = rating"
+        class="button-sort-films"
+        >{{ rating }}
+        </button>
+
+       <!--  <button 
         @click="filmFilterKey = 'all'" 
         class="button-sort-films"
         >ALL</button>
@@ -16,22 +26,26 @@ export default {
         <button 
         @click="filmFilterKey = 'adult'" 
         class="button-sort-films"
-        >R-RATED</button>
+        >R-RATED</button>-->
 
         <div class="filmcard" 
-         v-for="film of films" 
+         v-for="film of films"
+         v-if="film[filmFilterKey] === filter || filter === 'all'"
+         :item="film"
          :key="film.id"
          @click="goToFilmInfo(film.id)">
         <img :src="film.image" alt="film image"><br>
-        {{ film.title | to-uppercase }} <br>
-        {{ film.rated | to-uppercase }} <br>
+        {{ film.title }} <br>
+        {{ film.rated }} <br>
         
     </div>
    </div>
     `,
     data() {
         return {
-            filmFilterKey: 'all'
+            filmFilterKey: 'all',
+            filmFilter: ["all", "children", "adult"],
+            filter: "all"
         }
     },
     methods: {
@@ -52,7 +66,13 @@ export default {
         adult() {
             return this.$store.state.films.filter((film) => film.rated === 'r')
         }
-        
+
     }
 }
+
+/* :class="{active: entry == filter}" 
+| to-uppercase 
+| to-uppercase 
+
+*/
 
