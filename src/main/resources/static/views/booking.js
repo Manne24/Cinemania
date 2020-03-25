@@ -1,5 +1,5 @@
 export default {
-    template:`
+  template: `
     <div>
         <h4>Select Ticket Amount</h4>
         <form>
@@ -16,8 +16,13 @@ export default {
                 <input type="number" id="number" value="0" />
             <div class="value-button" id="increase" value="Increase Value">+</div>
         </form>
-        <button>Continue</button>
+        <button @click="goToSeats">Continue</button>
     </div>
     
-    `
-}
+    `,
+  methods: {
+    goToSeats() {
+      this.$router.push("/seats");
+    }
+  }
+};
