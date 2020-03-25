@@ -32,11 +32,11 @@ body {
 }
 
 .button-sort-films {
-    cursor: pointer;
-    padding: 10px;
-    background-color: pink;
-    margin: 10px;
-    border-radius: 10px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: pink;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 .button-buy-ticket {
@@ -59,7 +59,7 @@ iframe {
   padding: 10px;
 }
 .iframe {
-    padding: 30px;
+  padding: 30px;
 }
 
 /* Biljett-Sida Css */
@@ -75,12 +75,12 @@ iframe {
 /* --------------- Sign up page --------------- */
 
 .addUser {
-    width: 60%;
-    position: relative;
-    margin: 4em 0;
-    padding: 0.5em 1em;
-    border: solid 2px gray;
-    border-radius: 8px;
+  width: 60%;
+  position: relative;
+  margin: 4em 0;
+  padding: 0.5em 1em;
+  border: solid 2px gray;
+  border-radius: 8px;
 }
 /* 
  #screeningoptions {
@@ -102,66 +102,67 @@ iframe {
 .seats {
   background-color: #aaa;
   border: 1px solid #000;
+  text-align: center;
 }
 
-
-.addUser h1{
-    position: absolute;
-    display: inline-block;
-    top: -22px;
-    padding: 0 9px;
-    line-height: 1;
-    font-size: 30px;
-    background: #FFF;
-    color: gray;
-    font-weight: bold;
+.addUser h1 {
+  position: absolute;
+  display: inline-block;
+  top: -22px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 30px;
+  background: #fff;
+  color: gray;
+  font-weight: bold;
 }
 
-.addUser p{
-    margin: 0; 
-    padding: 0;
+.addUser p {
+  margin: 0;
+  padding: 0;
 }
 
+.addUser input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
 
-.addUser input[type=text], input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
+.addUser input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
 
-.addUser input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-
-.addUser hr{
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px; 
+.addUser hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
 }
 
 .addUser button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size: large;
+}
+
+.addUser button:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 300px) {
+  .addUser {
     width: 100%;
-    opacity: 0.9;
-    font-size: large;
   }
+}
 
-  .addUser button:hover {
-    opacity:1;
-  }
-
-  @media screen and (max-width: 300px) {
-    .addUser {
-       width: 100%;
-    }
-  }
-
-  /* --------------- Sign up page END--------------- */
+/* --------------- Sign up page END--------------- */
