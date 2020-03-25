@@ -22,11 +22,7 @@ export default {
     data() {
         return {
             film: {
-                title: '',
-                image: '',
-                director: '',
-                description: '',
-                trailer: ''
+                title: ''
             },
             imdbInfo: []
         }
@@ -45,7 +41,18 @@ export default {
                 this.imdbInfo = res;
                 console.log(this.imdbInfo)
             })
-            /* .catch(error => console.log(error)); ASK JOHAN */
+        /* .catch(error => console.log(error)); ASK JOHAN */
+
+        let data = { sender: 'Olle', message: 'Hi!' };
+        let rawResponse = await fetch('[route]', {
+            // tell the server we want to send/create data
+            method: 'post',
+            // and that we will send data json formatted
+            headers: { 'Content-Type': 'application/json' },
+            // the data encoded as json
+            body: JSON.stringify(data)
+        });
+        let response = await rawResponse.json();
 
     },
     methods: {

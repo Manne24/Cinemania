@@ -7,8 +7,9 @@ export default {
         <button
          v-for="(rating, i) in filmFilterAge" 
         :key="rating.age + i"
-        @click="filmFilterKey = rating.age"
+        @click="filmFilterKey = rating.age; clicked = !clicked"
         class="button-sort-films"
+        :style='{"background-color": (clicked? "yellow" : "orange" )}'
         >{{ rating.age }}
         </button>
 
@@ -29,14 +30,17 @@ export default {
             filmFilterAge: [
                 { age: "all" },
                 { age: "children" },
-                { age: "adult" }
-            ]
+                { age: "adult" }],
+            clicked: false
         }
     },
     methods: {
         goToFilmInfo(id) {
             this.$router.push('/films/' + id)
-        },
+        }, /* onButtonClick() {
+            this.clicked = !this.clicked
+            this.$refs.button-sort-films.style.setProperty('height', this.isOpen ? '100%' : '93px')
+        } */
     },
     computed: {
         films() {
@@ -56,4 +60,4 @@ export default {
     }
 }
 
-
+/*  */
