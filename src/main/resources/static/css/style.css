@@ -68,10 +68,11 @@ body{
 .addUser {
     width: 60%;
     position: relative;
-    margin: 4em 0;
+    margin: auto;
     padding: 0.5em 1em;
     border: solid 2px gray;
     border-radius: 8px;
+    margin-top: 3em;
 }
 
 .addUser h1{
