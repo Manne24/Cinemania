@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 import cinemania from "./views/Cinemania.js";
 import films from "./views/films.js";
 import login from "./views/login.js";
+import signup from "./views/signUp.js"
 import news from "./views/news.js";
 import tickets from "./views/tickets.js";
 import filmDetails from "./views/filmDetails.js";
@@ -34,7 +35,11 @@ export const router = new VueRouter({
       path: "/login",
       component: login
     },
-
+    {
+      name: "signup",
+      path: "/signup",
+      component: signup
+    },
     {
       name: "news",
       path: "/news",
