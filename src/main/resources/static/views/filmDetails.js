@@ -1,10 +1,11 @@
 export default {
     template: `
      <div>
-        <h1>{{film.title}}</h1>
+        <h1>{{ imdbInfo.Title }}</h1>
         <section class="iframe">
         <iframe width="640" height="360" :src="film.trailer" frameborder="0" allowtransparency="true" ></iframe>
         </section>
+
         <section>
         title: {{ imdbInfo.Title }} <br>
         director: {{ imdbInfo.Director }} <br>
@@ -15,16 +16,78 @@ export default {
         year of production: {{imdbInfo.Year}} <br>
         genre: {{imdbInfo.Genre}}<br>
         <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
-        </section>
+        </section><br>
+
+        <form @submit.prevent="submitNewFilm">
+        <input v-model="title" type="text" required>
+        <input v-model="director" type="text" required>
+        <input v-model="description" type="text" required>
+        <input v-model="rated" type="text" required><br>
+        <button type="submit">Submit</button>
+        </form>
+
         </div>  
   
     `,
     data() {
         return {
             film: {
-                title: ''
+                /* title: '' */
             },
-            imdbInfo: []
+            imdbInfo: [],
+            title: '',
+            director: '',
+            description: '',
+            rated: '',
+            image: '',
+            /* length: imdbInfo.Runtime,
+            age: imdbInfo.Rated,
+            year: imdbInfo.Year,
+            genre: imdbInfo.Genre, */
+
+        }
+    },
+    methods: {
+        goToTickets(id) {
+            this.$router.push('/tickets/')
+            console.log(id)
+        },
+        async submitNewFilm() {
+
+            if (!this.title.trim() &&
+                !this.director.trim() &&
+                !this.description.trim() &&
+                !this.rated.trim()) {
+                return
+            }
+
+            let film = {
+                title: this.title,
+                director: this.director,
+                description: this.description,
+                rated: this.rated,
+                image: this.imdbInfo.Language
+            }
+
+            let result = await fetch('/rest/films', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(film)
+            })
+
+            result = await result.json()
+            console.log(result)
+
+            /* Adds film to list in store */
+            /* this.$store.commit('appendFilm', result) */
+
+                this.title = '',
+                this.description = '',
+                this.director = '',
+                this.rated = ''
+
         }
     },
     async created() {
@@ -43,25 +106,9 @@ export default {
             })
         /* .catch(error => console.log(error)); ASK JOHAN */
 
-        let data = { sender: 'Olle', message: 'Hi!' };
-        let rawResponse = await fetch('[route]', {
-            // tell the server we want to send/create data
-            method: 'post',
-            // and that we will send data json formatted
-            headers: { 'Content-Type': 'application/json' },
-            // the data encoded as json
-            body: JSON.stringify(data)
-        });
-        let response = await rawResponse.json();
-
-    },
-    methods: {
-        goToTickets(id) {
-            this.$router.push('/tickets/')
-            console.log(id)
-        }
     }
 }
+
 
 
 
