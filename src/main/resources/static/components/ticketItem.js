@@ -1,16 +1,16 @@
  export default {
     template: `
     <div class="film-box">
-        <h1>{{film.title}}</h1>
-        <div id="screeningoptions" ref="screeningoptions">
-            <select>
-                 <option v-for="screening of screenings" 
+        <button class="screen-box" @click="onBoxClick">{{film.title}}</button>
+         <div class="screencontent" ref="screencontent">
+            <div>
+                 <p v-for="screening of screenings" 
                         :key="screening.id">{{screening.date}}<br>
                         {{screening.time}}
-                    </option>
-                </select>
+                    </p>
+                </div>
                 <button @click="goToBooking">buy ticket</button>
-        </div>
+            </div> 
     </div>
     `,
     props: ['film'],
@@ -26,13 +26,11 @@
     },
     methods: {
         goToBooking() {
-            this.$router.push('/booking/')
-        }
-/*         
-                 @click="onBoxClick"
+            this.$router.push('/booking')
+        },
             onBoxClick() {
             this.isOpen = !this.isOpen;
-             this.$refs.screeningoptions.style.setProperty('display', this.isOpen ? "initial": "none " )
-        } */
+            this.$refs.screencontent.style.setProperty('display', this.isOpen ? "block": "none" )
+        } 
     }
 } 
