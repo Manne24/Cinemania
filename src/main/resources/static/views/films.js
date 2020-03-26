@@ -7,9 +7,8 @@ export default {
         <button
          v-for="(rating, i) in filmFilterAge" 
         :key="rating.age + i"
-        @click="filmFilterKey = rating.age; clicked = !clicked"
+        @click="filmFilterKey = rating.age;"
         class="button-sort-films"
-        :style='{"background-color": (clicked? "yellow" : "orange" )}'
         >{{ rating.age }}
         </button>
 
@@ -60,4 +59,4 @@ export default {
     }
 }
 
-/*  */
+/* :style='{"background-color": (clicked? "yellow" : "orange" )}' */
