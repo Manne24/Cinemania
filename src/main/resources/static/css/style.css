@@ -93,7 +93,7 @@ body{
 }
 
 
-.addUser input[type=text], input[type=password] {
+.addUser input[type=text], .addUser input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -102,7 +102,7 @@ body{
     background: #f1f1f1;
   }
 
-.addUser input[type=text]:focus, input[type=password]:focus {
+.addUser input[type=text]:focus, .addUser input[type=password]:focus {
     background-color: #ddd;
     outline: none;
   }
