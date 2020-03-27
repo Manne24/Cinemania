@@ -2,17 +2,17 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
-    margin: 0;
 }
 
 
 body{
     height: 100vh;
     margin: 20px;
+    background-color: gray;
 }
 
-
 .title {
+    margin-top: 150px;
     text-align: center;
     color: white;
     font-size: 4em;
@@ -20,24 +20,26 @@ body{
 
 
 #meny-rad {
-    text-align: center;
-    padding: 20px;
-    /* background-color: rgba(0, 0, 0, 0.6); */
-    width: 100%;
+  top: 0px;
+  text-align: center;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.438);
+  position: fixed;
+  width: 100%;
+  
 }
 
 #meny-rad a {
-   /*  font-family: "Spirax", cursive;
-    color: white; */
-    text-decoration: none;
-    font-size: 38px;
-    margin: 0 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 38px;
+  margin: 0 20px;
 } 
 
 .button-sort-films {
     cursor: pointer;
     padding: 10px;
-    background-color: pink;
+    background-color:white;
     margin: 10px;
     border-radius: 10px;
 }
