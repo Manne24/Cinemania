@@ -1,214 +1,134 @@
-@import "ticketStyle.css";
+ * {
+   box-sizing: border-box;
+   font-family: 'Roboto', sans-serif;
+   scroll-behavior: smooth;
+ }
 
-* {
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  scroll-behavior: smooth;
-  margin: 0;
- *{
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    scroll-behavior: smooth;
-}
+ body {
+   height: 100vh;
+   margin: 0px;
+   background-color: gray;
+ }
 
-body {
-  height: 100vh;
-  margin: 20px;
+ .title {
+   margin-top: 150px;
+   text-align: center;
+   color: white;
+   font-size: 4em;
+ }
 
-body{
-    height: 100vh;
-    margin: 0px;
-    background-color: gray;
-}
+ #meny-rad {
+   top: 0px;
+   text-align: center;
+   padding: 40px;
+   background-color: rgba(0, 0, 0, 0.438);
+   position: fixed;
+   width: 100%;
+ }
 
-.title {
-  text-align: center;
-  color: white;
-  font-size: 4em;
-    margin-top: 150px;
-    text-align: center;
-    color: white;
-    font-size: 4em;
-}
+ #meny-rad a {
+   color: white;
+   text-decoration: none;
+   font-size: 38px;
+   margin: 0 20px;
+ }
 
-#meny-rad {
-  text-align: center;
-  padding: 20px;
-  /* background-color: rgba(0, 0, 0, 0.6); */
-  width: 100%;
-  top: 0px;
-  text-align: center;
-  padding: 50px;
-  background-color: rgba(0, 0, 0, 0.438);
-  position: fixed;
-  width: 100%;
-  
-}
+ .button-sort-films {
+   cursor: pointer;
+   padding: 10px;
+   background-color: white;
+   margin: 10px;
+   border-radius: 10px;
+ }
 
-#meny-rad a {
-  /*  font-family: "Spirax", cursive;
-    color: white; */
-  text-decoration: none;
-  font-size: 38px;
-  margin: 0 20px;
-}
-  color: white;
-  text-decoration: none;
-  font-size: 38px;
-  margin: 0 20px;
-} 
+ .button-buy-ticket {
+   cursor: pointer;
+   padding: 10px;
+   background-color: gold;
+   margin-top: 10px;
+ }
 
-.button-sort-films {
-  cursor: pointer;
-  padding: 10px;
-  background-color: pink;
-  margin: 10px;
-  border-radius: 10px;
-    cursor: pointer;
-    padding: 10px;
-    background-color:white;
-    margin: 10px;
-    border-radius: 10px;
-}
+ .filmcard {
+   background-color: gold;
+   width: 40%;
+   padding: 10px;
+   margin-bottom: 10px;
+   cursor: pointer;
+   border-radius: 10px;
+ }
 
-.button-buy-ticket {
-  cursor: pointer;
-  padding: 10px;
-  background-color: gold;
-  margin-top: 10px;
-}
+ .iframe {
+   padding: 30px;
+ }
 
-.filmcard {
-  background-color: gold;
-  width: 40%;
-  padding: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  border-radius: 10px;
-}
+ /* --------------- Sign up page --------------- */
 
-iframe {
-  padding: 10px;
-}
-.iframe {
-  padding: 30px;
-}
+ .addUser {
+   width: 60%;
+   position: relative;
+   margin: auto;
+   padding: 0.5em 1em;
+   border: solid 2px whitesmoke;
+   border-radius: 8px;
+   margin-top: 10em;
+ }
 
-/* --------------- Sign up page --------------- */
+ .addUser h1 {
+   position: absolute;
+   display: inline-block;
+   top: -28px;
+   padding: 0 9px;
+   line-height: 1;
+   font-size: 30px;
+   background: #FFF;
+   color: gray; 
+   font-weight: bold;
+ }
 
-.addUser {
-  width: 60%;
-  position: relative;
-  margin: 4em 0;
-  padding: 0.5em 1em;
-  border: solid 2px gray;
-  border-radius: 8px;
-    width: 60%;
-    position: relative;
-    margin: auto;
-    padding: 0.5em 1em;
-    border: solid 2px whitesmoke;
-    border-radius: 8px;
-    margin-top: 10em;
-}
+ .addUser p {
+   margin: 0;
+   padding: 0;
+ }
 
-/* Booking Css */
-.salon {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: 50%;
-  background-color: #777;
-  margin-left: 25%;
-  margin-right: 25%;
-  grid-gap: 5px;
-  padding: 10px;
-.addUser h1{
-    position: absolute;
-    display: inline-block;
-    top: -28px;
-    padding: 0 9px;
-    line-height: 1;
-    font-size: 30px;
-    background: #FFF;
-    color: gray
-    font-weight: bold;
-}
-.seats {
-  background-color: #aaa;
-  border: 1px solid #000;
-  text-align: center;
-}
+ .addUser input[type=text], .addUser input[type=password] {
+   width: 100%;
+   padding: 15px;
+   margin: 5px 0 22px 0;
+   display: inline-block;
+   border: none;
+   background: #f1f1f1;
+ }
 
-.addUser h1 {
-  position: absolute;
-  display: inline-block;
-  top: -22px;
-  padding: 0 9px;
-  line-height: 1;
-  font-size: 30px;
-  background: #fff;
-  color: gray;
-  font-weight: bold;
-}
+ .addUser input[type=text]:focus, .addUser input[type=password]:focus {
+   background-color: #ddd;
+   outline: none;
+ }
 
-.addUser p {
-  margin: 0;
-  padding: 0;
-}
+ .addUser hr {
+   border: 1px solid #f1f1f1;
+   margin-bottom: 25px;
+ }
 
-.addUser input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-.addUser input[type=text], .addUser input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
+ .addUser button {
+   background-color: #4CAF50;
+   color: white;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+   opacity: 0.9;
+   font-size: large;
+ }
 
-.addUser input[type="text"]:focus,
-input[type="password"]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-.addUser input[type=text]:focus, .addUser input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-  }
+ .addUser button:hover {
+   opacity: 1;
+ }
 
-.addUser hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
+ @media screen and (max-width: 300px) {
+   .addUser {
+     width: 100%;
+   }
+ }
 
-.addUser button {
-  background-color: #4caf50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-  font-size: large;
-}
-
-.addUser button:hover {
-  opacity: 1;
-}
-
-@media screen and (max-width: 300px) {
-  .addUser {
-    width: 100%;
-  }
-}
-
-/* --------------- Sign up page END--------------- */
+ /* --------------- Sign up page END--------------- */
