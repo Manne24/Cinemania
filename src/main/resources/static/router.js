@@ -9,6 +9,8 @@ import signUp from "./views/signUp.js"
 import news from "./views/news.js";
 import tickets from "./views/tickets.js";
 import filmDetails from "./views/filmDetails.js";
+import booking from "./views/booking.js";
+import seats from "./views/seats.js";
 
 export const router = new VueRouter({
   mode: "history",
@@ -26,9 +28,14 @@ export const router = new VueRouter({
       component: films
     },
     {
-      name: 'filmDetails',
-      path: '/films/:id',
+      name: "filmDetails",
+      path: "/films/:id",
       component: filmDetails
+    },
+    {
+      name: "booking",
+      path: "/booking",
+      component: booking
     },
     {
       name: "login",
@@ -45,11 +52,15 @@ export const router = new VueRouter({
       path: "/news",
       component: news
     },
-
     {
       name: "tickets",
       path: "/tickets",
       component: tickets
+    },
+    {
+      name: "seats",
+      path: "/seats",
+      component: seats
     }
   ]
 });
