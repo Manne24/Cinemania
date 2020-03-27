@@ -30,7 +30,6 @@ export default {
                 { age: "all" },
                 { age: "children" },
                 { age: "adult" }],
-            clicked: false
         }
     },
     methods: {

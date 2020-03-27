@@ -17,12 +17,9 @@ export default {
         genre: {{imdbInfo.Genre}}<br>
         <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
         </section><br>
-
+        
         <form @submit.prevent="submitNewFilm">
-        <input v-model="title" type="text" required>
-        <input v-model="director" type="text" required>
-        <input v-model="description" type="text" required>
-        <input v-model="rated" type="text" required><br>
+        <input v-model="title" type="text">
         <button type="submit">Submit</button>
         </form>
 
@@ -32,19 +29,15 @@ export default {
     data() {
         return {
             film: {
-                /* title: '' */
+                title: 'film.title'
             },
             imdbInfo: [],
             title: '',
-            director: '',
             description: '',
-            rated: '',
+            director: '',
             image: '',
-            /* length: imdbInfo.Runtime,
-            age: imdbInfo.Rated,
-            year: imdbInfo.Year,
-            genre: imdbInfo.Genre, */
-
+            genre: '',
+            rated: ''
         }
     },
     methods: {
@@ -53,20 +46,35 @@ export default {
             console.log(id)
         },
         async submitNewFilm() {
+            console.log(this.film.title)
+            console.log(this.imdbInfo.Title)
+
+            if (this.film.title === this.imdbInfo.Title) {
+                console.log(this.imdbInfo.Title)
+                return 'null'
+
+            } else {
+                this.addNewFilm
+            }
+        },
+        async addNewFilm() {
 
             if (!this.title.trim() &&
-                !this.director.trim() &&
                 !this.description.trim() &&
+                !this.director.trim() &&
+                !this.image.trim() &&
+                !this.genre.trim() &&
                 !this.rated.trim()) {
                 return
             }
 
-            let film = {
-                title: this.title,
-                director: this.director,
-                description: this.description,
-                rated: this.rated,
-                image: this.imdbInfo.Language
+            let filmInfoAPI = {
+                title: this.imdbInfo.Title,
+                director: this.imdbInfo.Director,
+                description: this.imdbInfo.Plot,
+                image: this.imdbInfo.Poster,
+                genre: this.imdbInfo.Genre,
+                rated: this.imdbInfo.Rated
             }
 
             let result = await fetch('/rest/films', {
@@ -74,18 +82,18 @@ export default {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(film)
+                body: JSON.stringify(filmInfoAPI)
             })
 
             result = await result.json()
             console.log(result)
 
-            /* Adds film to list in store */
-            /* this.$store.commit('appendFilm', result) */
-
-                this.title = '',
+            this.title = '',
+                this.director = '',
                 this.description = '',
                 this.director = '',
+                this.image = '',
+                this.genre = '',
                 this.rated = ''
 
         }
@@ -106,9 +114,10 @@ export default {
             })
         /* .catch(error => console.log(error)); ASK JOHAN */
 
-    }
+    },
 }
 
-
+/* Adds film to list in store */
+/* this.$store.commit('appendFilm', result) */
 
 
