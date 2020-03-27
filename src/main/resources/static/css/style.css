@@ -1,4 +1,6 @@
- * {
+@import './ticketStyle.css';
+
+* {
    box-sizing: border-box;
    font-family: 'Roboto', sans-serif;
    scroll-behavior: smooth;
@@ -26,7 +28,6 @@
    text-align: center;
    padding: 40px;
    background-color: rgba(0, 0, 0, 0.438);
-   position: fixed;
    width: 100%;
  }
 
