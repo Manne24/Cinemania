@@ -9,7 +9,7 @@ public class Film {
 
     @Id // Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment
-    private int id;
+    private int film_id;
     private String title;
     private String description;
     private String director;
@@ -21,12 +21,12 @@ public class Film {
     public Film() {
     }
 
-    public int getId() {
-        return id;
+    public int getFilm_id() {
+        return film_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFilm_id(int film_id) {
+        this.film_id = film_id;
     }
 
     public String getTitle() {

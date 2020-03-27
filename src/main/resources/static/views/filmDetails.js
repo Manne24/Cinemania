@@ -51,7 +51,7 @@ export default {
 
             if (this.film.title === this.imdbInfo.Title) {
                 console.log(this.imdbInfo.Title)
-                return 'null'
+                this.addNewFilm
 
             } else {
                 this.addNewFilm

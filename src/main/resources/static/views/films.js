@@ -14,8 +14,8 @@ export default {
 
         <div class="filmcard" 
          v-for="film of films"
-         :key="film.id"
-         @click="goToFilmInfo(film.id)">
+         :key="film.film_id"
+         @click="goToFilmInfo(film.film_id)">
         <img :src="film.image" alt="film image"><br>
         {{ film.title | to-uppercase }} <br>
         {{ film.rated | to-uppercase }} <br>
@@ -33,8 +33,8 @@ export default {
         }
     },
     methods: {
-        goToFilmInfo(id) {
-            this.$router.push('/films/' + id)
+        goToFilmInfo(film_id) {
+            this.$router.push('/films/' + film_id)
         }, /* onButtonClick() {
             this.clicked = !this.clicked
             this.$refs.button-sort-films.style.setProperty('height', this.isOpen ? '100%' : '93px')
