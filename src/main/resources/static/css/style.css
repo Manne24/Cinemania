@@ -17,7 +17,7 @@
  }
 
  .title {
-   margin-top: 150px;
+   margin-top: 10px;
    text-align: center;
    color: white;
    font-size: 4em;
@@ -28,6 +28,7 @@
    text-align: center;
    padding: 40px;
    background-color: rgba(0, 0, 0, 0.438);
+   /* position: fixed; */
    width: 100%;
  }
 

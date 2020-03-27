@@ -2,7 +2,7 @@
 export default {
     template: `
     <div>
-    <h2 class="title">Films</h2>
+    <!-- <h2 class="title">Films</h2> -->
 
         <button
          v-for="(rating, i) in filmFilterAge" 
