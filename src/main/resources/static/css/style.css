@@ -72,15 +72,15 @@ body{
     position: relative;
     margin: auto;
     padding: 0.5em 1em;
-    border: solid 2px gray;
+    border: solid 2px whitesmoke;
     border-radius: 8px;
-    margin-top: 3em;
+    margin-top: 10em;
 }
 
 .addUser h1{
     position: absolute;
     display: inline-block;
-    top: -22px;
+    top: -28px;
     padding: 0 9px;
     line-height: 1;
     font-size: 30px;
