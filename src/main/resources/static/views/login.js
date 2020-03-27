@@ -8,7 +8,8 @@ export default {
       },
     template:`
     <div>
-        <h3>Login</h3>
+        <h2 class="title">Login</h2>
+
         <loggingIn />
 
 

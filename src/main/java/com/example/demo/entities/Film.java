@@ -13,7 +13,7 @@ public class Film {
     private String title;
     private String description;
     private String director;
-    private String image;
+    private String image;   
     private String trailer;
     private String genre;
     private String rated;
