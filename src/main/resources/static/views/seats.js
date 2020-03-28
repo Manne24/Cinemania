@@ -5,11 +5,11 @@ export default {
     <div class="salon">
             <div class="seats"
                 v-for="seat of seats"
-                v-bind:style="[(seat.color === 'none' && seat.color !== 'reserved') ? {backgroundColor: bgColor} : {backgroundColor: bgColorSelected}]"
-                :key="seat.number"
+                v-bind:style="[(seat.status === 'available' && seat.status !== 'reserved') ? {backgroundColor: bgColor} : {backgroundColor: bgColorSelected}]"
+                :key="seat.name"
                 @click="chooseSeat(seat)"
             >
-                <p>[ {{ seat.number }} ]</p>
+                <p>[ {{ seat.row }}-{{ seat.name }} ]</p>
             </div>
     </div>
   </div>
@@ -23,10 +23,10 @@ export default {
   },
   methods: {
     chooseSeat(seat) {
-      if (seat.color === "none") {
-        seat.color = "selected";
-      } else if (seat.color === "selected") {
-        seat.color = "none";
+      if (seat.status === "available") {
+        seat.status = "selected";
+      } else if (seat.status === "selected") {
+        seat.status = "available";
       }
     }
   },

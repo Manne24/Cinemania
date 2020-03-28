@@ -51,72 +51,7 @@ export const store = new Vuex.Store({
         salon_id: "2"
       }
     ],
-    seats: [
-        {
-          number: "A1"
-        },
-        {
-          number: "A2"
-        },
-        {
-            number: "A3"
-        },
-        {
-            number: "A4"
-        },
-        {
-          number: "B1"
-        },
-        {
-          number: "B2"
-        },
-        {
-          number: "B3"
-        },
-        {
-          number: "B4"
-        },
-        {
-          number: "C1"
-        },
-        {
-          number: "C2"
-        },
-        {
-            number: "C3"
-        },
-        {
-            number: "C4"
-        },
-        {
-          number: "D1"
-        },
-        {
-          number: "D2"
-        },
-        {
-          number: "D3"
-        },
-        {
-          number: "D4"
-        }
-      //[
-      //  {
-      //    number: "A1"
-      //  },
-      //  {
-      //    number: "A2"
-      //  }
-      //],
-      //[
-      //  {
-      //    number: "B1"
-      //  },
-      //  {
-      //    number: "B2"
-      //  }
-      //]
-    ]
+    seats: []
   },
   mutations: {
     setFilms(state, films) {
@@ -131,6 +66,9 @@ export const store = new Vuex.Store({
     },
     appendUser(state, user) {
       state.users.push(user);
+    },
+    setSeats(state, seats) {
+      state.seats = seats;
     }
   }
 });
