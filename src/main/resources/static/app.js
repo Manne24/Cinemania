@@ -8,6 +8,7 @@ export default {
             <router-link to="/tickets">Tickets</router-link>
             <router-link to="/films">Films</router-link>
             <router-link to="/login">Login</router-link>
+            <router-link to="/addFilmAdmin">Admin</router-link>
           </nav>
           </header>
         <br>

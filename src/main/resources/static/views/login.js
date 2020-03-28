@@ -12,7 +12,6 @@ export default {
 
         <loggingIn />
 
-
     </div>
     `
 }

@@ -11,6 +11,7 @@ import tickets from "./views/tickets.js";
 import filmDetails from "./views/filmDetails.js";
 import booking from "./views/booking.js";
 import seats from "./views/seats.js";
+import addFilmAdmin from './views/addFilmAdmin.js'
 
 export const router = new VueRouter({
   mode: "history",
@@ -56,6 +57,11 @@ export const router = new VueRouter({
       name: "seats",
       path: "/seats",
       component: seats
-    }
+    },
+    {
+      name: "addFilmAdmin",
+      path: "/addFilmAdmin",
+      component: addFilmAdmin
+    },
   ]
 });
