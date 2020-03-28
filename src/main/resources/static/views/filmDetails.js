@@ -1,10 +1,11 @@
 export default {
     template: `
      <div>
-        <h1>{{film.title}}</h1>
+        <h1>{{ imdbInfo.Title }}</h1>
         <section class="iframe">
         <iframe width="640" height="360" :src="film.trailer" frameborder="0" allowtransparency="true" ></iframe>
         </section>
+
         <section>
         title: {{ imdbInfo.Title }} <br>
         director: {{ imdbInfo.Director }} <br>
@@ -15,22 +16,86 @@ export default {
         year of production: {{imdbInfo.Year}} <br>
         genre: {{imdbInfo.Genre}}<br>
         <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
-        </section>
-      <!--   <p v-if="!film.trailer == null">Video loading...</p>
-        <p v-else>Video loaded</p> -->
+        </section><br>
+        
+        <form @submit.prevent="submitNewFilm">
+        <input v-model="title" type="text">
+        <button type="submit">Submit</button>
+        </form>
+
         </div>  
   
     `,
     data() {
         return {
             film: {
-                title: '',
-                image: '',
-                director: '',
-                description: '',
-                trailer: ''
+                title: 'film.title'
             },
-            imdbInfo: []
+            imdbInfo: [],
+            title: '',
+            description: '',
+            director: '',
+            image: '',
+            genre: '',
+            rated: ''
+        }
+    },
+    methods: {
+        goToTickets(id) {
+            this.$router.push('/tickets/')
+            console.log(id)
+        },
+        async submitNewFilm() {
+            console.log(this.film.title)
+            console.log(this.imdbInfo.Title)
+
+            if (this.film.title === this.imdbInfo.Title) {
+                console.log(this.imdbInfo.Title)
+                this.addNewFilm
+
+            } else {
+                this.addNewFilm
+            }
+        },
+        async addNewFilm() {
+
+            if (!this.title.trim() &&
+                !this.description.trim() &&
+                !this.director.trim() &&
+                !this.image.trim() &&
+                !this.genre.trim() &&
+                !this.rated.trim()) {
+                return
+            }
+
+            let filmInfoAPI = {
+                title: this.imdbInfo.Title,
+                director: this.imdbInfo.Director,
+                description: this.imdbInfo.Plot,
+                image: this.imdbInfo.Poster,
+                genre: this.imdbInfo.Genre,
+                rated: this.imdbInfo.Rated
+            }
+
+            let result = await fetch('/rest/films', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(filmInfoAPI)
+            })
+
+            result = await result.json()
+            console.log(result)
+
+            this.title = '',
+                this.director = '',
+                this.description = '',
+                this.director = '',
+                this.image = '',
+                this.genre = '',
+                this.rated = ''
+
         }
     },
     async created() {
@@ -47,16 +112,12 @@ export default {
                 this.imdbInfo = res;
                 console.log(this.imdbInfo)
             })
-            /* .catch(error => console.log(error)); */
+        /* .catch(error => console.log(error)); ASK JOHAN */
 
     },
-    methods: {
-        goToTickets(id) {
-            this.$router.push('/tickets/')
-            console.log(id)
-        }
-    }
 }
 
+/* Adds film to list in store */
+/* this.$store.commit('appendFilm', result) */
 
 

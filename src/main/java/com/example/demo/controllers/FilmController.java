@@ -30,10 +30,10 @@ public class FilmController {
         return filmService.getOneFilm(id);
     }
 
-    /*@PostMapping("/films")
+    @PostMapping("/films")
     public Film createNewFilm(@RequestBody Film film) {
         return filmService.addNewFilm(film);
-    }*/
+    }
 
     @DeleteMapping("/films/{id}")
     public String deleteOneFilm(@PathVariable int id) { /*PathVariable to get variable in route*/
