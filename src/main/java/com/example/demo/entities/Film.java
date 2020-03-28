@@ -17,6 +17,7 @@ public class Film {
     private String trailer;
     private String genre;
     private String rated;
+    private String runtime;
 
     public Film() {
     }
@@ -84,4 +85,13 @@ public class Film {
     public void setRated(String rated) {
         this.rated = rated;
     }
+
+    public String getRuntime() {
+        return runtime;
+    }
+
+    public void setRuntime(String runtime) {
+        this.runtime = runtime;
+    }
+
 }

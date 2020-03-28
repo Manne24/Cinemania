@@ -15,12 +15,13 @@ export default {
         age: {{imdbInfo.Rated}} <br>
         year of production: {{imdbInfo.Year}} <br>
         genre: {{imdbInfo.Genre}}<br>
+        runtime: {{imdbInfo.Runtime}}<br>
         <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
         </section><br>
         
-        <form @submit.prevent="submitNewFilm">
-        <input v-model="title" type="text">
-        <button type="submit">Submit</button>
+        <form @submit.prevent="addNewFilm">
+        <input v-model="title" type="text"><br>
+        <button type="submit">ADD NEW FILM</button>
         </form>
 
         </div>  
@@ -37,7 +38,8 @@ export default {
             director: '',
             image: '',
             genre: '',
-            rated: ''
+            rated: '',
+            runtime: ''
         }
     },
     methods: {
@@ -45,18 +47,12 @@ export default {
             this.$router.push('/tickets/')
             console.log(id)
         },
-        async submitNewFilm() {
+        /* async submitNewFilm() {
             console.log(this.film.title)
             console.log(this.imdbInfo.Title)
-
-            if (this.film.title === this.imdbInfo.Title) {
-                console.log(this.imdbInfo.Title)
                 this.addNewFilm
-
-            } else {
-                this.addNewFilm
-            }
-        },
+            
+        }, */
         async addNewFilm() {
 
             if (!this.title.trim() &&
@@ -64,7 +60,8 @@ export default {
                 !this.director.trim() &&
                 !this.image.trim() &&
                 !this.genre.trim() &&
-                !this.rated.trim()) {
+                !this.rated.trim() &&
+                !this.runtime.trim()) {
                 return
             }
 
@@ -74,7 +71,8 @@ export default {
                 description: this.imdbInfo.Plot,
                 image: this.imdbInfo.Poster,
                 genre: this.imdbInfo.Genre,
-                rated: this.imdbInfo.Rated
+                rated: this.imdbInfo.Rated,
+                runtime: this.imdbInfo.Runtime
             }
 
             let result = await fetch('/rest/films', {
@@ -94,7 +92,8 @@ export default {
                 this.director = '',
                 this.image = '',
                 this.genre = '',
-                this.rated = ''
+                this.rated = '',
+                this.runtime = ''
 
         }
     },
