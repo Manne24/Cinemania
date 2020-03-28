@@ -22,7 +22,8 @@ public class FilmService {
     public void updateFilm(Film film) {
     }
 
-    public void addNewFilm(Film film) {
+    public Film addNewFilm(Film film) {
+        return filmRepo.save(film);
     }
 
     public void deleteById(int id) {
