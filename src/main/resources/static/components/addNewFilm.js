@@ -1,30 +1,20 @@
 export default {
     template: `
-     <div>
-        <h1>{{ imdbInfo.Title }}</h1>
-        <section class="iframe">
-        <iframe width="640" height="360" :src="film.trailer" frameborder="0" allowtransparency="true" ></iframe>
-        </section>
-
-        <section>
-        title: {{ imdbInfo.Title }} <br>
-        director: {{ imdbInfo.Director }} <br>
-        description: {{ imdbInfo.Plot}} <br>
-        language: {{imdbInfo.Language}}<br>
-        length: {{imdbInfo.Runtime}} <br>
-        age: {{imdbInfo.Rated}} <br>
-        year of production: {{imdbInfo.Year}} <br>
-        genre: {{imdbInfo.Genre}}<br>
-        <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
-        </section><br>
+        <div> 
+        <form @submit.prevent="addNewFilm">
+        <label>ADD FILM</label><br>
+        <input v-model="titleAdd" type="text" placeholder="Enter title of film"><br>
+        <button type="submit">ADD</button>
+        </form>
+        <p style="color:red">{{ filmNotFound }}</p><br><br><br>
         
-        <!-- <form @submit.prevent="submitNewFilm">
-        <input v-model="title" type="text">
-        <button type="submit">Submit</button>
-        </form> -->
+        <form @submit.prevent="deleteFilm">
+        <label>REMOVE FILM</label><br>
+        <input v-model="titleDelete" type="text" placeholder="Enter title of film"><br>
+        <button type="submit">DELETE</button>
+        </form>
 
-        </div>  
-  
+        </div>
     `,
     data() {
         return {
@@ -37,34 +27,31 @@ export default {
             director: '',
             image: '',
             genre: '',
-            rated: ''
+            rated: '',
+            runtime: '',
+            filmNotFound: 'Film not found on OMDB-API'
         }
     },
-    methods: {
-        goToTickets(id) {
-            this.$router.push('/tickets/')
-            console.log(id)
-        },
-        async submitNewFilm() {
-            console.log(this.film.title)
-            console.log(this.imdbInfo.Title)
-
-            if (this.film.title === this.imdbInfo.Title) {
-                console.log(this.imdbInfo.Title)
-                this.addNewFilm
-
+    computed: {
+        films() {
+            return this.$store.state.films
+        }
+    }, methods: {
+        checkIfFilmExists() {
+            /* if(imdbInfo.length > 0) {
+                addNewFilm
             } else {
-                this.addNewFilm
-            }
+                return filmNotFound
+            } */
         },
         async addNewFilm() {
-
             if (!this.title.trim() &&
                 !this.description.trim() &&
                 !this.director.trim() &&
                 !this.image.trim() &&
                 !this.genre.trim() &&
-                !this.rated.trim()) {
+                !this.rated.trim() &&
+                !this.runtime.trim()) {
                 return
             }
 
@@ -74,7 +61,8 @@ export default {
                 description: this.imdbInfo.Plot,
                 image: this.imdbInfo.Poster,
                 genre: this.imdbInfo.Genre,
-                rated: this.imdbInfo.Rated
+                rated: this.imdbInfo.Rated,
+                runtime: this.imdbInfo.Runtime
             }
 
             let result = await fetch('/rest/films', {
@@ -94,17 +82,17 @@ export default {
                 this.director = '',
                 this.image = '',
                 this.genre = '',
-                this.rated = ''
+                this.rated = '',
+                this.runtime = ''
 
         }
     },
     async created() {
 
-        let film = await fetch('/rest/films/' + this.$route.params.id)
+        /* let film = await fetch('/rest/films/' + this.$route.params.id)
         film = await film.json()
         console.log(film)
-        this.film = film
-
+        this.film = film */
 
         fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + film.title)
             .then((res) => { return res.json() })
@@ -114,10 +102,6 @@ export default {
             })
         /* .catch(error => console.log(error)); ASK JOHAN */
 
-    },
+    }
 }
-
-/* Adds film to list in store */
-/* this.$store.commit('appendFilm', result) */
-
 

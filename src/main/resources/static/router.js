@@ -48,11 +48,6 @@ export const router = new VueRouter({
       component: signUp
     },
     {
-      name: "news",
-      path: "/news",
-      component: news
-    },
-    {
       name: "tickets",
       path: "/tickets",
       component: tickets
