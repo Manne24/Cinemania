@@ -118,6 +118,8 @@ export default {
           this.name = ''
           this.email = ''
           this.password = ''
+
+          location.href ="/login";
         }
        }
      }
