@@ -9,7 +9,7 @@ export default {
                 :key="seat.name"
                 @click="chooseSeat(seat)"
             >
-                <p>[ {{ seat.row }}-{{ seat.name }} ]</p>
+                <p>{{ seat.row }}-{{ seat.name }}</p>
             </div>
     </div>
   </div>

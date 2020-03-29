@@ -1,0 +1,15 @@
+.salon {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  width: 50%;
+  background-color: #777;
+  margin-left: 25%;
+  margin-right: 25%;
+  grid-gap: 5px;
+  padding: 10px;
+}
+.seats {
+  background-color: #aaa;
+  border: 1px solid #000;
+  text-align: center;
+}

@@ -30,5 +30,9 @@ export default {
     let seats = await fetch("/rest/seats");
     seats = await seats.json();
     this.$store.commit("setSeats", seats);
+
+    let screenings = await fetch("rest/screenings");
+    screenings = await screenings.json();
+    this.$store.commit("setScreenings", screenings);
   }
 };
