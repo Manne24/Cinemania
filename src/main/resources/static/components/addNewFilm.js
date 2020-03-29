@@ -1,12 +1,26 @@
 export default {
     template: `
         <div> 
-        <form @submit.prevent="addNewFilm">
+        <form @submit.prevent="checkIfFilmExists">
         <label>ADD FILM</label><br>
         <input v-model="titleAdd" type="text" placeholder="Enter title of film"><br>
-        <button type="submit">ADD</button>
+        <button type="submit">FIND</button>
         </form>
-        <p style="color:red">{{ filmNotFound }}</p><br><br><br>
+        <!-- <div v-for="info of imdbInfo"
+         :key="info.Title" ></div> -->
+        <button @click="addNewFilm">ADD</button><br>
+        <hr>
+        title: {{ imdbInfo.Title }} <br>
+        director: {{ imdbInfo.Director }} <br>
+        description: {{ imdbInfo.Plot}} <br>
+        language: {{imdbInfo.Language}}<br>
+        length: {{imdbInfo.Runtime}} <br>
+        age: {{imdbInfo.Rated}} <br>
+        year of production: {{imdbInfo.Year}} <br>
+        genre: {{imdbInfo.Genre}}<br>
+        runtime: {{imdbInfo.Runtime}}<br>
+
+        <p style="color:red">{{ filmNotFound }}</p><br>
         
         <form @submit.prevent="deleteFilm">
         <label>REMOVE FILM</label><br>
@@ -19,17 +33,11 @@ export default {
     data() {
         return {
             film: {
-                title: 'film.title'
             },
             imdbInfo: [],
-            title: '',
-            description: '',
-            director: '',
-            image: '',
-            genre: '',
-            rated: '',
-            runtime: '',
-            filmNotFound: 'Film not found on OMDB-API'
+            filmNotFound: '',
+            titleAdd: '',
+            titleDelete: ''
         }
     },
     computed: {
@@ -38,22 +46,27 @@ export default {
         }
     }, methods: {
         checkIfFilmExists() {
-            /* if(imdbInfo.length > 0) {
-                addNewFilm
-            } else {
-                return filmNotFound
-            } */
+            fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + this.titleAdd)
+                .then((res) => { return res.json() })
+                .then((res) => {
+                    this.imdbInfo = res;
+                    console.log(this.imdbInfo)
+                })
+        },
+        test(){
+            console.log(this.imdbInfo)
         },
         async addNewFilm() {
-            if (!this.title.trim() &&
-                !this.description.trim() &&
-                !this.director.trim() &&
-                !this.image.trim() &&
-                !this.genre.trim() &&
-                !this.rated.trim() &&
-                !this.runtime.trim()) {
+            console.log(this.imdbInfo)
+
+            if (!this.imdbInfo.Title.trim() &&
+                !this.imdbInfo.Director.trim() &&
+                !this.imdbInfo.Plot.trim() &&
+                !this.imdbInfo.Poster.trim() &&
+                !this.imdbInfo.Genre.trim() &&
+                !this.imdbInfo.Rated.trim()) {
                 return
-            }
+            } 
 
             let filmInfoAPI = {
                 title: this.imdbInfo.Title,
@@ -76,32 +89,23 @@ export default {
             result = await result.json()
             console.log(result)
 
-            this.title = '',
+            /* this.title = '',
                 this.director = '',
                 this.description = '',
                 this.director = '',
                 this.image = '',
                 this.genre = '',
                 this.rated = '',
-                this.runtime = ''
+                this.runtime = '' */
 
         }
     },
-    async created() {
-
-        /* let film = await fetch('/rest/films/' + this.$route.params.id)
-        film = await film.json()
-        console.log(film)
-        this.film = film */
-
-        fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + film.title)
-            .then((res) => { return res.json() })
-            .then((res) => {
-                this.imdbInfo = res;
-                console.log(this.imdbInfo)
-            })
-        /* .catch(error => console.log(error)); ASK JOHAN */
-
-    }
 }
+
+ /* if(imdbInfo.length > 0) {
+                addNewFilm
+            } else {
+               = 'Film not found on OMDB-API'
+                return filmNotFound
+            } */
 
