@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/rest")
@@ -24,15 +25,15 @@ public class FilmController {
         return email.findOwnerByEmail(email);
     }*/
 
-    /*@GetMapping("/films/{id}")
-    public Film getOneFilm(@PathVariable int id){
-        return filmService.findOneFilm(id);
-    }*/
+    @GetMapping("/films/{id}")
+    public Optional<Film> getOneFilm(@PathVariable int id){
+        return filmService.getOneFilm(id);
+    }
 
-    /*@PostMapping("/films")
+    @PostMapping("/films")
     public Film createNewFilm(@RequestBody Film film) {
         return filmService.addNewFilm(film);
-    }*/
+    }
 
     @DeleteMapping("/films/{id}")
     public String deleteOneFilm(@PathVariable int id) { /*PathVariable to get variable in route*/
@@ -53,8 +54,4 @@ public class FilmController {
             return "Failed";
         }
     }
-
-
-
-
 }

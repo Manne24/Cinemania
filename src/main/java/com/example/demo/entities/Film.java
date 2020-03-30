@@ -9,21 +9,24 @@ public class Film {
 
     @Id // Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment
-    private int id;
+    private int film_id;
     private String title;
     private String description;
     private String director;
-    private String image;
+    private String image;   
+    private String trailer;
+    private String genre;
+    private String rated;
 
     public Film() {
     }
 
-    public int getId() {
-        return id;
+    public int getFilm_id() {
+        return film_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFilm_id(int film_id) {
+        this.film_id = film_id;
     }
 
     public String getTitle() {
@@ -56,5 +59,29 @@ public class Film {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getRated() {
+        return rated;
+    }
+
+    public void setRated(String rated) {
+        this.rated = rated;
     }
 }
