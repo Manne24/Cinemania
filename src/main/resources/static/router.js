@@ -6,7 +6,6 @@ import cinemania from "./views/Cinemania.js";
 import films from "./views/films.js";
 import login from "./views/login.js";
 import signUp from "./views/signUp.js"
-import news from "./views/news.js";
 import tickets from "./views/tickets.js";
 import filmDetails from "./views/filmDetails.js";
 import booking from "./views/booking.js";
