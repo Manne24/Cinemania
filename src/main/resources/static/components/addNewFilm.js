@@ -56,7 +56,13 @@ export default {
                 /* if(this.imdbInfo.Title == 'null'){
                     this.filmNotFound = 'Film not found'
                     also check if film already exists
-                } */
+                } 
+                if (response.url.includes('error')) {
+                console.log('Wrong username/password');
+            } else {
+                console.log('Successfully logged in')
+            }
+                */
         },
         async addNewFilm() {
 
