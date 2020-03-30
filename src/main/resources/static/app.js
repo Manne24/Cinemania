@@ -18,10 +18,19 @@ export default {
     
         </div>
       `,
-  async created() {
-    let films = await fetch("/rest/films");
-    films = await films.json();
-    this.$store.commit("setFilms", films);
+      async created() {      
+          let user = await fetch('/auth/whoami')
+
+          try{
+            user = await user.json()
+            console.log('Login user :'+user);
+          }catch{
+            console.log('Client not authenticated');
+          }
+
+          let films = await fetch('/rest/films')
+          films = await films.json()
+          this.$store.commit('setFilms', films)
 
     let users = await fetch("/rest/users");
     users = await users.json();
