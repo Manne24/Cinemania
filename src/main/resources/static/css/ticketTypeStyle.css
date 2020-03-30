@@ -69,6 +69,8 @@
   border-radius: 15px;
   background-color: gray;
   color: white;
+  outline: none;
+  pointer-events: none;
 }
 
 input::-webkit-outer-spin-button,
