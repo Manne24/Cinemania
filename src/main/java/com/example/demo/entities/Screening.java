@@ -10,13 +10,10 @@ public class Screening {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int screening_id;
     private String date; //DATE
-    private String time; //TIME or DATETIME ?
     private int film_id;
     private int salon_id;
-
-    public Screening(){
-
-    }
+    private String start_time; //TIME or DATETIME ?
+    private String end_time;
 
     public int getScreening_id() {
         return screening_id;
@@ -34,14 +31,6 @@ public class Screening {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
     public int getFilm_id() {
         return film_id;
     }
@@ -57,4 +46,26 @@ public class Screening {
     public void setSalon_id(int salon_id) {
         this.salon_id = salon_id;
     }
+
+    public String getStart_time() {
+        return start_time;
+    }
+
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
+    }
+
+    public String getEnd_time() {
+        return end_time;
+    }
+
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
+    }
+
+    public Screening(){
+
+    }
+
+
 }

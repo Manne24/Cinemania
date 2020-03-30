@@ -1,69 +1,71 @@
-@import './ticketStyle.css';
-@import './signupStyle.css';
+@import "./ticketStyle.css";
+@import "./signupStyle.css";
+@import "./seatStyle.css";
+@import "./ticketTypeStyle.css";
 
 * {
-   box-sizing: border-box;
-   font-family: 'Roboto', sans-serif;
-   scroll-behavior: smooth;
- }
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
 
- body {
-   height: 100vh;
-   margin: 0px;
-   background-color: gray;
- }
+body {
+  height: 100vh;
+  margin: 0px;
+  background-color: gray;
+}
 
- main {
-   padding: 20px;
- }
+main {
+  padding: 20px;
+}
 
- .title {
-   margin-top: 10px;
-   text-align: center;
-   color: white;
-   font-size: 4em;
- }
+.title {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  font-size: 4em;
+}
 
- #meny-rad {
-   top: 0px;
-   text-align: center;
-   padding: 40px;
-   background-color: rgba(0, 0, 0, 0.438);
-   /* position: fixed; */
-   width: 100%;
- }
+#meny-rad {
+  top: 0px;
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.438);
+  /* position: fixed; */
+  width: 100%;
+}
 
- #meny-rad a {
-   color: white;
-   text-decoration: none;
-   font-size: 38px;
-   margin: 0 20px;
- }
+#meny-rad a {
+  color: white;
+  text-decoration: none;
+  font-size: 38px;
+  margin: 0 20px;
+}
 
- .button-sort-films {
-   cursor: pointer;
-   padding: 10px;
-   background-color: white;
-   margin: 10px;
-   border-radius: 10px;
- }
+.button-sort-films {
+  cursor: pointer;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 10px;
+}
 
- .button-buy-ticket {
-   cursor: pointer;
-   padding: 10px;
-   background-color: gold;
-   margin-top: 10px;
- }
+.button-buy-ticket {
+  cursor: pointer;
+  padding: 10px;
+  background-color: gold;
+  margin-top: 10px;
+}
 
- .filmcard {
-   background-color: gold;
-   width: 40%;
-   padding: 10px;
-   margin-bottom: 10px;
-   cursor: pointer;
-   border-radius: 10px;
- }
+.filmcard {
+  background-color: gold;
+  width: 40%;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
 
- .iframe {
-   padding: 30px;
- }
+.iframe {
+  padding: 30px;
+}
