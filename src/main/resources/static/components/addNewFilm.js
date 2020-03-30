@@ -1,15 +1,16 @@
 export default {
     template: `
         <div> 
-        <form @submit.prevent="checkIfFilmExists">
-        <label>ADD FILM</label><br>
+            <div class="add-new-film">
+        <form class="example" @submit.prevent="checkIfFilmExists">
+        <!-- <label>ADD FILM TO DATABASE</label><br><br> -->
         <input v-model="titleAdd" type="text" 
         placeholder="Enter title of film" required><br>
-        <button type="submit">FIND</button>
+        <button type="submit"><i class="fa fa-search"></i></button>
         <button @click.prevent="addNewFilm">ADD</button>
         </form><br>
-        <hr>
         
+        <section>
         title: {{ imdbInfo.Title }} <br>
         director: {{ imdbInfo.Director }} <br>
         description: {{ imdbInfo.Plot}} <br>
@@ -19,16 +20,17 @@ export default {
         year of production: {{imdbInfo.Year}} <br>
         genre: {{imdbInfo.Genre}}<br>
         runtime: {{imdbInfo.Runtime}}<br>
-
-        <p style="color:red">{{ filmNotFound }}</p><br>
+        <p style="color:red">{{ filmFound }}</p><br>
+        </section>
+        <hr>
         
-        <form @submit.prevent="deleteFilm">
-        <label>REMOVE FILM</label><br>
+        <form class="example" @submit.prevent="deleteFilm">
+       <!--  <label>REMOVE FILM</label><br> -->
         <input v-model="titleDelete" type="text" 
         placeholder="Enter title of film" required><br>
         <button type="submit">DELETE</button>
         </form>
-
+        </div>
         </div>
     `,
     data() {
@@ -36,7 +38,7 @@ export default {
             film: {
             },
             imdbInfo: [],
-            filmNotFound: '',
+            filmFound: '',
             titleAdd: '',
             titleDelete: ''
         }
@@ -52,11 +54,12 @@ export default {
                 .then((res) => {
                     this.imdbInfo = res;
                     console.log(this.imdbInfo)
-                }) 
-                /* if(this.imdbInfo.Title == 'null'){
-                    this.filmNotFound = 'Film not found'
-                    also check if film already exists
-                } */
+                })
+            /* if(this.imdbInfo.Title == 'null'){
+                this.filmFound = 'Film not found'
+                also check if film already exists
+                check if film exists
+            } */
         },
         async addNewFilm() {
 
@@ -97,8 +100,29 @@ export default {
 
             this.titleAdd = ''
 
+        },
+        async deleteFilm() {
+            let filmRemove = {title: this.titleDelete};
+            console.log(filmRemove)
+            let rawResponse = await fetch('/rest/film/id', {
+                // tell the server we want to send/create data
+                method: 'delete'
+            });
+            let response = await rawResponse.json();
         }
     },
+    async addYouTubeId() {
+        /* let data = { sender: 'Olle', message: 'Hi!' };
+        let rawResponse = await fetch('[route]/id', {
+            // tell the server we want to send/create data
+            method: 'put',
+            // and that we will send data json formatted
+            headers: { 'Content-Type': 'application/json' },
+            // the data encoded as json
+            body: JSON.stringify(data)
+        });
+        let response = await rawResponse.json(); */
+    }
 }
 
 /* if(imdbInfo.length > 0) {

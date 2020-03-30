@@ -1,4 +1,7 @@
+
 @import './ticketStyle.css';
+@import './addNewFilm.css';
+
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;

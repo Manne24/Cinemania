@@ -18,8 +18,7 @@ export default {
         <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
         </section><br>
         
-       <!--  
-       ADD MISSING ATTRIBUTES, LANGUAGE AND YEAR!!!    
+       <!--   
        TRAILER????
        <form @submit.prevent="addNewFilm">
         <input v-model="title" type="text"><br>
@@ -49,19 +48,8 @@ export default {
         console.log(film)
         this.film = film
 
-
-        /* fetch('http://www.omdbapi.com/?apikey=87748bc7&t=' + film.title)
-            .then((res) => { return res.json() })
-            .then((res) => {
-                this.imdbInfo = res;
-                console.log(this.imdbInfo)
-            }) */
-        /* .catch(error => console.log(error)); ASK JOHAN */
-
     },
 }
 
-/* Adds film to list in store */
-/* this.$store.commit('appendFilm', result) */
 
 
