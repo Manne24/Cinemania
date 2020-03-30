@@ -1,0 +1,77 @@
+.ticketBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.ticketTitle {
+  font-size: 2em;
+  align-self: center;
+  color: white;
+  margin: 0px;
+}
+
+.goToSeatsButton {
+  width: 40%;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.438);
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+  align-self: center;
+}
+
+.ticketForm {
+  margin: 50px;
+  align-self: center;
+  width: 453px;
+}
+
+.inputBox {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.inputBox p {
+  font-size: 20px;
+  text-align: left;
+  flex: 1;
+}
+
+#decrease,
+#increase {
+  text-align: center;
+}
+
+.value-button {
+  width: 50px;
+  height: 30px;
+  vertical-align: middle;
+  padding: 5px;
+  user-select: none;
+  border-radius: 15px;
+}
+
+.value-button:hover {
+  cursor: pointer;
+  background-color: rgb(49, 49, 49);
+  transition: 1s;
+}
+
+#number {
+  text-align: center;
+  border: none;
+  margin: 0;
+  height: 30px;
+  width: 50px;
+  border-radius: 15px;
+  background-color: gray;
+  color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

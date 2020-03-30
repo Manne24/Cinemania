@@ -1,6 +1,7 @@
 @import "./ticketStyle.css";
 @import "./signupStyle.css";
 @import "./seatStyle.css";
+@import "./ticketTypeStyle.css";
 
 * {
   box-sizing: border-box;
