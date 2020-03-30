@@ -6,10 +6,9 @@ import cinemania from "./views/Cinemania.js";
 import films from "./views/films.js";
 import login from "./views/login.js";
 import register from "./views/register.js"
-import news from "./views/news.js";
 import tickets from "./views/tickets.js";
 import filmDetails from "./views/filmDetails.js";
-import booking from "./views/booking.js";
+import ticketType from "./views/ticketType.js";
 import seats from "./views/seats.js";
 import myPage from "./views/myPage.js";
 
@@ -34,9 +33,9 @@ export const router = new VueRouter({
       component: filmDetails
     },
     {
-      name: "booking",
-      path: "/booking",
-      component: booking
+      name: "ticketType",
+      path: "/tickettype",
+      component: ticketType
     },
     {
       name: "login",
