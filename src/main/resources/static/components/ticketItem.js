@@ -4,7 +4,8 @@ export default {
         <button class="screen-box" @click="onBoxClick">{{film.title}}</button>
          <div class="screencontent" ref="screencontent">
             <div>
-                 <p v-for="screening of screenings" 
+                 <p v-for="screening of screenings"
+                    v-if="screening.film_id === film.film_id"
                         :key="screening.id">
                         Date: {{screening.date}}<br>
                         Start Time: {{screening.start_time}}<br>
