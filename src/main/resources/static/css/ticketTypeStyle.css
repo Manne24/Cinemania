@@ -20,6 +20,12 @@
   font-size: 25px;
   color: white;
   align-self: center;
+  height: 60px;
+  border-radius: 15px;
+}
+
+.goToSeatsButton:hover {
+    border: 1px solid rgba(180, 180, 180, 0.753);
 }
 
 .ticketForm {
@@ -40,27 +46,37 @@
   flex: 1;
 }
 
+span {
+    font-size: 12px;
+}
+
+.priceText {
+    color: white;
+}
+
 #decrease,
 #increase {
   text-align: center;
 }
 
 .value-button {
-  width: 50px;
-  height: 30px;
+    font-size: 30px;
+  width: 56px;
+  height: 45px;
   vertical-align: middle;
   padding: 5px;
   user-select: none;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .value-button:hover {
   cursor: pointer;
-  background-color: rgb(49, 49, 49);
+  background-color: rgba(0, 0, 0, 0.438);
   transition: 1s;
 }
 
 #number {
+    font-size: 30px;
   text-align: center;
   border: none;
   margin: 0;
