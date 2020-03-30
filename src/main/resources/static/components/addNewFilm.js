@@ -3,13 +3,13 @@ export default {
         <div> 
         <form @submit.prevent="checkIfFilmExists">
         <label>ADD FILM</label><br>
-        <input v-model="titleAdd" type="text" placeholder="Enter title of film"><br>
+        <input v-model="titleAdd" type="text" 
+        placeholder="Enter title of film" required><br>
         <button type="submit">FIND</button>
-        </form>
-        <!-- <div v-for="info of imdbInfo"
-         :key="info.Title" ></div> -->
-        <button @click="addNewFilm">ADD</button><br>
+        <button @click.prevent="addNewFilm">ADD</button>
+        </form><br>
         <hr>
+        
         title: {{ imdbInfo.Title }} <br>
         director: {{ imdbInfo.Director }} <br>
         description: {{ imdbInfo.Plot}} <br>
@@ -24,7 +24,8 @@ export default {
         
         <form @submit.prevent="deleteFilm">
         <label>REMOVE FILM</label><br>
-        <input v-model="titleDelete" type="text" placeholder="Enter title of film"><br>
+        <input v-model="titleDelete" type="text" 
+        placeholder="Enter title of film" required><br>
         <button type="submit">DELETE</button>
         </form>
 
@@ -51,13 +52,13 @@ export default {
                 .then((res) => {
                     this.imdbInfo = res;
                     console.log(this.imdbInfo)
-                })
-        },
-        test(){
-            console.log(this.imdbInfo)
+                }) 
+                /* if(this.imdbInfo.Title == 'null'){
+                    this.filmNotFound = 'Film not found'
+                    also check if film already exists
+                } */
         },
         async addNewFilm() {
-            console.log(this.imdbInfo)
 
             if (!this.imdbInfo.Title.trim() &&
                 !this.imdbInfo.Director.trim() &&
@@ -66,7 +67,7 @@ export default {
                 !this.imdbInfo.Genre.trim() &&
                 !this.imdbInfo.Rated.trim()) {
                 return
-            } 
+            }
 
             let filmInfoAPI = {
                 title: this.imdbInfo.Title,
@@ -89,6 +90,8 @@ export default {
             result = await result.json()
             console.log(result)
 
+            this.titleAdd = ''
+
             /* this.title = '',
                 this.director = '',
                 this.description = '',
@@ -102,10 +105,10 @@ export default {
     },
 }
 
- /* if(imdbInfo.length > 0) {
-                addNewFilm
-            } else {
-               = 'Film not found on OMDB-API'
-                return filmNotFound
-            } */
+/* if(imdbInfo.length > 0) {
+               addNewFilm
+           } else {
+              = 'Film not found on OMDB-API'
+               return filmNotFound
+           } */
 
