@@ -65,7 +65,9 @@ export default {
                 !this.imdbInfo.Plot.trim() &&
                 !this.imdbInfo.Poster.trim() &&
                 !this.imdbInfo.Genre.trim() &&
-                !this.imdbInfo.Rated.trim()) {
+                !this.imdbInfo.Rated.trim() &&
+                !this.imdbInfo.Language.trim() &&
+                !this.imdbInfo.Year.trim()) {
                 return
             }
 
@@ -76,7 +78,10 @@ export default {
                 image: this.imdbInfo.Poster,
                 genre: this.imdbInfo.Genre,
                 rated: this.imdbInfo.Rated,
-                runtime: this.imdbInfo.Runtime
+                runtime: this.imdbInfo.Runtime,
+                language: this.imdbInfo.Language,
+                year: this.imdbInfo.Year
+
             }
 
             let result = await fetch('/rest/films', {
@@ -91,15 +96,6 @@ export default {
             console.log(result)
 
             this.titleAdd = ''
-
-            /* this.title = '',
-                this.director = '',
-                this.description = '',
-                this.director = '',
-                this.image = '',
-                this.genre = '',
-                this.rated = '',
-                this.runtime = '' */
 
         }
     },

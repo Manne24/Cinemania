@@ -52,7 +52,8 @@ export default {
             return this.$store.state.films
         },
         children() {
-            return this.$store.state.films.filter((film) => film.rated === 'g')
+            return this.$store.state.films.filter((film) => film.rated === 'G'
+            || film.rated === 'PG' || film.rated === 'PG-13')
         },
         adult() {
             return this.$store.state.films.filter((film) => film.rated === 'r')
