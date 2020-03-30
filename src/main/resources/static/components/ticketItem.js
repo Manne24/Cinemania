@@ -13,7 +13,7 @@ export default {
                         Salon: #{{screening.salon_id}}
                     </p>
                 </div>
-                <button @click="goToBooking">buy ticket</button>
+                <button @click="goToTicketType">buy ticket</button>
             </div> 
     </div>
     `,
@@ -29,8 +29,8 @@ export default {
     };
   },
   methods: {
-    goToBooking() {
-      this.$router.push("/booking");
+    goToTicketType() {
+      this.$router.push("/tickettype");
     },
     onBoxClick() {
       this.isOpen = !this.isOpen;
