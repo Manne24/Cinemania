@@ -6,6 +6,10 @@ import com.example.demo.entities.User;
 import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -26,9 +30,14 @@ public class UserController {
         return userService.findOneUser(user_id);
     }
 
+    /*@PostMapping("/auth/register")*/
     @PostMapping("/users")
-    public User createNewUser(@RequestBody User user){
-        return userService.createNewUser(user);
+    public User registerUser(@RequestBody User user) {
+        return userService.registerUser(user);
     }
 
+    @GetMapping("/auth/whoami")
+    public User whoAmI() {
+        return userService.findCurrentUser();
+    }
 }
