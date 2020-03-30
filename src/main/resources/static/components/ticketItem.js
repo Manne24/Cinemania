@@ -4,7 +4,8 @@ export default {
         <button class="screen-box" @click="onBoxClick">{{film.title}}</button>
          <div class="screencontent" ref="screencontent">
             <div>
-                 <p v-for="screening of screenings" 
+                 <p v-for="screening of screenings"
+                    v-if="screening.film_id === film.film_id"
                         :key="screening.id">
                         Date: {{screening.date}}<br>
                         Start Time: {{screening.start_time}}<br>
@@ -12,7 +13,7 @@ export default {
                         Salon: #{{screening.salon_id}}
                     </p>
                 </div>
-                <button @click="goToBooking">buy ticket</button>
+                <button @click="goToTicketType">buy ticket</button>
             </div> 
     </div>
     `,
@@ -28,8 +29,8 @@ export default {
     };
   },
   methods: {
-    goToBooking() {
-      this.$router.push("/booking");
+    goToTicketType() {
+      this.$router.push("/tickettype");
     },
     onBoxClick() {
       this.isOpen = !this.isOpen;
