@@ -8,21 +8,19 @@ export default {
         {{ rating.age }}-->
     <div class="sort-film-container">
         <button
-        @click="filmFilterKey = 'all'; clicked = !clicked"
-        class="button-sort-films"
-        :style='{"background-color": (clicked? "yellow" : "orange" )}'
+        @click="filmFilterKey = 'all'"
+        class="Button"
+        
         >ALL
         </button>
         <button
-        @click="filmFilterKey = 'children'; clicked = !clicked"
-        class="button-sort-films"
-        :style='{"background-color": (clicked? "yellow" : "orange" )}'
+        @click="filmFilterKey = 'children'"
+        class="Button"
         >CHILDREN
         </button>
         <button
-        @click="filmFilterKey = 'adult'; clicked = !clicked"
-        class="button-sort-films"
-        :style='{"background-color": (clicked? "yellow" : "orange" )}'
+        @click="filmFilterKey = 'adult'"
+        class="Button"
         >ADULT
         </button>
     </div>
@@ -41,20 +39,20 @@ export default {
     data() {
         return {
             filmFilterKey: 'all',
+            color: 'red'
            /*  filmFilterAge: [
                 { age: "all" },
                 { age: "children" },
                 { age: "adult" }], */
-                clicked: false
         }
     },
     methods: {
         goToFilmInfo(film_id) {
             this.$router.push('/films/' + film_id)
-        }, /* onButtonClick() {
-            this.clicked = !this.clicked
-            this.$refs.button-sort-films.style.setProperty('height', this.isOpen ? '100%' : '93px')
-        } */
+        }, onButtonClick() {
+            console.log('pressed')
+            $(this).toggleClass( "selected" );
+        } 
     },
     computed: {
         films() {

@@ -1,41 +1,52 @@
 * {
-    box-sizing: border-box;
-  }
-  
+  box-sizing: border-box;
+}
+
 .sort-film-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    height: 100%;
-    padding-bottom: 20px;
-  }
-  
-  .button-sort-films {
-    cursor: pointer;
-    padding: 10px;
-    background-color: white;
-    border-radius: 10px;
-    width: 80px;
-    margin: 5px;
-    text-align: center;
-  }
-  
-  .button-buy-ticket {
-    cursor: pointer;
-    padding: 5px;
-    background-color: gold;
-    margin-top: 10px;
-    border-radius: 10px;
-  }
-  
-  .filmcard {
-    background-color: rgb(197, 197, 195);
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-  }
-  .iframe {
-    padding: 20px;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+.Button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: pink;
+  border-radius: 10px;
+  width: 80px;
+  margin: 5px;
+  text-align: center;
+}
+
+.selected {
+  color: white;
+  background: green
+}
+
+button#cssColorChange:active {
+  color: white;
+  background: red
+}
+
+.button-buy-ticket {
+  cursor: pointer;
+  padding: 5px;
+  background-color: gold;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.filmcard {
+  background-color: rgb(197, 197, 195);
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.iframe {
+  padding: 20px;
+}
