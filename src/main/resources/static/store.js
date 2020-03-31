@@ -30,6 +30,7 @@ export const store = new Vuex.Store({
     },
     setUser(state, user) {
       state.user = user
+      
     }
   }
 });

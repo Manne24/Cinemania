@@ -9,7 +9,7 @@ export default {
             <router-link to="/films">Films</router-link>
             <router-link to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
             <router-link to="/addFilmAdmin"><i class="fas fa-user-lock"></i></router-link>
-            <a @click.prevent="doLogout"><i class="fas fa-door-open"></i></a>
+            <a @click="doLogout"><i class="fas fa-door-open"></i></a>
           </nav>
           </header>
         <br>
@@ -27,7 +27,9 @@ export default {
           console.log('Successfully logged out')
           /* location.href ="/"; */
           this.$store.commit('setUser', null)
-          this.$router.push('/login')
+          this.$router.push('/login').catch((err) => {
+            throw new Error(`Problem handling something: ${err}.`);
+        })
 
         }
       },

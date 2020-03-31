@@ -6,6 +6,7 @@
 @import "./seatStyle.css";
 @import "./ticketTypeStyle.css";
 @import "./login.css";
+@import "./cinemania.css";
 
 * {
   box-sizing: border-box;
