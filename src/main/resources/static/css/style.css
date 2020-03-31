@@ -30,6 +30,10 @@ main {
   font-size: 4em;
 }
 
+a {
+  cursor: pointer;
+}
+
 #meny-rad {
   top: 0px;
   text-align: center;
