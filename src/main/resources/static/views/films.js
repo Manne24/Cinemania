@@ -56,7 +56,7 @@ export default {
             || film.rated === 'PG' || film.rated === 'PG-13')
         },
         adult() {
-            return this.$store.state.films.filter((film) => film.rated === 'r')
+            return this.$store.state.films.filter((film) => film.rated === 'R')
         }
 
     }

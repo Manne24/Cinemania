@@ -37,8 +37,11 @@ export default {
           console.log('Wrong email/password');
         }
         else {
-          console.log('Successfully logged in:', response)
           this.$router.push('/mypage');
+          
+          let user = await fetch('/auth/whoami')
+          user = await user.json()
+          console.log('Successfully logged in:', user)
         }
         },
 
