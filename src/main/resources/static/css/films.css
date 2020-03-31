@@ -20,14 +20,8 @@
   text-align: center;
 }
 
-.selected {
-  color: white;
-  background: green
-}
-
-button#cssColorChange:active {
-  color: white;
-  background: red
+Button:active {
+  background-color: red
 }
 
 .button-buy-ticket {
