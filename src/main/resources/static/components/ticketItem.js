@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     goToScreeningID(screeningID) {
-      this.$router.push("/tickettype/screening/" + screeningID);
+      this.$router.push("/tickets/tickettype/screening/" + screeningID);
     },
     goToTicketType() {
       this.$router.push("/tickettype");
