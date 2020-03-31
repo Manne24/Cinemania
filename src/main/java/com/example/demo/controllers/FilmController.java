@@ -45,6 +45,16 @@ public class FilmController {
         }
     }
 
+    @DeleteMapping("/films/{title}")
+    public String deleteFilmByTitle(@PathVariable("title") String title) { /*PathVariable to get variable in route*/
+        try {
+            filmService.deleteByTitle(title);
+            return "Success";
+        } catch (Exception e) {
+            return "Failed";
+        }
+    }
+
     @PutMapping("/films") /*Route*/
     public String updateFilm(@RequestBody Film film) {
         try {

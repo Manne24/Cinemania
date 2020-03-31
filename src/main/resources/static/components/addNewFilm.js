@@ -104,7 +104,7 @@ export default {
         async deleteFilm() {
             let filmRemove = {title: this.titleDelete};
             console.log(filmRemove)
-            let rawResponse = await fetch('/rest/film/id', {
+            let rawResponse = await fetch('/rest/films/title', {
                 // tell the server we want to send/create data
                 method: 'delete'
             });
