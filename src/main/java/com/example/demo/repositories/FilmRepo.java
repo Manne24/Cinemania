@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface FilmRepo extends CrudRepository<Film, Integer> {
     public List<Film> findAllByDirector(String director);
+    public void deleteByTitle(String title);
 }

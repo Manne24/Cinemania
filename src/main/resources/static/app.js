@@ -7,7 +7,8 @@ export default {
             <router-link to="/">Cinemania</router-link>
             <router-link to="/tickets">Tickets</router-link>
             <router-link to="/films">Films</router-link>
-            <router-link to="/login">Login</router-link>
+            <router-link to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
+            <!-- <router-link to="/addFilmAdmin"><i class="fa fa-user-lock"></i></router-link> -->
           </nav>
           </header>
         <br>
@@ -18,21 +19,30 @@ export default {
     
         </div>
       `,
-  async created() {
-    let films = await fetch("/rest/films");
-    films = await films.json();
-    this.$store.commit("setFilms", films);
+      async created() {      
+          let user = await fetch('/auth/whoami')
 
-    let users = await fetch("/rest/users");
-    users = await users.json();
-    this.$store.commit("setUsers", users);
+          try{
+            user = await user.json()
+            console.log('Login user :', user);
+          }catch{
+            console.log('Client not authenticated');
+          }
 
-    let seats = await fetch("/rest/seats");
-    seats = await seats.json();
-    this.$store.commit("setSeats", seats);
+          let films = await fetch('/rest/films')
+          films = await films.json()
+          this.$store.commit('setFilms', films)
 
-    let screenings = await fetch("rest/screenings");
-    screenings = await screenings.json();
-    this.$store.commit("setScreenings", screenings);
-  }
+          let users = await fetch("/rest/users");
+          users = await users.json();
+          this.$store.commit("setUsers", users);
+
+          let seats = await fetch("/rest/seats");
+          seats = await seats.json();
+          this.$store.commit("setSeats", seats);
+
+          let screenings = await fetch("rest/screenings");
+          screenings = await screenings.json();
+          this.$store.commit("setScreenings", screenings);
+        }
 };
