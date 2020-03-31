@@ -9,13 +9,14 @@ export default {
                     v-if="screening.film_id === film.film_id"
                         :key="screening.id"
                         @click="goToScreeningID(screening.screening_id)"
-                        >
+                        :screenings="screenings">
                         Date: {{screening.date}}<br>
                         Start Time: {{screening.start_time}}<br>
                         End Time: {{screening.end_time}}<br>
                         Salon: #{{screening.salon_id}}
                     </p>
-                <button @click="goToTicketType">buy ticket</button>
+                </div>
+                <button @click="goToTicketChoice">buy ticket</button>
             </div> 
     </div>
     `,
@@ -32,10 +33,10 @@ export default {
   },
   methods: {
     goToScreeningID(screeningID) {
-      this.$router.push("/tickets/tickettype/screening/" + screeningID);
+      this.$router.push("/tickets/ticketChoice/screening/" + screeningID);
     },
-    goToTicketType() {
-      this.$router.push("/tickettype");
+    goToTicketChoice() {
+      this.$router.push("/ticketChoice");
     },
     onBoxClick() {
       this.isOpen = !this.isOpen;
