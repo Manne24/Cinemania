@@ -18,7 +18,6 @@ public class FilmService {
         return (List<Film>) filmRepo.findAll();
     }
 
-
     public void updateFilm(Film film) {
     }
 
@@ -33,4 +32,7 @@ public class FilmService {
         return filmRepo.findById(id);
     }
 
+    public void deleteByTitle(String title) {
+        filmRepo.deleteByTitle(title);
+    }
 }

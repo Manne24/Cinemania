@@ -7,8 +7,8 @@ export default {
             <router-link to="/">Cinemania</router-link>
             <router-link to="/tickets">Tickets</router-link>
             <router-link to="/films">Films</router-link>
-            <router-link to="/login">Login</router-link>
-            <a @click="doLogout">out</a>
+            <router-link to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
+            <!-- <router-link to="/addFilmAdmin"><i class="fa fa-user-lock"></i></router-link> -->
           </nav>
           </header>
         <br>
