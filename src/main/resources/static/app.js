@@ -19,6 +19,15 @@ export default {
     
         </div>
       `,
+
+      methods: {
+        doLogout(){
+          fetch('/logout')
+          console.log('Successfully logged out')
+          location.href ="/";
+        }
+      },
+
       async created() {      
           let user = await fetch('/auth/whoami')
 
