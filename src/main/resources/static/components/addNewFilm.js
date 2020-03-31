@@ -27,7 +27,7 @@ export default {
         <form class="example" @submit.prevent="deleteFilm">
        <!--  <label>REMOVE FILM</label><br> -->
         <input v-model="titleDelete" type="text" 
-        placeholder="Enter title of film" required><br>
+        placeholder="Function not working yet" required><br>
         <button type="submit">DELETE</button>
         </form>
         </div>
