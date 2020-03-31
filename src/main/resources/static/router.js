@@ -62,7 +62,6 @@ export const router = new VueRouter({
       name: "myPage",
       path: "/mypage",
       component: myPage
-    }
     },
     {
       name: "addFilmAdmin",
