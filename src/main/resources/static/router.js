@@ -35,7 +35,7 @@ export const router = new VueRouter({
     },
     {
       name: "ticketType",
-      path: "/tickettype",
+      path: "/tickettype/screening/:id",
       component: ticketType
     },
     {
