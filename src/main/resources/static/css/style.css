@@ -5,6 +5,7 @@
 @import "./signupStyle.css";
 @import "./seatStyle.css";
 @import "./ticketTypeStyle.css";
+@import "./login.css";
 @import "./films.css";
 
 * {

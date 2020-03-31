@@ -1,13 +1,13 @@
 export default {
     template: `
-      <form @submit.prevent="performLogin">
-        <h2>Login</h2>
-        <label>Email :</label>
-        <input v-model="email" required type="email" placeholder="email...">
+      <form class="login" @submit.prevent="performLogin">
+        <!-- <h2>Login</h2> -->
+        <label>Email :</label><br>
+        <input v-model="email" required type="email" placeholder="email..."><br>
         
-        <label>Password :</label>
-        <input v-model="password" required type="password" placeholder="password...">
-        <button>Login</button>
+        <label>Password :</label><br>
+        <input v-model="password" required type="password" placeholder="password..."><br>
+        <button>Login</button><br><br><br>
 
         <p>Don't have an account?</p>
         <button @click="goToSignUp">Click here</button>
