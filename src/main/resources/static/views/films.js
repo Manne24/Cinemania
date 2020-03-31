@@ -2,30 +2,17 @@
 export default {
     template: `
     <div>
-    <!-- <h2 class="title">Films</h2> -->
-     <!-- v-for="(rating, i) in filmFilterAge" 
-        :key="rating.age + i" 
-        {{ rating.age }}-->
-    <div class="sort-film-container">
+        <div class="sort-films">
         <button
-        @click="filmFilterKey = 'all'"
-        class="Button"
-        
-        >ALL
+        v-for="(rating, i) in filmFilterAge" 
+        :key="rating.age + i"
+        @click="filmFilterKey = rating.age"
+        >{{ rating.age }}
         </button>
-        <button
-        @click="filmFilterKey = 'children'"
-        class="Button"
-        >CHILDREN
-        </button>
-        <button
-        @click="filmFilterKey = 'adult'"
-        class="Button"
-        >ADULT
-        </button>
-    </div>
+        </div>
 
-        <div class="filmcard" 
+        <div class="filmcard-container">
+        <div class="filmcard"  
          v-for="film of films"
          :key="film.film_id"
          @click="goToFilmInfo(film.film_id)">
@@ -33,17 +20,17 @@ export default {
         {{ film.title | to-uppercase }} <br>
         {{ film.rated | to-uppercase }} <br>
         </div>
+        </div>    
     
    </div>
     `,
     data() {
         return {
             filmFilterKey: 'all',
-            color: 'red'
-           /*  filmFilterAge: [
+           filmFilterAge: [
                 { age: "all" },
                 { age: "children" },
-                { age: "adult" }], */
+                { age: "adult" }],
         }
     },
     methods: {
