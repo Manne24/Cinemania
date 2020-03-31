@@ -1,6 +1,10 @@
 
 @import './ticketStyle.css';
 @import './addNewFilm.css';
+@import "./ticketStyle.css";
+@import "./signupStyle.css";
+@import "./seatStyle.css";
+@import "./ticketTypeStyle.css";
 
 * {
   box-sizing: border-box;
@@ -74,79 +78,6 @@ main {
   cursor: pointer;
   border-radius: 10px;
 }
-
 .iframe {
   padding: 30px;
 }
-
-/* --------------- Sign up page --------------- */
-
-.addUser {
-  width: 60%;
-  position: relative;
-  margin: auto;
-  padding: 0.5em 1em;
-  border: solid 2px whitesmoke;
-  border-radius: 8px;
-  margin-top: 10em;
-}
-
-.addUser h1 {
-  position: absolute;
-  display: inline-block;
-  top: -28px;
-  padding: 0 9px;
-  line-height: 1;
-  font-size: 30px;
-  background: #FFF;
-  color: gray;
-  font-weight: bold;
-}
-
-.addUser p {
-  margin: 0;
-  padding: 0;
-}
-
-.addUser input[type=text], .addUser input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-.addUser input[type=text]:focus, .addUser input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-.addUser hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-.addUser button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-  font-size: large;
-}
-
-.addUser button:hover {
-  opacity: 1;
-}
-
-@media screen and (max-width: 300px) {
-  .addUser {
-    width: 100%;
-  }
-}
-
-/* --------------- Sign up page END--------------- */
