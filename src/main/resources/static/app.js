@@ -9,6 +9,7 @@ export default {
             <router-link to="/films">Films</router-link>
             <router-link to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
             <router-link to="/addFilmAdmin"><i class="fas fa-user-lock"></i></router-link>
+            <a @click.prevent="doLogout"><i class="fas fa-door-open"></i></a>
           </nav>
           </header>
         <br>
@@ -24,7 +25,10 @@ export default {
         doLogout(){
           fetch('/logout')
           console.log('Successfully logged out')
-          location.href ="/";
+          /* location.href ="/"; */
+          this.$store.commit('setUser', null)
+          this.$router.push('/login')
+
         }
       },
 
@@ -33,6 +37,7 @@ export default {
 
           try{
             user = await user.json()
+            this.$store.commit('setUser', user)
             console.log('Login user :', user);
           }catch{
             console.log('Client not authenticated');
