@@ -1,3 +1,6 @@
+
+@import './ticketStyle.css';
+@import './addNewFilm.css';
 @import "./ticketStyle.css";
 @import "./signupStyle.css";
 @import "./seatStyle.css";
@@ -5,7 +8,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -42,12 +45,22 @@ main {
   margin: 0 20px;
 }
 
+.sort-film-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
 .button-sort-films {
   cursor: pointer;
   padding: 10px;
   background-color: white;
-  margin: 10px;
   border-radius: 10px;
+  width: 80px;
+  margin: 5px;
+  text-align: center;
 }
 
 .button-buy-ticket {
@@ -59,13 +72,12 @@ main {
 
 .filmcard {
   background-color: gold;
-  width: 40%;
+  width: 50%;
   padding: 10px;
   margin-bottom: 10px;
   cursor: pointer;
   border-radius: 10px;
 }
-
 .iframe {
   padding: 30px;
 }
