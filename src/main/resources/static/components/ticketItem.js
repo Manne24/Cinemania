@@ -4,8 +4,8 @@ export default {
     <div class="film-box">
         <button class="screen-box" @click="onBoxClick">{{film.title}}</button>
          <div class="screencontent" ref="screencontent">
-            <div>
-                 <p v-for="screening of screenings"
+                 <p class="screening"
+                    v-for="screening of screenings"
                     v-if="screening.film_id === film.film_id"
                         :key="screening.id"
                         @click="goToScreeningID(screening.screening_id)"
@@ -15,7 +15,6 @@ export default {
                         End Time: {{screening.end_time}}<br>
                         Salon: #{{screening.salon_id}}
                     </p>
-                </div>
                 <button @click="goToTicketType">buy ticket</button>
             </div> 
     </div>
