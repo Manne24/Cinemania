@@ -8,6 +8,7 @@ export default {
             <router-link to="/tickets">Tickets</router-link>
             <router-link to="/films">Films</router-link>
             <router-link to="/login">Login</router-link>
+            <a @click="doLogout">out</a>
           </nav>
           </header>
         <br>
@@ -18,6 +19,15 @@ export default {
     
         </div>
       `,
+
+      methods: {
+        doLogout(){
+          fetch('/logout')
+          console.log('Successfully logged out')
+          location.href ="/";
+        }
+      },
+
       async created() {      
           let user = await fetch('/auth/whoami')
 
