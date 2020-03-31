@@ -23,7 +23,7 @@ export default {
 
           try{
             user = await user.json()
-            console.log('Login user :'+user);
+            console.log('Login user :', user);
           }catch{
             console.log('Client not authenticated');
           }
