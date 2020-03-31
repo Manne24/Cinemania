@@ -6,7 +6,9 @@ export default {
             <div>
                  <p v-for="screening of screenings"
                     v-if="screening.film_id === film.film_id"
-                        :key="screening.id">
+                        :key="screening.id"
+                        @click="goToScreeningID(screening.screening_id)"
+                        >
                         Date: {{screening.date}}<br>
                         Start Time: {{screening.start_time}}<br>
                         End Time: {{screening.end_time}}<br>
@@ -29,6 +31,9 @@ export default {
     };
   },
   methods: {
+    goToScreeningID(screeningID) {
+      this.$router.push("/screening/" + screeningID);
+    },
     goToTicketType() {
       this.$router.push("/tickettype");
     },
