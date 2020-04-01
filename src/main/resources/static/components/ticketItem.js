@@ -4,17 +4,17 @@ export default {
     <div class="film-box">
         <button class="screen-box" @click="onBoxClick">{{film.title}}</button>
          <div class="screencontent" ref="screencontent">
-                 <p class="screening"
+                 <div class="screening"
                     v-for="screening of screenings"
                     v-if="screening.film_id === film.film_id"
                         :key="screening.id"
                         @click="goToScreeningID(screening.screening_id)"
                         :screenings="screenings">
-                        Date: {{screening.date}}<br>
-                        Start Time: {{screening.start_time}}<br>
-                        End Time: {{screening.end_time}}<br>
-                        Salon: #{{screening.salon_id}}
-                    </p>
+                        <p class="screen-date" >Date: {{screening.date}}</p>
+                        <p class="screen-time">Start Time: {{screening.start_time}}</p>
+                       <p class="screen-endtime">End Time: {{screening.end_time}}</p>
+                       <p class="screen-salon">Salon: #{{screening.salon_id}}</p>
+                    </div>
                 </div>
             </div> 
     </div>
