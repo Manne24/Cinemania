@@ -31,8 +31,7 @@ export default {
     data() {
         return {
             film: {
-            },
-            imdbInfo: [],
+            }
         }
     },
     methods: {
