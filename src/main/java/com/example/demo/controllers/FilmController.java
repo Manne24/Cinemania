@@ -35,10 +35,20 @@ public class FilmController {
         return filmService.addNewFilm(film);
     }
 
-    @DeleteMapping("/films/{film_id}")
-    public String deleteOneFilm(@PathVariable int film_id) { /*PathVariable to get variable in route*/
+    /*@DeleteMapping("/films/{film_id}")
+    public String deleteOneFilm(@PathVariable int film_id) { *//*PathVariable to get variable in route*//*
         try {
             filmService.deleteById(film_id);
+            return "Success";
+        } catch (Exception e) {
+            return "Failed";
+        }
+    }*/
+
+    @DeleteMapping("/films/{title}")
+    public String deleteFilmByTitle(@PathVariable("title") String title) { /*PathVariable to get variable in route*/
+        try {
+            filmService.deleteByTitle(title);
             return "Success";
         } catch (Exception e) {
             return "Failed";

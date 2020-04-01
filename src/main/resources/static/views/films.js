@@ -2,17 +2,17 @@
 export default {
     template: `
     <div>
-    <!-- <h2 class="title">Films</h2> -->
-
+        <div class="sort-films">
         <button
-         v-for="(rating, i) in filmFilterAge" 
+        v-for="(rating, i) in filmFilterAge" 
         :key="rating.age + i"
-        @click="filmFilterKey = rating.age;"
-        class="button-sort-films"
+        @click="filmFilterKey = rating.age"
         >{{ rating.age }}
         </button>
+        </div>
 
-        <div class="filmcard" 
+        <div class="filmcard-container">
+        <div class="filmcard"  
          v-for="film of films"
          :key="film.film_id"
          @click="goToFilmInfo(film.film_id)">
@@ -20,13 +20,14 @@ export default {
         {{ film.title | to-uppercase }} <br>
         {{ film.rated | to-uppercase }} <br>
         </div>
+        </div>    
     
    </div>
     `,
     data() {
         return {
             filmFilterKey: 'all',
-            filmFilterAge: [
+           filmFilterAge: [
                 { age: "all" },
                 { age: "children" },
                 { age: "adult" }],
@@ -35,10 +36,10 @@ export default {
     methods: {
         goToFilmInfo(film_id) {
             this.$router.push('/films/' + film_id)
-        }, /* onButtonClick() {
-            this.clicked = !this.clicked
-            this.$refs.button-sort-films.style.setProperty('height', this.isOpen ? '100%' : '93px')
-        } */
+        }, onButtonClick() {
+            console.log('pressed')
+            $(this).toggleClass( "selected" );
+        } 
     },
     computed: {
         films() {
@@ -49,10 +50,11 @@ export default {
             return this.$store.state.films
         },
         children() {
-            return this.$store.state.films.filter((film) => film.rated === 'g')
+            return this.$store.state.films.filter((film) => film.rated === 'G'
+            || film.rated === 'PG' || film.rated === 'PG-13')
         },
         adult() {
-            return this.$store.state.films.filter((film) => film.rated === 'r')
+            return this.$store.state.films.filter((film) => film.rated === 'R')
         }
 
     }
