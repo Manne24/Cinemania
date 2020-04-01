@@ -9,6 +9,8 @@ export default {
         <input v-model="password" required type="password" placeholder="password..."><br>
         <button>Login</button><br><br><br>
 
+        <p v-if="errorLogin">Wrong username or password</p>
+        
         <p>Don't have an account?</p>
         <button @click="goToSignUp">Click here</button>
       </form>
@@ -16,7 +18,8 @@ export default {
   data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      errorLogin: false
     }
   },
   methods: {
