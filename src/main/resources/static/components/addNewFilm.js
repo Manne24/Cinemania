@@ -27,7 +27,7 @@ export default {
         <form class="example" @submit.prevent="deleteFilm">
        <!--  <label>REMOVE FILM</label><br> -->
         <input v-model="titleDelete" type="text" 
-        placeholder="Enter title of film" required><br>
+        placeholder="Function not working yet" required><br>
         <button type="submit">DELETE</button>
         </form>
         </div>
@@ -104,9 +104,9 @@ export default {
         async deleteFilm() {
             let filmRemove = {title: this.titleDelete};
             console.log(filmRemove)
-            let rawResponse = await fetch('/rest/films/title', {
+            let rawResponse = await fetch('/rest/films/' + filmRemove.title, {
                 // tell the server we want to send/create data
-                method: 'delete'
+                method: 'DELETE',
             });
             let response = await rawResponse.json();
         }

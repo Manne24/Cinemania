@@ -5,6 +5,8 @@
 @import "./signupStyle.css";
 @import "./seatStyle.css";
 @import "./ticketTypeStyle.css";
+@import "./login.css";
+@import "./cinemania.css";
 @import "./mypage.css";
 
 * {
@@ -28,6 +30,10 @@ main {
   text-align: center;
   color: white;
   font-size: 4em;
+}
+
+a {
+  cursor: pointer;
 }
 
 #meny-rad {
