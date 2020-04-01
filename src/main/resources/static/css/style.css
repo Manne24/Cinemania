@@ -8,6 +8,7 @@
 @import "./login.css";
 @import "./films.css";
 @import "./cinemania.css";
+@import "./mypage.css";
 
 * {
   box-sizing: border-box;
