@@ -40,7 +40,7 @@ export default {
     async book() {
         
         let currentDate = new Date(); // for now
-        let currentTime = currentDate.getTime()
+        let currentTime = currentDate.getTime().getHour()
     
         let booking = {
           user_id: this.$store.state.user,
