@@ -32,7 +32,6 @@ export default {
         return {
             film: {
             },
-            imdbInfo: [],
         }
     },
     methods: {
