@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+.filmcard {
+  background-color: rgb(197, 197, 195);
+  width: 320px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.sort-films {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 26px;
+  width: 320px;
+}
+
+.sort-films button {
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  background-color: pink;
+  width: 90px;
+  text-align: center;
+}
+
+.sort-films button:hover {
+  background: #7bbcf1;
+}
+
+.sort-films button:active {
+  background: red
+}
+
+.button-buy-ticket {
+  cursor: pointer;
+  padding: 5px;
+  background-color: gold;
+  margin-top: 10px;
+}
+.iframe {
+  padding: 20px;
+}

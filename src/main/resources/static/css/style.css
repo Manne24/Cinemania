@@ -5,6 +5,9 @@
 @import "./signupStyle.css";
 @import "./seatStyle.css";
 @import "./ticketTypeStyle.css";
+@import "./login.css";
+@import "./films.css";
+@import "./cinemania.css";
 
 * {
   box-sizing: border-box;
@@ -29,6 +32,10 @@ main {
   font-size: 4em;
 }
 
+a {
+  cursor: pointer;
+}
+
 #meny-rad {
   top: 0px;
   text-align: center;
@@ -45,39 +52,3 @@ main {
   margin: 0 20px;
 }
 
-.sort-film-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  height: 100%;
-  padding-bottom: 20px;
-}
-
-.button-sort-films {
-  cursor: pointer;
-  padding: 10px;
-  background-color: white;
-  border-radius: 10px;
-  width: 80px;
-  margin: 5px;
-  text-align: center;
-}
-
-.button-buy-ticket {
-  cursor: pointer;
-  padding: 10px;
-  background-color: gold;
-  margin-top: 10px;
-}
-
-.filmcard {
-  background-color: gold;
-  width: 50%;
-  padding: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-.iframe {
-  padding: 30px;
-}
