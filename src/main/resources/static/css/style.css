@@ -7,6 +7,8 @@
 @import "./ticketTypeStyle.css";
 @import "./login.css";
 @import "./films.css";
+@import "./cinemania.css";
+@import "./mypage.css";
 
 * {
   box-sizing: border-box;
@@ -29,6 +31,10 @@ main {
   text-align: center;
   color: white;
   font-size: 4em;
+}
+
+a {
+  cursor: pointer;
 }
 
 #meny-rad {
