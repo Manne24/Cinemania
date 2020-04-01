@@ -16,7 +16,6 @@ export default {
                         Salon: #{{screening.salon_id}}
                     </p>
                 </div>
-                <button @click="goToTicketChoice">buy ticket</button>
             </div> 
     </div>
     `,
