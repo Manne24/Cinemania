@@ -21,12 +21,12 @@ public class MyUserDetailsService implements UserDetailsService {
     private UserRepo userRepo;
 
 
-        @PostConstruct
+        /*@PostConstruct
         private void createDefaultUsers(){
             if (userRepo.findByEmail("johan@gmail.com") == null) {
                 addUser("Johan","johan@gmail.com", "johan123");
             }
-        }
+        }*/
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

@@ -1,25 +1,21 @@
 * {
     box-sizing: border-box;
   }
-
-  .add-new-film {
-    width: 80%;
-    margin: auto;
-    
-  }
   
   /* Style the search field */
-  form.example input[type=text] {
+  form.login input {
     padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 16px;
     font-size: 17px;
     border: 1px solid grey;
     /* float: left; */
-    width: 70%;
+    width: 30%;
     background: #f1f1f1;
   }
   
   /* Style the submit button */
-  form.example button {
+  form.login button {
     /* float: left; */
     margin-top: 10px;
     margin-right: 10px;
@@ -33,12 +29,12 @@
     cursor: pointer;
   }
   
-  form.example button:hover {
+  form.login button:hover {
     background: #0b7dda;
   }
   
   /* Clear floats */
-  form.example::after {
+  form.login::after {
     content: "";
     clear: both;
     display: table;
