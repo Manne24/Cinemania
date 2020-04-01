@@ -12,7 +12,7 @@ export default {
         <button @click.prevent="addNewFilm">ADD</button>
         <button type="reset" value="Reset">RESET</button>
         </form><br>
-        
+        <p :style="{color: 'red'}">{{ imdbInfo.Error }}</p><br> 
         <section>
         title: {{ imdbInfo.Title }} <br>
         director: {{ imdbInfo.Director }} <br>
@@ -61,10 +61,9 @@ export default {
                     console.log(this.imdbInfo)
                 })
 
-                console.log('test')
         },
         getYouTubeURL() {
-            
+
         },
         matchYoutubeUrl(url) {
             let youTubeId = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
