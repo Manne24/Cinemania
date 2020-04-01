@@ -2,7 +2,8 @@ export default {
     template: `
     <div>
         <section>
-            title: {{ booking.time }} <br>
+            <h1>test</h1>
+            <!-- title: {{ booking.time }} --> <br>
         </section>    
     </div>
     `,
@@ -13,12 +14,12 @@ export default {
             }
         }
     },
-    methods: {
+    /* methods: {
         async created() {
-            let booking = await fetch('/rest/bookings/' + this.$route.params.id)
+            let booking = await fetch('/rest/bookings/' + '1')
             booking = await booking.json()
             console.log(booking)
             this.booking = booking
         },
-    }
+    } */
 }
