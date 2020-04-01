@@ -10,6 +10,7 @@ export default {
         placeholder="YouTube-id" required><br> -->
         <button type="submit"><i class="fa fa-search"></i></button>
         <button @click.prevent="addNewFilm">ADD</button>
+        <button type="reset" value="Reset">RESET</button>
         </form><br>
         
         <section>
