@@ -1,5 +1,5 @@
 export default {
-  template: `
+    template:`
     <div class="ticketBox">
         <h4 class="ticketTitle">Select Ticket Amount</h4>
         <form class="ticketForm">
@@ -27,36 +27,37 @@ export default {
     </div>
     
     `,
-  data() {
-    return {
-      value: 0,
-      value2: 0,
-      value3: 0,
-      price:0
-    };
-  },
-  methods: {
-    goToSeats() {
-      this.$router.push("/seats");
-    },
-    decreaseValue(selectedValue) {
-      if (selectedValue === 1 && this.value > 0) {
-        this.value -= 1, this.price -= 65;
-      } else if (selectedValue === 2 && this.value2 > 0) {
-        this.value2 -= 1, this.price -= 85;
-      } else if (selectedValue === 3 && this.value3 > 0) {
-        this.value3 -= 1, this.price -= 75;
+    props: ["screenings"],
+      data() {
+        return {
+          value: 0,
+          value2: 0,
+          value3: 0,
+          price:0
+        };
+      },
+      methods: {
+        goToSeats(screeningID) {
+          this.$router.push("/tickets/ticketChoice/screening/"+ screeningID + "/seats");
+        },
+        decreaseValue(selectedValue) {
+          if (selectedValue === 1 && this.value > 0) {
+            this.value -= 1, this.price -= 65;
+          } else if (selectedValue === 2 && this.value2 > 0) {
+            this.value2 -= 1, this.price -= 85;
+          } else if (selectedValue === 3 && this.value3 > 0) {
+            this.value3 -= 1, this.price -= 75;
+          }
+        },
+    
+        increaseValue(selectedValue) {
+          if (selectedValue === 1) {
+            this.value += 1, this.price += 65;
+          } else if (selectedValue === 2) {
+            this.value2 += 1 , this.price += 85;
+          } else if (selectedValue === 3) {
+            this.value3 += 1 , this.price += 75;
+          }
+        }
       }
-    },
-
-    increaseValue(selectedValue) {
-      if (selectedValue === 1) {
-        this.value += 1, this.price += 65;
-      } else if (selectedValue === 2) {
-        this.value2 += 1 , this.price += 85;
-      } else if (selectedValue === 3) {
-        this.value3 += 1 , this.price += 75;
-      }
-    }
-  }
-};
+}
