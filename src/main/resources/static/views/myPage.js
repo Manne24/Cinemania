@@ -6,13 +6,23 @@ export default {
         history
       },
     template:`
-    <div>
-        <h2>My page</h2>
-        <h3>My account</h3>
-        <h3>My booking history</h3>
-        <p>Här sidan visar my account info och booking history efter man gör inloggning</p>
+    <div class="container">
+
+        <h2>My Account</h2>
+        <div class="user-info">
+            user_id: {{ user.user_id }} <br>
+            name: {{ user.name }}<br>
+            email: {{ user.email }}
+        </div>
+
+        <h2>My booking history</h2>
         
-        <history />
-    </div>
-    `
+        <history/>
+    </div>    
+    `,
+    computed:{
+        user(){
+            return this.$store.state.user
+        },
+    }
 }
