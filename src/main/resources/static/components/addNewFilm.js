@@ -6,6 +6,8 @@ export default {
         <!-- <label>ADD FILM TO DATABASE</label><br><br> -->
         <input v-model="titleAdd" type="text" 
         placeholder="Enter title of film" required><br>
+        <!-- <input v-model="youTubeURL" type="text" 
+        placeholder="YouTube-id" required><br> -->
         <button type="submit"><i class="fa fa-search"></i></button>
         <button @click.prevent="addNewFilm">ADD</button>
         </form><br>
@@ -40,7 +42,9 @@ export default {
             imdbInfo: [],
             filmFound: '',
             titleAdd: '',
-            titleDelete: ''
+            titleDelete: '',
+            youTubeURL: '',
+            youTubeId: ''
         }
     },
     computed: {
@@ -55,11 +59,15 @@ export default {
                     this.imdbInfo = res;
                     console.log(this.imdbInfo)
                 })
-            /* if(this.imdbInfo.Title == 'null'){
-                this.filmFound = 'Film not found'
-                also check if film already exists
-                check if film exists
-            } */
+
+                console.log('test')
+        },
+        getYouTubeURL() {
+            
+        },
+        matchYoutubeUrl(url) {
+            let youTubeId = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+            return (url.match(youTubeId)) ? RegExp.$1 : false;
         },
         async addNewFilm() {
 
@@ -79,6 +87,7 @@ export default {
                 director: this.imdbInfo.Director,
                 description: this.imdbInfo.Plot,
                 image: this.imdbInfo.Poster,
+                trailer: 'https://www.youtube.com/embed/' + this.youTubeId,
                 genre: this.imdbInfo.Genre,
                 rated: this.imdbInfo.Rated,
                 runtime: this.imdbInfo.Runtime,
@@ -102,7 +111,7 @@ export default {
 
         },
         async deleteFilm() {
-            let filmRemove = {title: this.titleDelete};
+            let filmRemove = { title: this.titleDelete };
             console.log(filmRemove)
             let rawResponse = await fetch('/rest/films/' + filmRemove.title, {
                 // tell the server we want to send/create data
