@@ -5,12 +5,12 @@ Vue.use(VueRouter);
 import cinemania from "./views/Cinemania.js";
 import films from "./views/films.js";
 import login from "./views/login.js";
-import signUp from "./views/signUp.js"
-import news from "./views/news.js";
+import register from "./views/register.js"
 import tickets from "./views/tickets.js";
 import filmDetails from "./views/filmDetails.js";
-import booking from "./views/booking.js";
+import ticketType from "./views/ticketType.js";
 import seats from "./views/seats.js";
+import addFilmAdmin from './views/addFilmAdmin.js'
 import myPage from "./views/myPage.js";
 
 export const router = new VueRouter({
@@ -34,9 +34,9 @@ export const router = new VueRouter({
       component: filmDetails
     },
     {
-      name: "booking",
-      path: "/booking",
-      component: booking
+      name: "ticketType",
+      path: "/tickettype",
+      component: ticketType
     },
     {
       name: "login",
@@ -44,9 +44,9 @@ export const router = new VueRouter({
       component: login
     },
     {
-      name: "signUp",
-      path: "/signup",
-      component: signUp
+      name: "register",
+      path: "/register",
+      component: register
     },
     {
       name: "tickets",
@@ -62,6 +62,11 @@ export const router = new VueRouter({
       name: "myPage",
       path: "/mypage",
       component: myPage
-    }
+    },
+    {
+      name: "addFilmAdmin",
+      path: "/addFilmAdmin",
+      component: addFilmAdmin
+    },
   ]
 });

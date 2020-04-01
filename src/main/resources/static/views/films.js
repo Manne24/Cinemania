@@ -3,14 +3,16 @@ export default {
     template: `
     <div>
     <!-- <h2 class="title">Films</h2> -->
-
-        <button
+    <div class="sort-film-container">
+        <div
          v-for="(rating, i) in filmFilterAge" 
         :key="rating.age + i"
-        @click="filmFilterKey = rating.age;"
+        @click="filmFilterKey = rating.age; clicked = !clicked"
         class="button-sort-films"
+        :style='{"background-color": (clicked? "yellow" : "orange" )}'
         >{{ rating.age }}
-        </button>
+        </div>
+    </div>
 
         <div class="filmcard" 
          v-for="film of films"
@@ -30,6 +32,7 @@ export default {
                 { age: "all" },
                 { age: "children" },
                 { age: "adult" }],
+                clicked: false
         }
     },
     methods: {
@@ -49,10 +52,11 @@ export default {
             return this.$store.state.films
         },
         children() {
-            return this.$store.state.films.filter((film) => film.rated === 'g')
+            return this.$store.state.films.filter((film) => film.rated === 'G'
+            || film.rated === 'PG' || film.rated === 'PG-13')
         },
         adult() {
-            return this.$store.state.films.filter((film) => film.rated === 'r')
+            return this.$store.state.films.filter((film) => film.rated === 'R')
         }
 
     }

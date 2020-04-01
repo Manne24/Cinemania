@@ -88,38 +88,29 @@ export default {
     methods: {
         async submitNewUser() {
 
-          this.$v.$touch();
-          if(this.$v.$invalid){
-            console.log('Invalid form')
-          }
-          else{
-            console.log('Form Submitted')
-            }
-            
-    
-          let user = {
+          const credentials = {
             name: this.name,
             email: this.email,
             password: this.password
           }
-          
-          let result = await fetch('/rest/users', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-          })
-          
-          result = await result.json()
-  
-          this.$store.commit('appendUser', result)
-  
-          this.name = ''
-          this.email = ''
-          this.password = ''
 
-          location.href ="/login";
+          let response = await fetch("/auth/register",{
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(credentials)
+          });
+          
+          try{
+            response = await response.json()
+            this.$store.commit('appendUser', response)
+            console.log('Successfully registered:', response) 
+
+            this.$router.push("/login");
+
+          }catch{
+            console.log('Error, could not register')
+          }  
+
         }
        }
-     }
+      }
