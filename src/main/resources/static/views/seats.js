@@ -6,7 +6,7 @@ export default {
             <div class="seats"
                 v-for="seat of seats"
                 v-bind:style="[(seat.status === 'available' && seat.status !== 'reserved') ? {backgroundColor: bgColor} : {backgroundColor: bgColorSelected}]"
-                :key="seat.name"
+                :key="seat.name.id"
                 @click="chooseSeat(seat)"
             >
                 <p>{{ seat.row }}-{{ seat.name }}</p>
