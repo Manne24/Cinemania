@@ -7,11 +7,10 @@ export default {
         
         <label>Password :</label><br>
         <input v-model="password" required type="password" placeholder="password..."><br>
-        <button>Login</button><br><br><br>
-
-        <p v-if="errorLogin">Wrong username or password</p>
+        <button>Login</button><br><br>
+        <p v-if="errorLogin" :style="{color: 'red'}">Wrong username or password</p>
         
-        <p>Don't have an account?</p>
+        <br><p>Don't have an account?</p>
         <button @click="goToSignUp">Click here</button>
       </form>
     `,
@@ -38,6 +37,7 @@ export default {
 
         if(response.url.includes('error')) {
           console.log('Wrong email/password');
+          this.errorLogin = true
         }
         else {
           this.$router.push('/mypage');
