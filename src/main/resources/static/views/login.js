@@ -41,6 +41,7 @@ export default {
           
           let user = await fetch('/auth/whoami')
           user = await user.json()
+          this.$store.commit('setUser', user)
           console.log('Successfully logged in:', user)
         }
         },
