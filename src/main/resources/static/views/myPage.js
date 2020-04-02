@@ -44,7 +44,6 @@ export default {
             return this.$store.state.bookings.filter((booking) => booking.user_id === this.user.user_id)
         }
     },
-    },
     methods: {
         async quitUser() {
           let response = await fetch("/users/"+ this.user_id, {
