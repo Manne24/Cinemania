@@ -5,6 +5,7 @@ package com.example.demo.controllers;
 import com.example.demo.entities.User;
 import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,5 +39,10 @@ public class UserController {
     @GetMapping("/auth/whoami")
     public User whoAmI() {
         return userService.findCurrentUser();
+    }
+
+    @DeleteMapping("users/{user_id}")
+    public User deleteUser(@PathVariable int user_id){
+        return userService.removeUser(user_id);
     }
 }
