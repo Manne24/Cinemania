@@ -19,7 +19,7 @@ export default {
             v-for="booking of bookings"
             :key="booking.booking_id">
             Booking id: {{ booking.booking_id }} <br>
-            Booking time: {{ booking.booking_time }}
+            Booking time: {{ booking.booking_time }} <br>
             <i class="far fa-trash-alt"></i>
         </div>
         <history/>
@@ -33,11 +33,5 @@ export default {
             return this.$store.state.bookings.filter((booking) => booking.user_id === this.user.user_id)
         }
     },
-    /* async created() {
-        let booking = await fetch('/rest/bookings/' + this.user.user_id)
-        booking = await booking.json()
-        console.log(booking)
-        this.myPageBooking = booking
-    } */
 }
 
