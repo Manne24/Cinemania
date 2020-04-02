@@ -6,7 +6,7 @@ import cinemania from "./views/Cinemania.js";
 import films from "./views/films.js";
 import login from "./views/login.js";
 import register from "./views/register.js"
-import tickets from "./views/tickets.js";
+import bokTickets from "./views/bokTickets.js";
 import filmDetails from "./views/filmDetails.js";
 import ticketChoice from "./views/ticketChoice.js";
 import seats from "./views/seats.js";
@@ -35,7 +35,7 @@ export const router = new VueRouter({
     },
     {
       name: "ticketChoice",
-      path: "/tickets/ticketChoice/screening/:id",
+      path: "/bokTickets/ticketChoice/screening/:id",
       component: ticketChoice
     },
     {
@@ -49,13 +49,13 @@ export const router = new VueRouter({
       component: register
     },
     {
-      name: "tickets",
-      path: "/tickets",
-      component: tickets
+      name: "bokTickets",
+      path: "/bokTickets",
+      component: bokTickets
     },
     {
       name: "seats",
-      path: "/tickets/ticketChoice/screening/:id/seats",
+      path: "/bokTickets/ticketChoice/screening/:id/seats",
       component: seats
     },
     {
