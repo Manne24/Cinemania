@@ -15,27 +15,22 @@ export default {
         </div>
 
         <h2>My booking history</h2>
-        <div class="filmcard"  
+        <div class="booking-card"  
             v-for="booking of bookings"
             :key="booking.booking_id">
-            <!-- <p v-if="booking.user_id === user.user.id"> -->
             Booking id: {{ booking.booking_id }} <br>
-            Booking time: {{ booking.booking_time }}<!-- </p> -->
+            Booking time: {{ booking.booking_time }}
+            <i class="far fa-trash-alt"></i>
         </div>
         <history/>
     </div>    
     `,
-    /* data() {
-        return {
-            myPageBooking: [],
-        }
-    }, */
     computed: {
         user() {
             return this.$store.state.user
         },
         bookings() {
-            return this.$store.state.bookings
+            return this.$store.state.bookings.filter((booking) => booking.user_id === this.user.user_id)
         }
     },
     /* async created() {
