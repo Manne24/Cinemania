@@ -2,14 +2,14 @@ export default {
     template: `
     <div>
         <section>
-            title: {{ booking.time }} <br>
+           <p>title: {{ booking.user_id }}</p><br>
         </section>    
     </div>
     `,
     data () {
         return {
             booking: {
-
+        
             }
         }
     },

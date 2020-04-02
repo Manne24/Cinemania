@@ -22,4 +22,7 @@ public class BookingService {
         return bookingRepo.findById(booking_id);
     }
 
+    public Booking addNewBooking(Booking booking) {
+        return bookingRepo.save(booking);
+    }
 }

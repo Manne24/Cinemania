@@ -11,7 +11,8 @@ export default {
             >
                 <p>{{ seat.row }}-{{ seat.name }}</p>
                 </div>
-            </div>        
+            </div>  
+            <button @click="book">BOOK</button>      
         </div>
     
     `,
@@ -20,7 +21,12 @@ export default {
       bgColor: "#aaa",
       bgColorSelected: "#00ff00",
       bgColorReserved: "#ff0000",
-      currentScreening: {}
+      currentScreening: {},
+      /* user: {
+
+      } */
+      /* user_id: '', */
+      
     };
   },
   methods: {
@@ -30,7 +36,32 @@ export default {
       } else if (seat.status === "selected") {
         seat.status = "available";
       }
-    }
+    },
+    async book() {
+        
+        let currentDate = new Date(); // for now
+        /* let currentTime = currentDate.getTime().getHour() */
+    
+        let booking = {
+          user_id: '1',
+          booking_time: currentDate
+        }
+        let result = await fetch('/rest/bookings', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(booking)
+        })
+    
+        result = await result.json()
+        console.log(result)
+        console.log(result.booking_id) 
+    
+        this.$router.push(
+          "/tickets/ticketChoice/screening/:id/seats/" + this.$route.params.id
+        )
+      }
   },
   async created() {
     let screening = await fetch("/rest/screenings/" + this.$route.params.id);
@@ -44,6 +75,10 @@ export default {
     },
     screenings() {
       return this.$store.state.screenings;
-    }
+    } ,
+    /* user (){
+      return this.$store.state.user
+    }  */
   }
-};
+}
+
