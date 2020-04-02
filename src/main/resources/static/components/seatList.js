@@ -22,16 +22,16 @@ export default {
       bgColorSelected: "#00ff00",
       bgColorReserved: "#ff0000",
       currentScreening: {},
-      user: {
+      /* user: {
 
-      }
+      } */
     }
   },
-  computed: {
-    user(){
+  /* computed: {
+    user() {
       return this.$store.state.user
     }
-  },
+  }, */
   methods: {
     chooseSeat(seat) {
       if (seat.status === "available") {
@@ -46,7 +46,7 @@ export default {
       /* let currentTime = currentDate.getTime().getHour() */
 
       let booking = {
-        user_id: this.user.user_id,
+        user_id: this.$store.state.user.user_id,
         booking_time: currentDate
       }
       let result = await fetch('/rest/bookings', {
