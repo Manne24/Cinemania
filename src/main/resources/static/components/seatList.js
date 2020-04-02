@@ -12,7 +12,7 @@ export default {
                 <p>{{ seat.row }}-{{ seat.name }}</p>
                 </div>
             </div>  
-            <button @click="book">BOOK</button>      
+            <button @click="bookTicket">BOOK</button>      
         </div>
     
     `,
@@ -22,12 +22,15 @@ export default {
       bgColorSelected: "#00ff00",
       bgColorReserved: "#ff0000",
       currentScreening: {},
-      /* user: {
+      user: {
 
-      } */
-      /* user_id: '', */
-
-    };
+      }
+    }
+  },
+  computed: {
+    user(){
+      return this.$store.state.user
+    }
   },
   methods: {
     chooseSeat(seat) {
@@ -37,14 +40,13 @@ export default {
         seat.status = "available";
       }
     },
-    async book() {
+    async bookTicket() {
 
       let currentDate = new Date();
-      /* let user_id = this.$store.state.user */
       /* let currentTime = currentDate.getTime().getHour() */
 
       let booking = {
-        user_id: '2',
+        user_id: this.user.user_id,
         booking_time: currentDate
       }
       let result = await fetch('/rest/bookings', {
@@ -57,11 +59,10 @@ export default {
 
       try {
         result = await result.json()
-        console.log('Successfull booking:', result)
+        console.log(result.booking_id)
         /*  console.log(result.booking_id)  */
         this.$router.push(
-          "/tickets/ticketChoice/screening/:id/seats/" + this.$route.params.id
-
+          "/tickets/ticketChoice/screening/:id/seats/" + result.booking_id
         )
       } catch {
         console.log('Error, could not register')
