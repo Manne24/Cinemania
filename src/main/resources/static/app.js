@@ -8,6 +8,7 @@ export default {
             <router-link to="/tickets">Tickets</router-link>
             <router-link to="/films">Films</router-link>
             <router-link to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
+            <router-link to="/myPage"><i class="fas fa-user"></i></i></router-link>
             <router-link to="/addFilmAdmin"><i class="fas fa-user-lock"></i></router-link>
             <a @click="doLogout"><i class="fas fa-door-open"></i></a>
           </nav>
@@ -25,7 +26,6 @@ export default {
         doLogout(){
           fetch('/logout')
           console.log('Successfully logged out')
-          /* location.href ="/"; */
           this.$store.commit('setUser', null)
           this.$router.push('/login').catch((err) => {
             throw new Error(`Problem handling something: ${err}.`);
@@ -40,7 +40,7 @@ export default {
           try{
             user = await user.json()
             this.$store.commit('setUser', user)
-            console.log('Login user :', user);
+            console.log('Login user :', user.name);
           }catch{
             console.log('Client not authenticated');
           }
@@ -60,5 +60,10 @@ export default {
           let screenings = await fetch("rest/screenings");
           screenings = await screenings.json();
           this.$store.commit("setScreenings", screenings);
+
+          let bookings = await fetch("rest/bookings");
+          bookings = await bookings.json();
+          this.$store.commit("setBookings", bookings);
+
         }
 };

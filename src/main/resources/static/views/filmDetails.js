@@ -31,8 +31,7 @@ export default {
     data() {
         return {
             film: {
-            },
-            imdbInfo: [],
+            }
         }
     },
     methods: {
@@ -42,7 +41,6 @@ export default {
         },
     },
     async created() {
-
         let film = await fetch('/rest/films/' + this.$route.params.id)
         film = await film.json()
         console.log(film)

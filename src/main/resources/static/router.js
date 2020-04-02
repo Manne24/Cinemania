@@ -8,10 +8,11 @@ import login from "./views/login.js";
 import register from "./views/register.js"
 import tickets from "./views/tickets.js";
 import filmDetails from "./views/filmDetails.js";
-import ticketType from "./views/ticketType.js";
+import ticketChoice from "./views/ticketChoice.js";
 import seats from "./views/seats.js";
 import addFilmAdmin from './views/addFilmAdmin.js'
 import myPage from "./views/myPage.js";
+import myTicket from "./views/myTicket.js";
 
 export const router = new VueRouter({
   mode: "history",
@@ -34,9 +35,9 @@ export const router = new VueRouter({
       component: filmDetails
     },
     {
-      name: "ticketType",
-      path: "/tickettype",
-      component: ticketType
+      name: "ticketChoice",
+      path: "/tickets/ticketChoice/screening/:id",
+      component: ticketChoice
     },
     {
       name: "login",
@@ -55,13 +56,18 @@ export const router = new VueRouter({
     },
     {
       name: "seats",
-      path: "/seats",
+      path: "/tickets/ticketChoice/screening/:id/seats",
       component: seats
     },
     {
       name: "myPage",
       path: "/mypage",
       component: myPage
+    },
+    {
+      name: "myTicket",
+      path: "/tickets/ticketChoice/screening/:id/seats/:id",
+      component: myTicket
     },
     {
       name: "addFilmAdmin",

@@ -1,27 +1,44 @@
 /*-------------------- Ticket CSS  -------------------- */
 
 .screen-box {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 25px;
-  }
-  
-  .active,
-  .screen-box:hover {
-    background-color: #ccc;
-    transition-duration: 500ms;
-  }
-  
-  .screencontent {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f1f1f1;
-    transition: max-height 0.5s ease-out;
-  }
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 25px;
+}
+
+.active,
+.screen-box:hover {
+  background-color: #ccc;
+  transition-duration: 500ms;
+}
+
+.screencontent {
+  /*padding: 0 18px;*/
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  transition: max-height 0.5s ease-out;
+}
+
+.screening {
+  padding: 0 18px;
+  transition-duration: 500ms;
+  /* display: flex; */
+}
+
+.screening:hover {
+  background-color: #ccc;
+  padding: 0 36px;
+  transition-duration: 500ms;
+  cursor: pointer;
+}
+
+.screen-time {
+  /* font-size: 2em; */
+}

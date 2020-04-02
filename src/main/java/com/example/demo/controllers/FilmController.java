@@ -45,8 +45,8 @@ public class FilmController {
         }
     }
 
-    @DeleteMapping("/films/{title}")
-    public String deleteFilmByTitle(@PathVariable("title") String title) { /*PathVariable to get variable in route*/
+    @DeleteMapping("/films/title/{title}")
+    public String deleteFilmByTitle(@PathVariable("title") String title) {
         try {
             filmService.deleteByTitle(title);
             return "Success";
@@ -55,7 +55,7 @@ public class FilmController {
         }
     }
 
-    @PutMapping("/films") /*Route*/
+    @PutMapping("/films")
     public String updateFilm(@RequestBody Film film) {
         try {
             filmService.updateFilm(film);

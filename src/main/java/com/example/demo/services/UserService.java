@@ -20,6 +20,10 @@ public class UserService {
         return (List<User>) userRepo.findAll();
     }
 
+    public User removeUser(int user_id){
+        return userRepo.deleteById(user_id);
+    }
+
     public User findOneUser(int user_id){
         User user = userRepo.findById(user_id);
         if(user==null) return null;
