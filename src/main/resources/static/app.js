@@ -25,7 +25,6 @@ export default {
         doLogout(){
           fetch('/logout')
           console.log('Successfully logged out')
-          /* location.href ="/"; */
           this.$store.commit('setUser', null)
           this.$router.push('/login').catch((err) => {
             throw new Error(`Problem handling something: ${err}.`);
@@ -40,7 +39,7 @@ export default {
           try{
             user = await user.json()
             this.$store.commit('setUser', user)
-            console.log('Login user :', user);
+            console.log('Login user :', user.name);
           }catch{
             console.log('Client not authenticated');
           }

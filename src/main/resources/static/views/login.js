@@ -40,12 +40,14 @@ export default {
           this.errorLogin = true
         }
         else {
-          this.$router.push('/mypage');
+      
           
           let user = await fetch('/auth/whoami')
           user = await user.json()
           this.$store.commit('setUser', user)
           console.log('Successfully logged in:', user)
+
+          this.$router.push('/mypage');
         }
     },
 

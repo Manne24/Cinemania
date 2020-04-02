@@ -19,7 +19,7 @@
 body {
   height: 100vh;
   margin: 0px;
-  background-color: gray;
+  background-color: #BFBFBF;
 }
 
 main {
@@ -41,7 +41,7 @@ a {
   top: 0px;
   text-align: center;
   padding: 40px;
-  background-color: rgba(0, 0, 0, 0.438);
+  background-color:#212121;
   /* position: fixed; */
   width: 100%;
 }
