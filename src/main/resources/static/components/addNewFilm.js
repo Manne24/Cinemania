@@ -28,11 +28,19 @@ export default {
         <hr>
         
         <form class="example" @submit.prevent="deleteFilm">
-       <!--  <label>REMOVE FILM</label><br> -->
         <input v-model="titleDelete" type="text" 
         placeholder="Function not working yet" required><br>
         <button type="submit">DELETE</button>
         </form>
+
+        <hr>
+        <br>
+        <form class="example" @submit.prevent="updateFilm">
+        <input v-model="trailerUpdate" type="text" 
+        placeholder="Function not working yet" required><br>
+        <button type="submit">UPDATE</button>
+        </form>
+        
         </div>
         </div>
     `,
@@ -43,6 +51,7 @@ export default {
             imdbInfo: [],
             filmFound: '',
             titleAdd: '',
+            trailerUpdate: '',
             titleDelete: '',
             youTubeURL: '',
             youTubeId: ''
@@ -111,14 +120,26 @@ export default {
 
         },
         async deleteFilm() {
-            let filmRemove = { title: this.titleDelete };
+            let filmRemove = {title: this.titleDelete };
             console.log(filmRemove)
-            let rawResponse = await fetch('/rest/films/' + filmRemove.title, {
-                // tell the server we want to send/create data
+            let rawResponse = await fetch('/rest/films/title/' + filmRemove.title, {
                 method: 'DELETE',
+                
+            });
+            console.log(rawResponse)
+            let response = await rawResponse.text();
+            console.log(response)
+        },
+       /*  async updateFilm() {
+            let data = { sender: 'Olle', message: 'Hi!' };
+            let rawResponse = await fetch('/rest/films/', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
             });
             let response = await rawResponse.json();
-        }
+
+        } */
     },
     async addYouTubeId() {
         /* let data = { sender: 'Olle', message: 'Hi!' };
