@@ -26,7 +26,7 @@ export default {
 
       } */
       /* user_id: '', */
-      
+
     };
   },
   methods: {
@@ -38,30 +38,35 @@ export default {
       }
     },
     async book() {
-        
-        let currentDate = new Date(); // for now
-        /* let currentTime = currentDate.getTime().getHour() */
-    
-        let booking = {
-          user_id: '1',
-          booking_time: currentDate
-        }
-        let result = await fetch('/rest/bookings', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(booking)
-        })
-    
+
+      let currentDate = new Date();
+      /* let user_id = this.$store.state.user */
+      /* let currentTime = currentDate.getTime().getHour() */
+
+      let booking = {
+        user_id: '2',
+        booking_time: currentDate
+      }
+      let result = await fetch('/rest/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(booking)
+      })
+
+      try {
         result = await result.json()
-        console.log(result)
-        console.log(result.booking_id) 
-    
+        console.log('Successfull booking:', result)
+        /*  console.log(result.booking_id)  */
         this.$router.push(
           "/tickets/ticketChoice/screening/:id/seats/" + this.$route.params.id
+
         )
+      } catch {
+        console.log('Error, could not register')
       }
+    }
   },
   async created() {
     let screening = await fetch("/rest/screenings/" + this.$route.params.id);
@@ -75,7 +80,7 @@ export default {
     },
     screenings() {
       return this.$store.state.screenings;
-    } ,
+    },
     /* user (){
       return this.$store.state.user
     }  */
