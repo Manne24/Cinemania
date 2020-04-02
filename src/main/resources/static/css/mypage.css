@@ -3,3 +3,11 @@
 .container h2{
     color: white;
 }
+
+.booking-card {
+    background-color: rgb(212, 198, 219);
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
