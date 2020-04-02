@@ -15,26 +15,33 @@ export default {
         </div>
 
         <h2>My booking history</h2>
-        Booking id: {{ myPageBooking.booking_id }} <br>
-        Booking time: {{ myPageBooking.booking_time }}
+        <div class="filmcard"  
+            v-for="booking of bookings"
+            :key="booking.booking_id">
+            Booking id: {{ booking.booking_id }} <br>
+            Booking time: {{ booking.booking_time }}
+        </div>
         <history/>
     </div>    
     `,
-    data() {
+    /* data() {
         return {
             myPageBooking: [],
         }
-    },
+    }, */
     computed: {
         user() {
             return this.$store.state.user
+        },
+        bookings() {
+            return this.$store.state.bookings
         }
     },
-    async created() {
+    /* async created() {
         let booking = await fetch('/rest/bookings/' + this.user.user_id)
         booking = await booking.json()
         console.log(booking)
         this.myPageBooking = booking
-    }
+    } */
 }
 

@@ -22,16 +22,9 @@ export default {
       bgColorSelected: "#00ff00",
       bgColorReserved: "#ff0000",
       currentScreening: {},
-      /* user: {
-
-      } */
     }
   },
-  /* computed: {
-    user() {
-      return this.$store.state.user
-    }
-  }, */
+
   methods: {
     chooseSeat(seat) {
       if (seat.status === "available") {
@@ -43,7 +36,6 @@ export default {
     async bookTicket() {
 
       let currentDate = new Date();
-      /* let currentTime = currentDate.getTime().getHour() */
 
       let booking = {
         user_id: this.$store.state.user.user_id,
@@ -60,6 +52,7 @@ export default {
       try {
         result = await result.json()
         console.log(result)
+        /* this.$store.commit('appendBookings', result) */
         this.$router.push(
           "/tickets/ticketChoice/screening/:id/seats/" + result.booking_id
         )
@@ -81,9 +74,6 @@ export default {
     screenings() {
       return this.$store.state.screenings;
     },
-    /* user (){
-      return this.$store.state.user
-    }  */
   }
 }
 
