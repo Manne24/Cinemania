@@ -120,11 +120,13 @@ export default {
 
         },
         async deleteFilm() {
-            let filmRemove = { title: this.titleDelete };
-           
+            let filmRemove = {title: this.titleDelete };
+            console.log(filmRemove)
             let rawResponse = await fetch('/rest/films/title/' + filmRemove.title, {
                 method: 'DELETE',
+                
             });
+            console.log(rawResponse)
             let response = await rawResponse.text();
             console.log(response)
         },
