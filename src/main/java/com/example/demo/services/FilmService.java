@@ -25,7 +25,8 @@ public class FilmService {
         return filmRepo.save(film);
     }
 
-    public void deleteById(int id) {
+    public void deleteById(int film_id) {
+        filmRepo.deleteById(film_id);
     }
 
     public Optional<Film> getOneFilm(int id) {

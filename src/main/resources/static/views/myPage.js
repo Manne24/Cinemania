@@ -66,5 +66,5 @@ export default {
               headers: { "Content-Type": "application/json" },
               body: this.user_id
             });
-}
-
+        }
+    }
