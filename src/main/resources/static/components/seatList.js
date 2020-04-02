@@ -59,8 +59,7 @@ export default {
 
       try {
         result = await result.json()
-        console.log(result.booking_id)
-        /*  console.log(result.booking_id)  */
+        console.log(result)
         this.$router.push(
           "/tickets/ticketChoice/screening/:id/seats/" + result.booking_id
         )

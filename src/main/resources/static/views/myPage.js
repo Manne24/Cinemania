@@ -4,8 +4,8 @@ import history from '../components/history.js'
 export default {
     components: {
         history
-      },
-    template:`
+    },
+    template: `
     <div class="container">
 
         <h2>My Account</h2>
@@ -15,13 +15,26 @@ export default {
         </div>
 
         <h2>My booking history</h2>
-        
+        Booking id: {{ myPageBooking.booking_id }} <br>
+        Booking time: {{ myPageBooking.booking_time }}
         <history/>
     </div>    
     `,
-    computed:{
-        user(){
+    data() {
+        return {
+            myPageBooking: [],
+        }
+    },
+    computed: {
+        user() {
             return this.$store.state.user
-        },
+        }
+    },
+    async created() {
+        let booking = await fetch('/rest/bookings/' + this.user.user_id)
+        booking = await booking.json()
+        console.log(booking)
+        this.myPageBooking = booking
     }
 }
+
