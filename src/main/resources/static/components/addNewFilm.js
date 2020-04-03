@@ -129,30 +129,26 @@ export default {
             this.deleteFilmWithID = ''
 
         },
-        async updateFilm() {
-
-            console.log(this.filmID)
-            console.log(this.film_title)
-            
-            /* let data = {
+        async updateFilm() {      
+            let data = {
                 film_id: this.filmID,
-                title: this.film.title,
-                director: this.film.director,
-                description: this.film.description,
-                image: this.film.image,
+                title: 'ww',
+                director: 'ww',
+                description: 'ww',
+                image: 'ww',
                 trailer: 'https://www.youtube.com/embed/' + this.trailerUpdate,
-                genre: this.film.genre,
-                rated: this.film.rated,
-                runtime: this.film.runtime,
-                language: this.film.language,
-                year: this.film.year
+                genre: 'ww',
+                rated: 'ww',
+                runtime: 'ww',
+                language: 'ww',
+                year: 'ww'
             };
             let rawResponse = await fetch('/rest/films', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-            let response = await rawResponse.json(); */
+            let response = await rawResponse.json(); 
 
         }
     },
