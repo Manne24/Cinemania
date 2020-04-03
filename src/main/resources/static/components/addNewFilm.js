@@ -5,7 +5,7 @@ export default {
         <form class="example" @submit.prevent="checkIfFilmExists">
         <!-- <label>ADD FILM TO DATABASE</label><br><br> -->
         <input v-model="titleAdd" type="text" 
-        placeholder="Enter title of film" required><br>
+        placeholder="Enter TITLE of film" required><br>
         <!-- <input v-model="youTubeURL" type="text" 
         placeholder="YouTube-id" required><br> -->
         <button type="submit"><i class="fa fa-search"></i></button>
@@ -28,8 +28,8 @@ export default {
         <hr>
         
         <form class="example" @submit.prevent="deleteFilmWithId">
-        <input v-model="titleDelete" type="text" 
-        placeholder="Function not working yet" required><br>
+        <input v-model="deleteFilmWithID" type="text" 
+        placeholder="Enter ID of film to delete" required><br>
         <button type="submit">DELETE</button>
         </form>
 
@@ -37,7 +37,9 @@ export default {
         <br>
         <form class="example" @submit.prevent="updateFilm">
         <input v-model="trailerUpdate" type="text" 
-        placeholder="Function not working yet" required><br>
+        placeholder="Enter INFO to update" required><br><br>
+        <!-- <input v-model="filmID" type="text" 
+        placeholder="Enter ID of film to update" required><br> -->
         <button type="submit">UPDATE</button>
         </form>
         
@@ -52,7 +54,8 @@ export default {
             filmFound: '',
             titleAdd: '',
             trailerUpdate: '',
-            titleDelete: '',
+            filmID: '',
+            deleteFilmWithID: '',
             youTubeURL: '',
             youTubeId: ''
         }
@@ -119,35 +122,26 @@ export default {
             this.titleAdd = ''
 
         },
-        /* async deleteFilm() {
-            let filmRemove = {title: this.titleDelete };
-            console.log(filmRemove)
-            let rawResponse = await fetch('/rest/films/title/' + filmRemove.title, {
-                method: 'DELETE',
-                
-            });
-            console.log(rawResponse)
-            let response = await rawResponse.text();
-            console.log(response)
-        }, */
         async deleteFilmWithId() {
-            let response = await fetch("/rest/films/"+ this.titleDelete, {
-              method: "DELETE",
-              headers: { "Content-Type": "application/json" },
-              body: this.titleDelete
+            let response = await fetch('/rest/films/' + this.deleteFilmWithID, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: this.deleteFilmWithID
             });
             console.log(response)
-        }
-       /*  async updateFilm() {
-            let data = { sender: 'Olle', message: 'Hi!' };
-            let rawResponse = await fetch('/rest/films/', {
+            this.deleteFilmWithID = ''
+
+        },
+        async updateFilm() {
+            let data = { trailer: this.trailerUpdate};
+            let rawResponse = await fetch('/rest/films/'/*  + this.filmID */, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
             let response = await rawResponse.json();
 
-        } */
+        }
     },
     async addYouTubeId() {
         /* let data = { sender: 'Olle', message: 'Hi!' };

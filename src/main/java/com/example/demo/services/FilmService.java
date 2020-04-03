@@ -18,7 +18,8 @@ public class FilmService {
         return (List<Film>) filmRepo.findAll();
     }
 
-    public void updateFilm(Film film) {
+    public Film updateFilm(Film film) {
+        return filmRepo.save(film);
     }
 
     public Film addNewFilm(Film film) {

@@ -55,7 +55,7 @@ public class FilmController {
         }
     }
 
-    @PutMapping("/films")
+    /*@PutMapping("/films")
     public String updateFilm(@RequestBody Film film) {
         try {
             filmService.updateFilm(film);
@@ -63,5 +63,10 @@ public class FilmController {
         } catch (Exception e) {
             return "Failed";
         }
+    }*/
+
+    @PutMapping("/films")
+    public Film updateFilm(@RequestBody Film film) {
+        return filmService.updateFilm(film);
     }
 }
