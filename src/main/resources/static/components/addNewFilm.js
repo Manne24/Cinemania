@@ -38,8 +38,8 @@ export default {
         <form class="example" @submit.prevent="updateFilm">
         <input v-model="trailerUpdate" type="text" 
         placeholder="Enter INFO to update" required><br><br>
-        <!-- <input v-model="filmID" type="text" 
-        placeholder="Enter ID of film to update" required><br> -->
+       <input v-model="filmID" type="text" 
+        placeholder="Enter ID of film to update" required><br>
         <button type="submit">UPDATE</button>
         </form>
         
@@ -48,8 +48,6 @@ export default {
     `,
     data() {
         return {
-            film: {
-            },
             imdbInfo: [],
             filmFound: '',
             titleAdd: '',
@@ -62,7 +60,7 @@ export default {
     },
     computed: {
         films() {
-            return this.$store.state.films
+            return this.$store.state.films.filter((film) => film.film_id === this.filmID)
         }
     }, methods: {
         checkIfFilmExists() {
@@ -99,13 +97,12 @@ export default {
                 director: this.imdbInfo.Director,
                 description: this.imdbInfo.Plot,
                 image: this.imdbInfo.Poster,
-                trailer: 'https://www.youtube.com/embed/' + this.youTubeId,
+                trailer: 'https://www.youtube.com/embed/' + this.trailerUpdate /* this.youTubeId */,
                 genre: this.imdbInfo.Genre,
                 rated: this.imdbInfo.Rated,
                 runtime: this.imdbInfo.Runtime,
                 language: this.imdbInfo.Language,
                 year: this.imdbInfo.Year
-
             }
 
             let result = await fetch('/rest/films', {
@@ -133,13 +130,29 @@ export default {
 
         },
         async updateFilm() {
-            let data = { trailer: this.trailerUpdate};
-            let rawResponse = await fetch('/rest/films/'/*  + this.filmID */, {
+
+            console.log(this.filmID)
+            console.log(this.film_title)
+            
+            /* let data = {
+                film_id: this.filmID,
+                title: this.film.title,
+                director: this.film.director,
+                description: this.film.description,
+                image: this.film.image,
+                trailer: 'https://www.youtube.com/embed/' + this.trailerUpdate,
+                genre: this.film.genre,
+                rated: this.film.rated,
+                runtime: this.film.runtime,
+                language: this.film.language,
+                year: this.film.year
+            };
+            let rawResponse = await fetch('/rest/films', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-            let response = await rawResponse.json();
+            let response = await rawResponse.json(); */
 
         }
     },
