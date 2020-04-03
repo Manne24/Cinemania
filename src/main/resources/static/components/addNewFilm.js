@@ -27,10 +27,10 @@ export default {
         </section>
         <hr>
         
-        <form class="example" @submit.prevent="deleteFilmWithId">
-        <input v-model="deleteFilmWithID" type="text" 
-        placeholder="Enter ID of film to delete" required><br>
-        <button type="submit">DELETE</button>
+        <form class="example" @submit.prevent="deleteFilmByTitle">
+        <input v-model="titleDelete" type="text" 
+        placeholder="Function not working yet" required><br>
+        <button type="submit" >DELETE</button>
         </form>
 
         <hr>
@@ -119,31 +119,29 @@ export default {
             this.titleAdd = ''
 
         },
-        async deleteFilmWithId() {
-            let response = await fetch('/rest/films/' + this.deleteFilmWithID, {
-                method: "DELETE",
+        async deleteFilmByTitle() {
+            // let filmRemove = {title: this.titleDelete };
+            // console.log(filmRemove)
+            let rawResponse = await fetch('/rest/films/' + this.titleDelete, {
+                method: 'DELETE',
                 headers: { "Content-Type": "application/json" },
-                body: this.deleteFilmWithID
+                body:this.titleDelete    
             });
-            console.log(response)
-            this.deleteFilmWithID = ''
+            this.$store.state.films
+            console.log('Successfully removed the film')
+        }, 
 
-        },
-        async updateFilm() {      
-            let data = {
-                film_id: this.filmID,
-                title: 'ww',
-                director: 'ww',
-                description: 'ww',
-                image: 'ww',
-                trailer: 'https://www.youtube.com/embed/' + this.trailerUpdate,
-                genre: 'ww',
-                rated: 'ww',
-                runtime: 'ww',
-                language: 'ww',
-                year: 'ww'
-            };
-            let rawResponse = await fetch('/rest/films', {
+        // async deleteFilmWithId() {
+        //     let response = await fetch("/rest/films/"+ this.titleDelete, {
+        //       method: "DELETE",
+        //       headers: { "Content-Type": "application/json" },
+        //       body: this.titleDelete
+        //     });
+        //     console.log(response)
+        // }
+       /*  async updateFilm() {
+            let data = { sender: 'Olle', message: 'Hi!' };
+            let rawResponse = await fetch('/rest/films/', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
