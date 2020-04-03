@@ -21,11 +21,7 @@ export default {
         <history/>
     </div>    
     `,
-    data() {
-        return {
-          user_id: '',
-        }
-    },
+    
     computed:{
         user(){
             return this.$store.state.user
@@ -48,3 +44,4 @@ export default {
             }
         },
     }
+}
