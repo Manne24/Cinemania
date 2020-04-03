@@ -13,7 +13,7 @@ export default {
                 </div>
             </div>  
             <button @click="bookTicket">BOOK</button>
-            <p v-if: errorBooking></p>      
+            <p v-if="errorBooking">Error, could not execute booking</p>      
         </div>
     
     `,
@@ -60,7 +60,7 @@ export default {
           "/tickets/ticketChoice/screening/:id/seats/" + result.booking_id
         )
       } catch {
-
+        this.errorBooking = true
         console.log('Error, could not execute booking')
       }
     }
