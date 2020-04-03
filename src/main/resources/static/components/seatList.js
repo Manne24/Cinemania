@@ -12,7 +12,8 @@ export default {
                 <p>{{ seat.row }}-{{ seat.name }}</p>
                 </div>
             </div>  
-            <button @click="bookTicket">BOOK</button>      
+            <button @click="bookTicket">BOOK</button>
+            <p v-if: errorBooking></p>      
         </div>
     
     `,
@@ -22,6 +23,7 @@ export default {
       bgColorSelected: "#00ff00",
       bgColorReserved: "#ff0000",
       currentScreening: {},
+      errorBooking: false
     }
   },
 
@@ -36,11 +38,12 @@ export default {
     async bookTicket() {
 
       let currentDate = new Date();
-
+      try {
       let booking = {
         user_id: this.$store.state.user.user_id,
         booking_time: currentDate
       }
+      
       let result = await fetch('/rest/bookings', {
         method: 'POST',
         headers: {
@@ -49,7 +52,7 @@ export default {
         body: JSON.stringify(booking)
       })
 
-      try {
+      
         result = await result.json()
         console.log(result)
         /* this.$store.commit('appendBookings', result) */
@@ -57,7 +60,8 @@ export default {
           "/tickets/ticketChoice/screening/:id/seats/" + result.booking_id
         )
       } catch {
-        console.log('Error, could not register')
+
+        console.log('Error, could not execute booking')
       }
     }
   },
