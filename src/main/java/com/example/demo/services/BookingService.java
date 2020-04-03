@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Booking;
+import com.example.demo.entities.User;
 import com.example.demo.repositories.BookingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,4 +26,17 @@ public class BookingService {
     public Booking addNewBooking(Booking booking) {
         return bookingRepo.save(booking);
     }
+
+    public Booking removeBooking(int booking_id) {
+        return bookingRepo.deleteById(booking_id);
+    }
+
+
+    /*public Booking removeBooking(int booking_id) {
+        return bookingRepo.deleteById(booking_id);
+    }*/
+    /*public User removeUser(int user_id){
+        return userRepo.deleteById(user_id);
+    }*/
+
 }
