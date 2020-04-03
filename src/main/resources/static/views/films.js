@@ -2,26 +2,27 @@
 export default {
     template: `
     <div>
-        <div class="sort-films">
+    <div class="sort-films">
         <button
         v-for="(rating, i) in filmFilterAge" 
         :key="rating.age + i"
         @click="filmFilterKey = rating.age"
         >{{ rating.age }}
         </button>
-        </div>
-
-        <div class="filmcard-container">
+    </div>
+    
+     <div class="films-container">
+        <div>
         <div class="filmcard"  
          v-for="film of films"
          :key="film.film_id"
          @click="goToFilmInfo(film.film_id)">
         <img :src="film.image" alt="film image"><br>
-        {{ film.title | to-uppercase }} <br>
-        {{ film.rated | to-uppercase }} <br>
+         {{ film.title | to-uppercase }} <br>
+        Rated: <b>{{ film.rated }}</b> <br>
         </div>
         </div>    
-    
+    </div>
    </div>
     `,
     data() {
