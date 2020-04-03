@@ -42,4 +42,14 @@ public class BookingController {
         return userService.removeUser(user_id);
     }*/
 
+    @PutMapping("/bookings")
+    public String updateFilm(@RequestBody Booking booking) {
+        try {
+            bookingService.updateBooking(booking);
+            return "Success";
+        } catch (Exception e) {
+            return "Failed";
+        }
+    }
+
 }
