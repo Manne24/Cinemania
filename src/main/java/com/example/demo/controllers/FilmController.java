@@ -25,17 +25,17 @@ public class FilmController {
         return email.findOwnerByEmail(email);
     }*/
 
-    @GetMapping("/films/{film_id}")
+    /*@GetMapping("/films/{film_id}")
     public Optional<Film> getOneFilm(@PathVariable int film_id){
         return filmService.getOneFilm(film_id);
     }
-
+*/
     @PostMapping("/films")
     public Film createNewFilm(@RequestBody Film film) {
         return filmService.addNewFilm(film);
     }
 
-    @DeleteMapping("/films/{film_id}")
+   /* @DeleteMapping("/films/{film_id}")
     public String deleteOneFilm(@PathVariable int film_id) {
         try {
             filmService.deleteById(film_id);
@@ -43,16 +43,11 @@ public class FilmController {
         } catch (Exception e) {
             return "Failed";
         }
-    }
+    }*/
 
-    @DeleteMapping("/films/title/{title}")
-    public String deleteFilmByTitle(@PathVariable("title") String title) {
-        try {
-            filmService.deleteByTitle(title);
-            return "Success";
-        } catch (Exception e) {
-            return "Failed";
-        }
+    @DeleteMapping("/films/{title}")
+    public Long deleteFilmByTitle(@PathVariable String title) {
+        return filmService.removeFilm(title);
     }
 
     @PutMapping("/films")
