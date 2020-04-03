@@ -30,9 +30,9 @@ public class FilmService {
         filmRepo.deleteById(film_id);
     }*/
 
-    /*public Optional<Film> getOneFilm(int id) {
+    public Optional<Film> getOneFilm(long id) {
         return filmRepo.findById(id);
-    }*/
+    }
 
     public Long removeFilm(String title) {
         return filmRepo.deleteByTitle(title);
