@@ -162,11 +162,3 @@ export default {
         let response = await rawResponse.json(); */
     }
 }
-
-/* if(imdbInfo.length > 0) {
-               addNewFilm
-           } else {
-              = 'Film not found on OMDB-API'
-               return filmNotFound
-           } */
-
