@@ -126,6 +126,7 @@ export default {
             });
             this.$store.state.films
             console.log('Successfully removed the film')
+            this.titleDelete = ''
         },
         async updateFilm() {
             let data = {

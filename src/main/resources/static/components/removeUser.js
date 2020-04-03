@@ -1,9 +1,11 @@
 export default {
     template:`
-        <div>
-            <button @click="quitUser">Cancel membership</button>
-            <label>Enter your user id :</label><br>
-            <input v-model="user_id" required type="id" placeholder="user_id...">
+         <div class="add-new-film">
+        <br><hr>
+        <form class="example" @submit.prevent="quitUser">
+        <input v-model="user_id" required type="id" placeholder="Enter ID of user to remove"><br>
+        <button type="submit">CANCEL MEMBERSHIP</button>
+        </form>
         </div>
     `
     ,

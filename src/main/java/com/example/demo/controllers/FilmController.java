@@ -25,11 +25,11 @@ public class FilmController {
         return email.findOwnerByEmail(email);
     }*/
 
-    /*@GetMapping("/films/{film_id}")
-    public Optional<Film> getOneFilm(@PathVariable int film_id){
+    @GetMapping("/films/{film_id}")
+    public Optional<Film> getOneFilm(@PathVariable long film_id){
         return filmService.getOneFilm(film_id);
     }
-*/
+    
     @PostMapping("/films")
     public Film createNewFilm(@RequestBody Film film) {
         return filmService.addNewFilm(film);
