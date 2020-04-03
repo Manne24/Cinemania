@@ -34,7 +34,7 @@ export default {
         <hr>
         <form class="example" @submit.prevent="updateFilm">
         <input v-model="trailerUpdate" type="text" 
-        placeholder="Enter updated YouTube ID of trailer" required><br><br>
+        placeholder="Enter new YouTube ID for trailer" required><br><br>
        <input v-model="filmID" type="text" 
         placeholder="Enter ID of film to update" required><br>
         <button type="submit">UPDATE</button>
