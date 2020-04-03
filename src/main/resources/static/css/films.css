@@ -2,18 +2,29 @@
   box-sizing: border-box;
 }
 
+.films-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .filmcard {
   background-color: rgb(201, 153, 226);
   width: 320px;
   padding: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+  height: 550px;
+  text-align: center;
+}
+
+.filmcard img {
+  margin-bottom: 20px;
 }
 
 .sort-films {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: space-between;
   height: 100%;
   padding-bottom: 26px;
