@@ -1,6 +1,5 @@
 import history from '../components/history.js'
 
-
 export default {
     components: {
         history
@@ -18,16 +17,7 @@ export default {
         <button @click="quitUser">Cancel membership</button>
         <label>Enter your user id :</label><br>
         <input v-model="user_id" required type="id" placeholder="user_id..."><br>
-        
-
         <h2>My booking history</h2>
-        <div class="booking-card"  
-            v-for="booking of bookings"
-            :key="booking.booking_id">
-            Booking id: {{ booking.booking_id }} <br>
-            Booking time: {{ booking.booking_time }} <br>
-            <i class="far fa-trash-alt"></i>
-        </div>
         <history/>
     </div>    
     `,
@@ -39,9 +29,6 @@ export default {
     computed:{
         user(){
             return this.$store.state.user
-        },
-        bookings() {
-            return this.$store.state.bookings.filter((booking) => booking.user_id === this.user.user_id)
         }
     },
     methods: {
@@ -60,11 +47,4 @@ export default {
             //   this.$router.push('/mypage');
             }
         },
-        async cancelBooking() {
-            let response = await fetch("/bookings/"+ this.user_id, {
-              method: "DELETE",
-              headers: { "Content-Type": "application/json" },
-              body: this.user_id
-            });
-        }
     }

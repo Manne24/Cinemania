@@ -30,7 +30,6 @@ export default {
           this.$router.push('/login').catch((err) => {
             throw new Error(`Problem handling something: ${err}.`);
         })
-
         }
       },
 
