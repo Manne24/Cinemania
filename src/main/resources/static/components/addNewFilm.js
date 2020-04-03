@@ -3,15 +3,13 @@ export default {
         <div> 
             <div class="add-new-film">
         <form class="example" @submit.prevent="checkIfFilmExists">
-        <!-- <label>ADD FILM TO DATABASE</label><br><br> -->
         <input v-model="titleAdd" type="text" 
         placeholder="Enter TITLE of film to add" required><br>
-        <!-- <input v-model="youTubeURL" type="text" 
-        placeholder="YouTube-id" required><br> -->
         <button type="submit"><i class="fa fa-search"></i></button>
         <button @click.prevent="addNewFilm">ADD</button>
         <button type="reset" value="Reset">RESET</button>
-        </form><br>
+        </form>
+
         <p :style="{color: 'red'}">{{ imdbInfo.Error }}</p><br> 
         <section>
         title: {{ imdbInfo.Title }} <br>
@@ -31,18 +29,17 @@ export default {
         <input v-model="titleDelete" type="text" 
         placeholder="Enter TITLE of film to delete" required><br>
         <button type="submit" >DELETE</button>
-        </form>
+        </form><br>
 
         <hr>
-        <br>
         <form class="example" @submit.prevent="updateFilm">
         <input v-model="trailerUpdate" type="text" 
-        placeholder="Enter INFO to update" required><br><br>
+        placeholder="Enter updated YouTube ID of trailer" required><br><br>
        <input v-model="filmID" type="text" 
         placeholder="Enter ID of film to update" required><br>
         <button type="submit">UPDATE</button>
         </form>
-        
+
         </div>
         </div>
     `,
@@ -55,12 +52,14 @@ export default {
             filmID: '',
             deleteFilmWithID: '',
             youTubeURL: '',
-            youTubeId: ''
+            youTubeId: '',
+            titleDelete: ''
         }
     },
     computed: {
         films() {
-            return this.$store.state.films.filter((film) => film.film_id === this.filmID)
+            let film = this.$store.state.films.filter((film) => film.film_id === this.filmID)
+            return 
         }
     }, methods: {
         checkIfFilmExists() {
@@ -120,8 +119,6 @@ export default {
 
         },
         async deleteFilmByTitle() {
-            // let filmRemove = {title: this.titleDelete };
-            // console.log(filmRemove)
             let rawResponse = await fetch('/rest/films/' + this.titleDelete, {
                 method: 'DELETE',
                 headers: { "Content-Type": "application/json" },
@@ -149,11 +146,10 @@ export default {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-            let response = await rawResponse.json();
+            console.log('Successfully updated the film')
 
         }
     },
-
     async addYouTubeId() {
         /* let data = { sender: 'Olle', message: 'Hi!' };
         let rawResponse = await fetch('[route]/id', {
