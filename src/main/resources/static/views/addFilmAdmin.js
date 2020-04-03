@@ -8,9 +8,9 @@ export default {
     <div>
     <addNewFilm />
 
-    <button @click="quitUser">Cancel membership</button>
+  <!--   <button @click="quitUser">Cancel membership</button>
         <label>Enter your user id :</label><br>
-        <input v-model="user_id" required type="id" placeholder="user_id..."><br>
+        <input v-model="user_id" required type="id" placeholder="user_id..."><br> -->
         
     </div>
     `
