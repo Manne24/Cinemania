@@ -5,12 +5,12 @@ Vue.use(VueRouter);
 import cinemania from "./views/Cinemania.js";
 import films from "./views/films.js";
 import login from "./views/login.js";
-import register from "./views/register.js"
+import register from "./views/register.js";
 import bokTickets from "./views/bokTickets.js";
 import filmDetails from "./views/filmDetails.js";
 import ticketChoice from "./views/ticketChoice.js";
 import seats from "./views/seats.js";
-import addFilmAdmin from './views/addFilmAdmin.js'
+import addFilmAdmin from "./views/addFilmAdmin.js";
 import myPage from "./views/myPage.js";
 
 export const router = new VueRouter({
@@ -20,53 +20,53 @@ export const router = new VueRouter({
     {
       name: "home",
       path: "/",
-      component: cinemania
+      component: cinemania,
     },
 
     {
       name: "films",
       path: "/films",
-      component: films
+      component: films,
     },
     {
       name: "filmDetails",
       path: "/films/:id",
-      component: filmDetails
+      component: filmDetails,
     },
     {
       name: "ticketChoice",
       path: "/bokTickets/ticketChoice/screening/:id",
-      component: ticketChoice
+      component: ticketChoice,
     },
     {
       name: "login",
       path: "/login",
-      component: login
+      component: login,
     },
     {
       name: "register",
       path: "/register",
-      component: register
+      component: register,
     },
     {
       name: "bokTickets",
       path: "/bokTickets",
-      component: bokTickets
+      component: bokTickets,
     },
     {
       name: "seats",
       path: "/bokTickets/ticketChoice/screening/:id/seats",
-      component: seats
+      component: seats,
     },
     {
       name: "myPage",
       path: "/mypage",
-      component: myPage
+      component: myPage,
     },
     {
       name: "addFilmAdmin",
       path: "/addFilmAdmin",
-      component: addFilmAdmin
+      component: addFilmAdmin,
     },
-  ]
+  ],
 });

@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
     films: [],
     users: [],
     screenings: [],
-    seats: []
+    seats: [],
+    tickets: [],
   },
   mutations: {
     setFilms(state, films) {
@@ -26,6 +27,9 @@ export const store = new Vuex.Store({
     },
     setSeats(state, seats) {
       state.seats = seats;
-    }
-  }
+    },
+    setTickets(state, tickets) {
+      state.tickets = tickets;
+    },
+  },
 });
