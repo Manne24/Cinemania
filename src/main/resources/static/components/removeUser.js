@@ -7,6 +7,7 @@ export default {
         <button type="submit">CANCEL MEMBERSHIP</button>
         </form>
         </div>
+    </div>
     `
     ,
     data() {

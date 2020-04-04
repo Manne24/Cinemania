@@ -70,13 +70,14 @@ export default {
                     console.log(this.imdbInfo)
                 })
 
-        },
-        getYouTubeURL() {
+                fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=AIzaSyBZYMBXtPnBh3a5C52KBGF01L-2HSFlaUY&q=' + this.titleAdd)
+                .then((res) => { return res.json() })
+                .then((res) => {
+                    this.youTubeURL = res;
+                    this.youTubeId = 'https://www.youtube.com/embed/' + this.youTubeURL.items[0].id.videoId
+                    console.log(this.youTubeId)
+                })    
 
-        },
-        matchYoutubeUrl(url) {
-            let youTubeId = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-            return (url.match(youTubeId)) ? RegExp.$1 : false;
         },
         async addNewFilm() {
 
@@ -96,7 +97,7 @@ export default {
                 director: this.imdbInfo.Director,
                 description: this.imdbInfo.Plot,
                 image: this.imdbInfo.Poster,
-                trailer: 'https://www.youtube.com/embed/' + this.trailerUpdate /* this.youTubeId */,
+                trailer: this.youTubeId,
                 genre: this.imdbInfo.Genre,
                 rated: this.imdbInfo.Rated,
                 runtime: this.imdbInfo.Runtime,
@@ -151,16 +152,4 @@ export default {
 
         }
     },
-    async addYouTubeId() {
-        /* let data = { sender: 'Olle', message: 'Hi!' };
-        let rawResponse = await fetch('[route]/id', {
-            // tell the server we want to send/create data
-            method: 'put',
-            // and that we will send data json formatted
-            headers: { 'Content-Type': 'application/json' },
-            // the data encoded as json
-            body: JSON.stringify(data)
-        });
-        let response = await rawResponse.json(); */
-    }
 }

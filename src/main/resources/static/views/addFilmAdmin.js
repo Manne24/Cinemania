@@ -8,8 +8,8 @@ export default {
     },
     template: `
     <div>
-    <addNewFilm />
-    <removeUser />
+        <addNewFilm />
+        <removeUser />
     </div>
     `
 }
