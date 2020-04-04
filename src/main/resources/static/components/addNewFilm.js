@@ -36,7 +36,7 @@ export default {
         <input v-model="trailerUpdate" type="text" 
         placeholder="Enter new YouTube ID for trailer" required><br><br>
        <input v-model="filmID" type="text" 
-        placeholder="Enter ID of film to update" required><br>
+        placeholder="Enter ID of film to update (need some adjusting to work)" required><br>
         <button type="submit">UPDATE</button>
         </form>
 
@@ -59,7 +59,7 @@ export default {
     computed: {
         films() {
             let film = this.$store.state.films.filter((film) => film.film_id === this.filmID)
-            return 
+            return
         }
     }, methods: {
         checkIfFilmExists() {
@@ -70,13 +70,13 @@ export default {
                     console.log(this.imdbInfo)
                 })
 
-                fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=AIzaSyBZYMBXtPnBh3a5C52KBGF01L-2HSFlaUY&q=' + this.titleAdd)
+            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=AIzaSyBZYMBXtPnBh3a5C52KBGF01L-2HSFlaUY&q=' + this.titleAdd)
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.youTubeURL = res;
                     this.youTubeId = 'https://www.youtube.com/embed/' + this.youTubeURL.items[0].id.videoId
                     console.log(this.youTubeId)
-                })    
+                })
 
         },
         async addNewFilm() {
