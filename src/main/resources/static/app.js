@@ -22,27 +22,26 @@ export default {
         </div>
       `,
 
-      methods: {
-        doLogout(){
-          fetch('/logout')
-          console.log('Successfully logged out')
-          this.$store.commit('setUser', null)
-          this.$router.push('/login').catch((err) => {
-            throw new Error(`Problem handling something: ${err}.`);
-        })
-        }
-      },
-
+  methods: {
+    doLogout() {
+      fetch('/logout')
+      console.log('Successfully logged out')
+      this.$store.commit('setUser', null)
+      this.$router.push('/login').catch((err) => {
+        throw new Error(`Problem handling something: ${err}.`);
+      })
+    }
+  },
   async created() {
     let user = await fetch("/auth/whoami");
 
-          try{
-            user = await user.json()
-            this.$store.commit('setUser', user)
-            console.log('Login user :', user.name);
-          }catch{
-            console.log('Client not authenticated');
-          }
+    try {
+      user = await user.json()
+      this.$store.commit('setUser', user)
+      console.log('Login user :', user.name);
+    } catch{
+      console.log('Client not authenticated');
+    }
 
     let films = await fetch("/rest/films");
     films = await films.json();
@@ -63,14 +62,14 @@ export default {
     let tickets = await fetch("/rest/tickets");
     tickets = await tickets.json();
     this.$store.commit("setTickets", tickets);
-  },
-          let screenings = await fetch("rest/screenings");
-          screenings = await screenings.json();
-          this.$store.commit("setScreenings", screenings);
 
-          let bookings = await fetch("rest/bookings");
-          bookings = await bookings.json();
-          this.$store.commit("setBookings", bookings);
+    /* let screenings = await fetch("rest/screenings");
+    screenings = await screenings.json();
+    this.$store.commit("setScreenings", screenings); */
 
-        }
+    let bookings = await fetch("rest/bookings");
+    bookings = await bookings.json();
+    this.$store.commit("setBookings", bookings);
+
+  }
 };
