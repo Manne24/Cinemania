@@ -70,7 +70,7 @@ export default {
                     console.log(this.imdbInfo)
                 })
 
-            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=AIzaSyBZYMBXtPnBh3a5C52KBGF01L-2HSFlaUY&q=' + this.titleAdd)
+            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=&q=' + this.titleAdd + 'trailer')
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.youTubeURL = res;
