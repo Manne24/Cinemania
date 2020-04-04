@@ -45,7 +45,7 @@ export default {
   methods: {
     goToSeats() {
       this.$router.push(
-        "/tickets/ticketChoice/screening/" + this.$route.params.id + "/seats"
+        "/bokTickets/ticketChoice/screening/" + this.$route.params.id + "/seats"
       );
     },
     decreaseValue(selectedValue) {
