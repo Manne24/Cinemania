@@ -34,7 +34,7 @@ export default {
         <hr>
         <form class="example" @submit.prevent="updateFilm">
         <input v-model="trailerUpdate" type="text" 
-        placeholder="Enter updated YouTube ID of trailer" required><br><br>
+        placeholder="Enter new YouTube ID for trailer" required><br><br>
        <input v-model="filmID" type="text" 
         placeholder="Enter ID of film to update (need some adjusting to work)" required><br>
         <button type="submit">UPDATE</button>
@@ -70,7 +70,7 @@ export default {
                     console.log(this.imdbInfo)
                 })
 
-            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=AIzaSyBZYMBXtPnBh3a5C52KBGF01L-2HSFlaUY&q=' + this.titleAdd)
+            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=&q=' + this.titleAdd + 'trailer')
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.youTubeURL = res;
