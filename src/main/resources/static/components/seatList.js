@@ -12,7 +12,7 @@ export default {
                 <p>{{ seat.row }}-{{ seat.name }}</p>
                 </div>
             </div>  
-            <button @click="bookTicket">BOOK</button>
+            <button @click="addBooking">BOOK</button>
             <p v-if="errorBooking">Error, could not execute booking</p>      
         </div>
     
@@ -86,6 +86,36 @@ export default {
         }
       }
     },
+    async addBooking() {
+      let booking = {
+        user_id: this.user.user_id, //get id of current user
+        booking_time: new Date(), //get current time
+      };
+
+      let result = await fetch("/rest/bookings", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(booking),
+      });
+
+      result = await result.json();
+
+      //this.addTickets(result);
+    },
+    /*
+    async addTickets(booking){
+      for (seat of seats){
+        let ticket = {
+          booking_id: booking.booking_id,
+          screening_id: currentScreening.screening_id,
+          seat_id: seat.seat_id,
+          ticket_type_id:,
+          ticket_price:
+        }
+      }
+    }*/
   },
   async created() {
     let screening = await fetch("/rest/screenings/" + this.$route.params.id);
@@ -104,6 +134,9 @@ export default {
     },
     tickets() {
       return this.$store.state.tickets;
+    },
+    user() {
+      return this.$store.state.user;
     },
   },
 };
