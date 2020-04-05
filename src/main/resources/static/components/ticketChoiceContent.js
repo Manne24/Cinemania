@@ -23,7 +23,9 @@ export default {
             </div>           
             <p class="priceText">Total Price: {{price}} kr </p>
           </form>
-          <button @click="goToSeats()" class="goToSeatsButton">Choose Seats</button>
+          <button
+            v-if="(value+value2+value3) > 0" 
+            @click="goToSeats()" class="goToSeatsButton">Choose Seats</button>
         </div>
         
         `,
@@ -33,17 +35,19 @@ export default {
       console.log(screening)
       this.screening = screening
   }, */
-  // props: ["screenings"],
   data() {
     return {
       value: 0,
       value2: 0,
       value3: 0,
-      price: 0
+      price: 0,
+      //totalTickets: 0,
     };
   },
   methods: {
     goToSeats() {
+      //this.totalTickets = this.value + this.value2 + this.value3;
+      //console.log(this.totalTickets);
       this.$router.push(
         "/bokTickets/ticketChoice/screening/" + this.$route.params.id + "/seats"
       );
@@ -66,6 +70,6 @@ export default {
       } else if (selectedValue === 3) {
         (this.value3 += 1), (this.price += 75);
       }
-    }
-  }
+    },
+  },
 };
