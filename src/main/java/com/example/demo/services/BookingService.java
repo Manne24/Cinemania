@@ -31,6 +31,9 @@ public class BookingService {
         return bookingRepo.deleteById(booking_id);
     }
 
+    public void updateBooking(Booking booking) {
+    }
+
 
     /*public Booking removeBooking(int booking_id) {
         return bookingRepo.deleteById(booking_id);

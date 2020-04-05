@@ -9,13 +9,20 @@
   }
   
   /* Style the search field */
-  form.example input[type=text] {
+  form.example input[type=text], input[type=id] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
     /* float: left; */
     width: 70%;
+  }
+
+  form.example input[type=text] {
     background: #f1f1f1;
+  }
+
+  form.example input[type=id] {
+    background: #f5b7b7;
   }
   
   /* Style the submit button */

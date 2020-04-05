@@ -18,22 +18,23 @@ public class FilmService {
         return (List<Film>) filmRepo.findAll();
     }
 
-    public void updateFilm(Film film) {
+    public Film updateFilm(Film film) {
+        return filmRepo.save(film);
     }
 
     public Film addNewFilm(Film film) {
         return filmRepo.save(film);
     }
 
-    public void deleteById(int film_id) {
+    /*public void deleteById(int film_id) {
         filmRepo.deleteById(film_id);
-    }
+    }*/
 
-    public Optional<Film> getOneFilm(int id) {
+    public Optional<Film> getOneFilm(long id) {
         return filmRepo.findById(id);
     }
 
-    public void deleteByTitle(String title) {
-        filmRepo.deleteByTitle(title);
+    public Long removeFilm(String title) {
+        return filmRepo.deleteByTitle(title);
     }
 }

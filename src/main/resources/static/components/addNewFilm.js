@@ -3,15 +3,13 @@ export default {
         <div> 
             <div class="add-new-film">
         <form class="example" @submit.prevent="checkIfFilmExists">
-        <!-- <label>ADD FILM TO DATABASE</label><br><br> -->
         <input v-model="titleAdd" type="text" 
-        placeholder="Enter title of film" required><br>
-        <!-- <input v-model="youTubeURL" type="text" 
-        placeholder="YouTube-id" required><br> -->
+        placeholder="Enter TITLE of film to add" required><br>
         <button type="submit"><i class="fa fa-search"></i></button>
         <button @click.prevent="addNewFilm">ADD</button>
         <button type="reset" value="Reset">RESET</button>
-        </form><br>
+        </form>
+
         <p :style="{color: 'red'}">{{ imdbInfo.Error }}</p><br> 
         <section>
         title: {{ imdbInfo.Title }} <br>
@@ -27,39 +25,41 @@ export default {
         </section>
         <hr>
         
-        <form class="example" @submit.prevent="deleteFilmWithId">
+        <form class="example" @submit.prevent="deleteFilmByTitle">
         <input v-model="titleDelete" type="text" 
-        placeholder="Function not working yet" required><br>
-        <button type="submit">DELETE</button>
-        </form>
+        placeholder="Enter TITLE of film to delete" required><br>
+        <button type="submit" >DELETE</button>
+        </form><br>
 
         <hr>
-        <br>
         <form class="example" @submit.prevent="updateFilm">
         <input v-model="trailerUpdate" type="text" 
-        placeholder="Function not working yet" required><br>
+        placeholder="Enter new YouTube ID for trailer" required><br><br>
+       <input v-model="filmID" type="text" 
+        placeholder="Enter ID of film to update (need some adjusting to work)" required><br>
         <button type="submit">UPDATE</button>
         </form>
-        
+
         </div>
         </div>
     `,
     data() {
         return {
-            film: {
-            },
             imdbInfo: [],
             filmFound: '',
             titleAdd: '',
             trailerUpdate: '',
-            titleDelete: '',
+            filmID: '',
+            deleteFilmWithID: '',
             youTubeURL: '',
-            youTubeId: ''
+            youTubeId: '',
+            titleDelete: ''
         }
     },
     computed: {
         films() {
-            return this.$store.state.films
+            let film = this.$store.state.films.filter((film) => film.film_id === this.filmID)
+            return
         }
     }, methods: {
         checkIfFilmExists() {
@@ -70,13 +70,14 @@ export default {
                     console.log(this.imdbInfo)
                 })
 
-        },
-        getYouTubeURL() {
+            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=&q=' + this.titleAdd + 'trailer')
+                .then((res) => { return res.json() })
+                .then((res) => {
+                    this.youTubeURL = res;
+                    this.youTubeId = 'https://www.youtube.com/embed/' + this.youTubeURL.items[0].id.videoId
+                    console.log(this.youTubeId)
+                })
 
-        },
-        matchYoutubeUrl(url) {
-            let youTubeId = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-            return (url.match(youTubeId)) ? RegExp.$1 : false;
         },
         async addNewFilm() {
 
@@ -96,13 +97,12 @@ export default {
                 director: this.imdbInfo.Director,
                 description: this.imdbInfo.Plot,
                 image: this.imdbInfo.Poster,
-                trailer: 'https://www.youtube.com/embed/' + this.youTubeId,
+                trailer: this.youTubeId,
                 genre: this.imdbInfo.Genre,
                 rated: this.imdbInfo.Rated,
                 runtime: this.imdbInfo.Runtime,
                 language: this.imdbInfo.Language,
                 year: this.imdbInfo.Year
-
             }
 
             let result = await fetch('/rest/films', {
@@ -119,46 +119,37 @@ export default {
             this.titleAdd = ''
 
         },
-        /* async deleteFilm() {
-            let filmRemove = {title: this.titleDelete };
-            console.log(filmRemove)
-            let rawResponse = await fetch('/rest/films/title/' + filmRemove.title, {
+        async deleteFilmByTitle() {
+            let rawResponse = await fetch('/rest/films/' + this.titleDelete, {
                 method: 'DELETE',
-                
+                headers: { "Content-Type": "application/json" },
+                body: this.titleDelete
             });
-            console.log(rawResponse)
-            let response = await rawResponse.text();
-            console.log(response)
-        }, */
-        async deleteFilmWithId() {
-            let response = await fetch("/rest/films/"+ this.titleDelete, {
-              method: "DELETE",
-              headers: { "Content-Type": "application/json" },
-              body: this.titleDelete
-            });
-            console.log(response)
-        }
-       /*  async updateFilm() {
-            let data = { sender: 'Olle', message: 'Hi!' };
-            let rawResponse = await fetch('/rest/films/', {
+            this.$store.state.films
+            console.log('Successfully removed the film')
+            this.titleDelete = ''
+        },
+        async updateFilm() {
+            let data = {
+                film_id: this.filmID,
+                title: 'ww',
+                director: 'ww',
+                description: 'ww',
+                image: 'ww',
+                trailer: 'https://www.youtube.com/embed/' + this.trailerUpdate,
+                genre: 'ww',
+                rated: 'ww',
+                runtime: 'ww',
+                language: 'ww',
+                year: 'ww'
+            };
+            let rawResponse = await fetch('/rest/films', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
-            let response = await rawResponse.json();
+            console.log('Successfully updated the film')
 
-        } */
+        }
     },
-    async addYouTubeId() {
-        /* let data = { sender: 'Olle', message: 'Hi!' };
-        let rawResponse = await fetch('[route]/id', {
-            // tell the server we want to send/create data
-            method: 'put',
-            // and that we will send data json formatted
-            headers: { 'Content-Type': 'application/json' },
-            // the data encoded as json
-            body: JSON.stringify(data)
-        });
-        let response = await rawResponse.json(); */
-    }
 }

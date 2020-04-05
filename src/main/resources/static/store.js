@@ -33,6 +33,9 @@ export const store = new Vuex.Store({
     },
     setBookings(state, bookings){
       state.bookings = bookings
-    }
+    },
+    setTickets(state, tickets) {
+      state.tickets = tickets;
+    },
   }
-});
+})
