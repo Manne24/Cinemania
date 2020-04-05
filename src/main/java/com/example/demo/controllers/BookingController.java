@@ -32,7 +32,7 @@ public class BookingController {
         return bookingService.addNewBooking(booking);
     }
 
-    @DeleteMapping("bookings/{booking_id}")
+    @DeleteMapping("/bookings/{booking_id}")
     public Booking deleteBooking(@PathVariable int booking_id){
         return bookingService.removeBooking(booking_id);
     }
