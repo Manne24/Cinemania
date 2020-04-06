@@ -45,8 +45,14 @@ export default {
           seat.status = "available";
           this.counter -= 1;
         }
+      } else {
+        if (seat.status === "selected") {
+          seat.status = "available";
+          this.counter -= 1;
+        }
       }
     },
+    /*
     async bookTicket() {
       let currentDate = new Date();
       try {
@@ -65,7 +71,7 @@ export default {
 
         result = await result.json();
         console.log(result);
-        /* this.$store.commit('appendBookings', result) */
+        // this.$store.commit('appendBookings', result)
         this.$router.push(
           "/tickets/ticketChoice/screening/:id/seats/" + result.booking_id
         );
@@ -74,6 +80,7 @@ export default {
         console.log("Error, could not execute booking");
       }
     },
+    */
     async checkReservedSeats() {
       for (let ticket of this.tickets) {
         if (ticket.screening_id === this.currentScreening.screening_id) {
@@ -112,7 +119,12 @@ export default {
     async addTickets(booking) {
       let indexPosition = 0;
       for (let seat of this.seats) {
-        if (seat.status === "reserved") {
+        if (seat.status === "selected") {
+          console.log("booking id: " + booking.booking_id);
+          console.log("screening id: " + this.currentScreening.screening_id);
+          console.log("seat id: " + seat.seat_id);
+          console.log("type id: " + this.listTicketTypes[indexPosition]);
+
           let ticket = {
             booking_id: booking.booking_id,
             screening_id: this.currentScreening.screening_id,
@@ -130,8 +142,12 @@ export default {
           });
 
           result = await result.json();
+
+          seat.status = "reserved";
+          this.counter = 0;
         }
       }
+      this.$router.push("/myPage");
     },
   },
   async created() {
