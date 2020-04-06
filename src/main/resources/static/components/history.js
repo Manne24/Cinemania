@@ -9,20 +9,31 @@ export default {
             <i class="far fa-trash-alt" @click="cancelBooking"></i>
         </div>
     </div>
-    `
-    ,computed: {
+    `,
+    /* data() {
+        return {
+            booking
+        }
+    }
+    , */ computed: {
         bookings() {
             return this.$store.state.bookings.filter((booking) => booking.user_id === this.user.user_id)
         },
-        user(){
+        user() {
             return this.$store.state.user
         }
 
-    }, async cancelBooking() {
-        let response = await fetch("/bookings/" + this.booking_id, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: this.booking_id
-        });
+    },
+    methods: {
+        async cancelBooking() {
+            let response = await fetch("/bookings/" + this.booking_id, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: this.booking_id
+                
+            });
+            console.log(response)
+        }
+
     }
 }
