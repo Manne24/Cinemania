@@ -34,9 +34,9 @@ export default {
         <hr>
         <form class="example" @submit.prevent="updateFilm">
         <input v-model="trailerUpdate" type="text" 
-        placeholder="Enter updated YouTube ID of trailer" required><br><br>
+        placeholder="Enter new YouTube ID for trailer" required><br><br>
        <input v-model="filmID" type="text" 
-        placeholder="Enter ID of film to update" required><br>
+        placeholder="Enter ID of film to update (need some adjusting to work)" required><br>
         <button type="submit">UPDATE</button>
         </form>
 
@@ -59,7 +59,7 @@ export default {
     computed: {
         films() {
             let film = this.$store.state.films.filter((film) => film.film_id === this.filmID)
-            return 
+            return
         }
     }, methods: {
         checkIfFilmExists() {
@@ -69,14 +69,15 @@ export default {
                     this.imdbInfo = res;
                     console.log(this.imdbInfo)
                 })
+                
+            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=[YOUR_API_KEY]&q=' + this.titleAdd + 'trailer')
+                .then((res) => { return res.json() })
+                .then((res) => {
+                    this.youTubeURL = res;
+                    this.youTubeId = 'https://www.youtube.com/embed/' + this.youTubeURL.items[0].id.videoId
+                    console.log(this.youTubeId)
+                })
 
-        },
-        getYouTubeURL() {
-
-        },
-        matchYoutubeUrl(url) {
-            let youTubeId = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-            return (url.match(youTubeId)) ? RegExp.$1 : false;
         },
         async addNewFilm() {
 
@@ -96,7 +97,7 @@ export default {
                 director: this.imdbInfo.Director,
                 description: this.imdbInfo.Plot,
                 image: this.imdbInfo.Poster,
-                trailer: 'https://www.youtube.com/embed/' + this.trailerUpdate /* this.youTubeId */,
+                trailer: this.youTubeId,
                 genre: this.imdbInfo.Genre,
                 rated: this.imdbInfo.Rated,
                 runtime: this.imdbInfo.Runtime,
@@ -151,16 +152,4 @@ export default {
 
         }
     },
-    async addYouTubeId() {
-        /* let data = { sender: 'Olle', message: 'Hi!' };
-        let rawResponse = await fetch('[route]/id', {
-            // tell the server we want to send/create data
-            method: 'put',
-            // and that we will send data json formatted
-            headers: { 'Content-Type': 'application/json' },
-            // the data encoded as json
-            body: JSON.stringify(data)
-        });
-        let response = await rawResponse.json(); */
-    }
 }
