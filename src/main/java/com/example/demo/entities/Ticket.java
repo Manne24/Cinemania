@@ -12,10 +12,8 @@ public class Ticket {
     private int ticket_id;
     private int booking_id;
     private int screening_id;
-    //private int salon_id;
     private int seat_id;
     private int ticket_type_id;
-    private int ticket_price;
 
     public Ticket(){
 
@@ -61,11 +59,4 @@ public class Ticket {
         this.ticket_type_id = ticket_type_id;
     }
 
-    public int getTicket_price() {
-        return ticket_price;
-    }
-
-    public void setTicket_price(int ticket_price) {
-        this.ticket_price = ticket_price;
-    }
 }
