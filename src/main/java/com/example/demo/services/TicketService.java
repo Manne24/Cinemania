@@ -23,6 +23,12 @@ public class TicketService {
     }
 
 
+    public Ticket addNewTicket(Ticket ticket) {
+        return ticketRepo.save(ticket);
+    }
 
+    /*public Film addNewFilm(Film film) {
+        return filmRepo.save(film);
+    }*/
 
 }

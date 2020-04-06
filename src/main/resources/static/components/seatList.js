@@ -12,7 +12,7 @@ export default {
                 <p>{{ seat.row }}-{{ seat.name }}</p>
                 </div>
             </div>  
-            <button @click="addBooking">BOOK</button>
+            <button @click="bookTicket">BOOK</button>
             <p v-if="errorBooking">Error, could not execute booking</p>      
         </div>
     
@@ -33,7 +33,7 @@ export default {
       console.log(seat.status);
       //console.log(this.counter);
       //console.log(this.totalTickets);
-      //if (this.counter < this.totalTickets) {
+      //if (this.counter <= this.totalTickets) {
       if (seat.status === "available") {
         seat.status = "selected";
         this.counter += 1;
@@ -44,27 +44,53 @@ export default {
       //}
     },
     async bookTicket() {
-      let currentDate = new Date();
-      try {
+  /* First step: add booking to db */
+    let currentDate = new Date();
+      
+    try {
         let booking = {
           user_id: this.$store.state.user.user_id,
           booking_time: currentDate,
-        };
+        }
 
-        let result = await fetch("/rest/bookings", {
+        let resultBooking = await fetch("/rest/bookings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(booking),
-        });
+        })
+        resultBooking = await result.json();
+        console.log(resultBooking);
 
-        result = await result.json();
-        console.log(result);
-        /* this.$store.commit('appendBookings', result) */
+      } catch {
+        this.errorBooking = true;
+        console.log("Error, could not execute booking");
+      }
+
+  /* Second step: add ticket to db with booking_id */
+      try {
+        let ticket = {
+          booking_id: resultBooking.booking_id,
+          screening_id: this.currentScreening,
+          seat_id: 1,
+          ticket_type_id: 1,
+          ticket_price: 1
+        }
+
+        let resultTicket = await fetch("/rest/tickets", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(ticket),
+        })
+        resultTicket = await result.json();
+        console.log(resultTicket);
+
         this.$router.push(
-          "/tickets/ticketChoice/screening/:id/seats/" + result.booking_id
-        );
+          "/tickets/ticketChoice/screening/:id/seats/" + result.ticket_id
+        )
       } catch {
         this.errorBooking = true;
         console.log("Error, could not execute booking");
