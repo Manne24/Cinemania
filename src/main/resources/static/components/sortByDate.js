@@ -1,14 +1,16 @@
 
 export default {
     template: `
-        <select v-model="selectedDate" @change="onChange">
-            <option value="">Show all films</option>
-            <option 
-                v-for="date of screenings" :value="date">
-                {{ date }}
-            </option>
-        </select>
-
+        <div class="sort-films-date">
+            <label>Sort by date : </label>
+            <select v-model="selectedDate" @change="onChange">
+                <option value="">Select a date</option>
+                <option 
+                    v-for="date of screenings" :value="date">
+                    {{ date }}
+                </option>
+            </select>
+        </div>
     `,
 
     data(){
