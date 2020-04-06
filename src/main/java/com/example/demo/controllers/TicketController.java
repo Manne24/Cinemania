@@ -5,10 +5,7 @@ import com.example.demo.entities.Ticket;
 import com.example.demo.services.SeatService;
 import com.example.demo.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +18,6 @@ public class TicketController {
     @Autowired
     TicketService ticketService;
 
-
     @GetMapping("/tickets")
     public List<Ticket> getAllTickets() {
         return ticketService.findAllTickets();
@@ -32,4 +28,11 @@ public class TicketController {
         return ticketService.findOneTicket(ticket_id);
 
     }
+
+    @PostMapping("/tickets")
+    public Ticket createNewTicket(@RequestBody Ticket ticket) {
+        return ticketService.addNewTicket(ticket);
+    }
+
+
 }
