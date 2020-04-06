@@ -5,7 +5,7 @@ export default {
         <p>Booking id: {{ myBooking.booking_id }}</p>       
         <p>Booking time: {{ myBooking.booking_time }}</p>
         <p>Movie: not added </p>
-        <p>Screening: not added</p>
+        <p>Screening: myBooking.</p>
         <p>User name: not added</p>
       
            <br>
@@ -23,4 +23,9 @@ export default {
         console.log(booking)
         this.myBooking = booking
     },
+    computed: {
+        films(){
+            return this.$store.state.films.filter((booking) => booking.booking === this.user.user_id) 
+        }
+    }
 }
