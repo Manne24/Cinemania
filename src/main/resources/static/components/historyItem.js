@@ -9,11 +9,11 @@ export default {
     props: ['booking'],
     methods: {
         async cancelBooking() {
-            console.log(this.booking_id)
-            let response = await fetch("/bookings/" + booking_id, {
+            console.log(this.booking.booking_id)
+            let response = await fetch("/rest/bookings/" + this.booking.booking_id, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
-                body: this.booking_id
+                body: this.booking.booking_id
 
             });
             console.log(response)

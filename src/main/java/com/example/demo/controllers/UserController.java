@@ -41,7 +41,7 @@ public class UserController {
         return userService.findCurrentUser();
     }
 
-    @DeleteMapping("users/{user_id}")
+    @DeleteMapping("/rest/users/{user_id}")
     public User deleteUser(@PathVariable int user_id){
         return userService.removeUser(user_id);
     }

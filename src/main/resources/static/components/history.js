@@ -8,8 +8,8 @@ export default {
     <div>
     <section>
         <historyItem 
-            v-for="booking of bookings"
-            :key="booking_id"
+            v-for="(booking, i) of bookings"
+            :key="booking.booking_id"
             :booking="booking"
             />
      </section>
