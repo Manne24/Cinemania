@@ -69,7 +69,7 @@ export default {
                     this.imdbInfo = res;
                     console.log(this.imdbInfo)
                 })
-
+                
             fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=[YOUR_API_KEY]&q=' + this.titleAdd + 'trailer')
                 .then((res) => { return res.json() })
                 .then((res) => {
