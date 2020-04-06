@@ -63,10 +63,6 @@ export default {
     tickets = await tickets.json();
     this.$store.commit("setTickets", tickets);
 
-    /* let screenings = await fetch("rest/screenings");
-    screenings = await screenings.json();
-    this.$store.commit("setScreenings", screenings); */
-
     let bookings = await fetch("rest/bookings");
     bookings = await bookings.json();
     this.$store.commit("setBookings", bookings);
