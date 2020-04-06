@@ -1,5 +1,9 @@
 /* --------------- My page --------------- */
 
+* {
+    box-sizing: border-box;
+  }
+  
 .container h2{
     color: white;
 }

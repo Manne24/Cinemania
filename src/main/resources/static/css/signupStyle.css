@@ -1,23 +1,23 @@
 /* --------------- Sign up page --------------- */
 
 .addUser {
-  width: 55%;
+  width: 37%;
   position: relative;
   margin: auto;
   padding: 0.5em 1em;
   border: solid 2px whitesmoke;
   border-radius: 8px;
   margin-top: 1em;
-  font-size: 20px;
+  font-size: 16px;
 }
  
 .addUser h1 {
   position: absolute;
   display: inline-block;
-  top: -45px;
+  top: -40px;
   padding: 0 9px;
   line-height: 1;
-  font-size: 40px;
+  font-size: 30px;
   background: #FFF;
   color: gray;
   font-weight: bold;
@@ -35,7 +35,7 @@
   display: inline-block;
   border: none;
   background: #f1f1f1;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .addUser input:focus {
@@ -44,7 +44,7 @@
 }
 
 .addUser span{
-  font-size: 17px;
+  font-size: 16px;
   color: darkblue;
   margin-bottom: 10px;
 
