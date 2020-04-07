@@ -7,7 +7,22 @@
   position: center;
   margin-left: auto;
   text-align: center;
-  width: 1200px;
+  width: 100%;
+}
+
+.sort-and-select {
+  background-color: #c9a6a6;
+  margin-bottom: 20px;
+  width: 500px;
+}
+/* .films-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+
+h1 {
+  font-weight: 2em;
 }
 
 .films-container {
@@ -17,6 +32,19 @@
 }
 
 .filmcard {
+  background-color: #000000;
+  border-radius: 10px;
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+  height: 600px;
+  text-align: center;
+  color: antiquewhite;
+}
+
+/* .filmcard {
   background-color: rgb(201, 153, 226);
   width: 320px;
   padding: 10px;
@@ -24,7 +52,7 @@
   cursor: pointer;
   height: 550px;
   text-align: center;
-}
+} */
 
 .filmcard img {
   margin-bottom: 20px;
