@@ -12,6 +12,11 @@
   text-align: center;
 }
 
+.signup-header h4{
+  font-weight: lighter;
+  text-align: center;
+}
+
 .signup-page {
   width: 500px;
   margin: auto;
