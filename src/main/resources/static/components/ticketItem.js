@@ -23,16 +23,23 @@ export default {
   computed: {
     screenings() {
       return this.$store.state.screenings;
-    }
+    },
+    user() {
+      return this.$store.state.user;
+    },
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
   },
   methods: {
     goToScreeningID(screeningID) {
-      this.$router.push("/bokTickets/ticketChoice/screening/" + screeningID);
+      if (this.user === null) {
+        this.$router.push("/login");
+      } else {
+        this.$router.push("/bokTickets/ticketChoice/screening/" + screeningID);
+      }
     },
     goToTicketChoice() {
       this.$router.push("/ticketChoice");
@@ -43,6 +50,6 @@ export default {
         "display",
         this.isOpen ? "block" : "none"
       );
-    }
-  }
+    },
+  },
 };
