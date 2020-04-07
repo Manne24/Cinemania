@@ -24,25 +24,35 @@ export default {
       bgColorReserved: "#ff0000",
       currentScreening: {},
       errorBooking: false,
-      //counter: 0,
+      counter: 0,
     };
   },
 
   methods: {
     chooseSeat(seat) {
       console.log(seat.status);
-      //console.log(this.counter);
-      //console.log(this.totalTickets);
-      //if (this.counter < this.totalTickets) {
-      if (seat.status === "available") {
-        seat.status = "selected";
-        this.counter += 1;
-      } else if (seat.status === "selected") {
-        seat.status = "available";
-        this.counter -= 1;
+      console.log("Counter: " + this.counter);
+      console.log("Total Tickets: " + this.totalTickets);
+      console.log("List ticket types: ");
+      for (let listTicketType of this.listTicketTypes) {
+        console.log(listTicketType);
       }
-      //}
+      if (this.counter < this.totalTickets) {
+        if (seat.status === "available") {
+          seat.status = "selected";
+          this.counter += 1;
+        } else if (seat.status === "selected") {
+          seat.status = "available";
+          this.counter -= 1;
+        }
+      } else {
+        if (seat.status === "selected") {
+          seat.status = "available";
+          this.counter -= 1;
+        }
+      }
     },
+    /*
     async bookTicket() {
       let currentDate = new Date();
       try {
@@ -61,7 +71,7 @@ export default {
 
         result = await result.json();
         console.log(result);
-        /* this.$store.commit('appendBookings', result) */
+        // this.$store.commit('appendBookings', result)
         this.$router.push(
           "/tickets/ticketChoice/screening/:id/seats/" + result.booking_id
         );
@@ -70,6 +80,7 @@ export default {
         console.log("Error, could not execute booking");
       }
     },
+    */
     async checkReservedSeats() {
       for (let ticket of this.tickets) {
         if (ticket.screening_id === this.currentScreening.screening_id) {
@@ -102,20 +113,42 @@ export default {
 
       result = await result.json();
 
-      //this.addTickets(result);
+      this.addTickets(result);
     },
-    /*
-    async addTickets(booking){
-      for (seat of seats){
-        let ticket = {
-          booking_id: booking.booking_id,
-          screening_id: currentScreening.screening_id,
-          seat_id: seat.seat_id,
-          ticket_type_id:,
-          ticket_price:
+
+    async addTickets(booking) {
+      let indexPosition = 0;
+      for (let seat of this.seats) {
+        if (seat.status === "selected") {
+          console.log("booking id: " + booking.booking_id);
+          console.log("screening id: " + this.currentScreening.screening_id);
+          console.log("seat id: " + seat.seat_id);
+          console.log("type id: " + this.listTicketTypes[indexPosition]);
+
+          let ticket = {
+            booking_id: booking.booking_id,
+            screening_id: this.currentScreening.screening_id,
+            seat_id: seat.seat_id,
+            ticket_type_id: this.listTicketTypes[indexPosition],
+          };
+          indexPosition += 1;
+
+          let result = await fetch("/rest/tickets", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(ticket),
+          });
+
+          result = await result.json();
+
+          seat.status = "reserved";
+          this.counter = 0;
         }
       }
-    }*/
+      this.$router.push("/myPage");
+    },
   },
   async created() {
     let screening = await fetch("/rest/screenings/" + this.$route.params.id);
@@ -137,6 +170,12 @@ export default {
     },
     user() {
       return this.$store.state.user;
+    },
+    totalTickets() {
+      return this.$store.state.totalTickets;
+    },
+    listTicketTypes() {
+      return this.$store.state.listTicketTypes;
     },
   },
 };
