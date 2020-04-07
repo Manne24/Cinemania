@@ -8,6 +8,8 @@ export default {
 
     template: `
     <div class="container">
+       
+    <section class="sort-and-select">
         <div>
             <sortByDate @selectedDate="updateSelectedDate" /><br>
         </div>
@@ -20,7 +22,7 @@ export default {
             >{{ rating.age }}
             </button>
         </div>
-        
+    </section>    
         <div class="films-container">
             <div class="filmcard"  
                 v-for="(film ,index) of dateFilms"
