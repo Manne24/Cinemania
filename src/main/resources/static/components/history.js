@@ -1,10 +1,10 @@
-import historyItem from './historyItem.js'
+import historyItem from "./historyItem.js";
 
 export default {
-    components: {
-        historyItem
-    },
-    template: `
+  components: {
+    historyItem,
+  },
+  template: `
     <div>
     <section>
         <historyItem 
@@ -14,13 +14,15 @@ export default {
             />
      </section>
     </div>
-    `, 
-    computed: {
-        bookings() {
-            return this.$store.state.bookings.filter((booking) => booking.user_id === this.user.user_id)
-        },
-        user() {
-            return this.$store.state.user
-        }
-    }
-}
+    `,
+  computed: {
+    bookings() {
+      return this.$store.state.bookings.filter(
+        (booking) => booking.user_id === this.user.user_id
+      );
+    },
+    user() {
+      return this.$store.state.user;
+    },
+  },
+};

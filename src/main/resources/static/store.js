@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
     seats: [],
     bookings: [],
     user: null,
+    tickets: [],
     totalTickets: 0,
     listTicketTypes: [],
     tickets: []
