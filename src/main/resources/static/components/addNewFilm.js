@@ -2,45 +2,46 @@ export default {
     template: `
         <div> 
             <div class="add-new-film">
-        <form class="example" @submit.prevent="checkIfFilmExists">
-        <input v-model="titleAdd" type="text" 
-        placeholder="Enter TITLE of film to add" required><br>
-        <button type="submit"><i class="fa fa-search"></i></button>
-        <button @click.prevent="addNewFilm">ADD</button>
-        <button type="reset" value="Reset">RESET</button>
-        </form>
+                <div class="admin-form">
+                    <form class="example" @submit.prevent="checkIfFilmExists">
+                    <input v-model="titleAdd" type="text" 
+                    placeholder="Enter TITLE of film to add" required><br>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button @click.prevent="addNewFilm">ADD</button>
+                    <button type="reset" value="Reset">RESET</button>
+                    </form>
 
-        <p :style="{color: 'red'}">{{ imdbInfo.Error }}</p><br> 
-        <section>
-        title: {{ imdbInfo.Title }} <br>
-        director: {{ imdbInfo.Director }} <br>
-        description: {{ imdbInfo.Plot}} <br>
-        language: {{imdbInfo.Language}}<br>
-        length: {{imdbInfo.Runtime}} <br>
-        age: {{imdbInfo.Rated}} <br>
-        year of production: {{imdbInfo.Year}} <br>
-        genre: {{imdbInfo.Genre}}<br>
-        runtime: {{imdbInfo.Runtime}}<br>
-        <p style="color:red">{{ filmFound }}</p><br>
-        </section>
-        <hr>
-        
-        <form class="example" @submit.prevent="deleteFilmByTitle">
-        <input v-model="titleDelete" type="text" 
-        placeholder="Enter TITLE of film to delete" required><br>
-        <button type="submit" >DELETE</button>
-        </form><br>
+                    <p :style="{color: 'red'}">{{ imdbInfo.Error }}</p><br> 
+                    <section>
+                    Title: {{ imdbInfo.Title }} <br>
+                    Director: {{ imdbInfo.Director }} <br>
+                    Description: {{ imdbInfo.Plot}} <br>
+                    Language: {{imdbInfo.Language}}<br>
+                    Length: {{imdbInfo.Runtime}} <br>
+                    Age: {{imdbInfo.Rated}} <br>
+                    Year of production: {{imdbInfo.Year}} <br>
+                    Genre: {{imdbInfo.Genre}}<br>
+                    Runtime: {{imdbInfo.Runtime}}<br>
+                    <p style="color:red">{{ filmFound }}</p><br>
+                    </section>
+                    <hr>
+            
+                    <form class="delete" @submit.prevent="deleteFilmByTitle">
+                    <input v-model="titleDelete" type="text" 
+                    placeholder="Enter TITLE of film to delete" required><br>
+                    <button type="submit" >DELETE</button>
+                    </form><br>
 
-        <hr>
-        <form class="example" @submit.prevent="updateFilm">
-        <input v-model="trailerUpdate" type="text" 
-        placeholder="Enter new YouTube ID for trailer" required><br><br>
-       <input v-model="filmID" type="text" 
-        placeholder="Enter ID of film to update (need some adjusting to work)" required><br>
-        <button type="submit">UPDATE</button>
-        </form>
-
-        </div>
+                    <hr>
+                    <form class="update" @submit.prevent="updateFilm">
+                    <input v-model="trailerUpdate" type="text" 
+                    placeholder="Enter new YouTube ID for trailer" required><br><br>
+                    <input v-model="filmID" type="text" 
+                    placeholder="Enter ID of film to update (need some adjusting to work)" required><br>
+                    <button type="submit">UPDATE</button>
+                    </form>
+                </div>
+            </div>
         </div>
     `,
     data() {

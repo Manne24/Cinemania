@@ -2,37 +2,54 @@
     box-sizing: border-box;
   }
 
-  .add-new-film {
-    width: 80%;
+  .add-new-film, .admin-userform {
+    text-align: center;
+    width: 60%;
     margin: auto;
-    
+    position: relative;
   }
   
   /* Style the search field */
-  form.example input[type=text], input[type=id] {
+  .admin-form input, .admin-userform input {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
-    /* float: left; */
-    width: 70%;
+    background: #f2f2f2;
+    width: 75%;    
   }
 
-  form.example input[type=text] {
-    background: #f1f1f1;
+  hr{
+    width: 75%;
   }
 
-  form.example input[type=id] {
-    background: #f5b7b7;
+  section, p{
+    width: 75%; 
+    text-align: left;
+    margin-left: 100px;
   }
-  
+ 
+  .admin-form button, .admin-userform button {
+    margin-top: 10px;
+    margin-right: 5px;
+    width: 75%;   
+    padding: 11px;
+    background-color: #328f8a;
+    background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+
   /* Style the submit button */
   form.example button {
-    /* float: left; */
     margin-top: 10px;
-    margin-right: 10px;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
+    margin-right: 5px;
+    width: 24%;
+    padding: 11px;
+    background-color: #328f8a;
+    background-image: linear-gradient(45deg,#328f8a,#08ac4b);
     color: white;
     font-size: 17px;
     border: 1px solid grey;
@@ -40,10 +57,7 @@
     cursor: pointer;
   }
   
-  form.example button:hover {
-    background: #0b7dda;
-  }
-  
+
   /* Clear floats */
   form.example::after {
     content: "";
