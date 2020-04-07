@@ -11,6 +11,11 @@
     margin-bottom: 40px;
   }
 
+  .login-header h4, .login h4{
+    text-align: center;
+    font-weight: lighter;
+  }
+
   .login-page {
     width: 400px;
     margin: auto;

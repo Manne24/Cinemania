@@ -4,7 +4,7 @@ export default {
       <div class="form">
         <div class="login-header">
           <h3>LOGIN</h3><br>
-          <p>Please enter your credentials to login.</p>
+          <h4>Please enter your credentials to login.</h4>
         </div>
         <form class="login" @submit.prevent="performLogin">
           <input v-model="email" required type="email" placeholder="Email address"><br>
@@ -12,8 +12,8 @@ export default {
           <input v-model="password" required type="password" placeholder="Password"><br>
           <button>Login</button><br>
           <p v-if="errorLogin" :style="{color: 'red'}">Wrong username or password</p>
-          
-          <br><p>Don't have an account?</p>
+          <br>
+          <h4>Don't have an account?</h4>
           <button @click="goToSignUp">Click here</button>
         </form>
       </div>

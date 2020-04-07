@@ -4,9 +4,8 @@ export default {
         <div class="signup-form">
           <div class="signup-header">
             <h3>Sign up</h3>
-            <p>Please fill in this form to create an account.</p> 
+            <h4>Please fill in this form to create an account.</h4> 
           </div>
-          <hr>
           <form @submit.prevent="submitNewUser" class="signup">
             <div class="form-group">
               <input v-model="name" @input="$v.name.$touch()" type="name" placeholder="User name">
