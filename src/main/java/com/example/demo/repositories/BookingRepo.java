@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BookingRepo extends CrudRepository<Booking, Integer> {
-    public Booking deleteById(int booking_id);
+   /* public Booking deleteById(int booking_id);*/
 }
