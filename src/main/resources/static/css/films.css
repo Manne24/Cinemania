@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-weight: 1em;
+}
+
 .films-container {
   display: flex;
   flex-direction: row;
@@ -9,13 +13,14 @@
 }
 
 .filmcard {
-  background-color: rgb(201, 153, 226);
-  width: 320px;
+  background-color: #000000;
+  width: 400px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   cursor: pointer;
-  height: 550px;
+  height: 600px;
   text-align: center;
+  color: antiquewhite;
 }
 
 .filmcard img {
@@ -54,6 +59,7 @@
   background-color: gold;
   margin-top: 10px;
 }
+
 .iframe {
   padding: 20px;
 }

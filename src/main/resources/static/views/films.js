@@ -18,8 +18,8 @@ export default {
          :key="film.film_id"
          @click="goToFilmInfo(film.film_id)">
         <img :src="film.image" alt="film image"><br>
-         {{ film.title | to-uppercase }} <br>
-        Rated: <b>{{ film.rated }}</b> <br>
+         <h1>{{ film.title | to-uppercase }}</h1> <br>
+        <p>{{ film.rated }}</p> <br>
         </div>
         </div>    
     </div>
