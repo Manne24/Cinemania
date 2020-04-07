@@ -4,10 +4,11 @@
 
   .login-header h3{
     font-size: 25px;
+    margin-top: -7px;
   }
 
   .login-header{
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   .login-page {
@@ -16,14 +17,14 @@
   }
   .login-page .form .login{
     margin-top: -10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   .form {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
     max-width: 400px;
-    margin: 0 auto 30px;
+    margin: 0 auto 15px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
