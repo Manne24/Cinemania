@@ -12,7 +12,7 @@ export default {
                 <p>{{ seat.row }}-{{ seat.name }}</p>
                 </div>
             </div>  
-            <button @click="bookTicket">BOOK</button>
+            <button @click="addBooking">BOOK</button>
             <p v-if="errorBooking">Error, could not execute booking</p>      
         </div>
     
