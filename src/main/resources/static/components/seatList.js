@@ -52,39 +52,6 @@ export default {
         }
       }
     },
-    /*
-    async bookTicket() {
-  /* First step: add booking to db */
-    let currentDate = new Date();
-      
-    try {
-        let booking = {
-          user_id: this.$store.state.user.user_id,
-          booking_time: currentDate,
-        }
-
-        let resultBooking = await fetch("/rest/bookings", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(booking),
-        })
-        resultBooking = await result.json();
-        console.log(resultBooking);
-
-        result = await result.json();
-        console.log(result);
-        // this.$store.commit('appendBookings', result)
-        this.$router.push(
-          "/tickets/ticketChoice/screening/:id/seats/" + result.ticket_id
-        )
-      } catch {
-        this.errorBooking = true;
-        console.log("Error, could not execute booking");
-      }
-    },
-    */
     async checkReservedSeats() {
       for (let ticket of this.tickets) {
         if (ticket.screening_id === this.currentScreening.screening_id) {
@@ -119,7 +86,6 @@ export default {
 
       this.addTickets(result);
     },
-
     async addTickets(booking) {
       let indexPosition = 0;
       for (let seat of this.seats) {
