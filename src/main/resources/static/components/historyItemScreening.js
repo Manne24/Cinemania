@@ -14,6 +14,7 @@ export default {
            Screening id: {{screening.screening_id}}<br>
            Screening start time: {{screening.start_time}}<br>
            Screening end time: {{screening.end_time}}<br>
+           Screening date: {{screening.date}}<br>
 
         </div> 
     </div>
