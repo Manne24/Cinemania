@@ -13,6 +13,7 @@ export const store = new Vuex.Store({
     user: null,
     totalTickets: 0,
     listTicketTypes: [],
+    tickets: []
   },
   mutations: {
     setFilms(state, films) {
