@@ -41,13 +41,29 @@ export default {
       value2: 0,
       value3: 0,
       price: 0,
-      //totalTickets: 0,
     };
   },
   methods: {
     goToSeats() {
-      //this.totalTickets = this.value + this.value2 + this.value3;
-      //console.log(this.totalTickets);
+      this.$store.state.totalTickets = this.value + this.value2 + this.value3;
+      let counter = 0;
+      let ticketChild = this.value;
+      let ticketAdult = this.value2;
+      let ticketSenior = this.value3;
+      while (counter < this.totalTickets) {
+        if (ticketChild !== 0) {
+          this.$store.state.listTicketTypes.push(1);
+          ticketChild -= 1;
+        } else if (ticketAdult !== 0) {
+          this.$store.state.listTicketTypes.push(2);
+          ticketAdult -= 1;
+        } else if (ticketSenior !== 0) {
+          this.$store.state.listTicketTypes.push(3);
+          ticketSenior -= 1;
+        }
+        counter += 1;
+      }
+      console.log(this.totalTickets);
       this.$router.push(
         "/bokTickets/ticketChoice/screening/" + this.$route.params.id + "/seats"
       );
@@ -70,6 +86,14 @@ export default {
       } else if (selectedValue === 3) {
         (this.value3 += 1), (this.price += 75);
       }
+    },
+  },
+  computed: {
+    totalTickets() {
+      return this.$store.state.totalTickets;
+    },
+    listTicketTypes() {
+      return this.$store.state.listTicketTypes;
     },
   },
 };

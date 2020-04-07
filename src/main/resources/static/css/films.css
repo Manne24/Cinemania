@@ -1,5 +1,13 @@
+
 * {
   box-sizing: border-box;
+}
+
+.container {
+  position: center;
+  margin-left: auto;
+  text-align: center;
+  width: 1200px;
 }
 
 .films-container {
@@ -27,17 +35,32 @@
   flex-direction: row;
   justify-content: space-between;
   height: 100%;
-  padding-bottom: 26px;
-  width: 320px;
+  padding-bottom: 20px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: 50px;
 }
+
+.sort-films-date{
+  width: 400px;
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.sort-films-date select{
+  width: 300px;
+  height: 30px;
+  font-size: 16px;
+} 
 
 .sort-films button {
   font-size: 16px;
   cursor: pointer;
-  padding: 10px;
   background-color: pink;
-  width: 90px;
+  width: 99px;
+  height: 30px;
   text-align: center;
+  margin-bottom: 4px;
 }
 
 .sort-films button:hover {

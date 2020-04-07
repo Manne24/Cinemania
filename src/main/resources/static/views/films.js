@@ -7,23 +7,21 @@ export default {
     },
 
     template: `
-    <div>
-    <div>
-        <sortByDate @selectedDate="updateSelectedDate" /><br>
-        <br>
-        <br>
-    </div>
-    <div class="sort-films">
-        <button
-        v-for="(rating, i) in filmFilterAge" 
-        :key="rating.age + i"
-        @click="onFilterButtonClick(rating.age)"
-        >{{ rating.age }}
-        </button>
-    </div>
-    
-     <div class="films-container">
+    <div class="container">
         <div>
+            <sortByDate @selectedDate="updateSelectedDate" /><br>
+        </div>
+        <div class="sort-films">
+            <label>Sort by rating: </label>
+            <button
+            v-for="(rating, i) in filmFilterAge" 
+            :key="rating.age + i"
+            @click="onFilterButtonClick(rating.age)"
+            >{{ rating.age }}
+            </button>
+        </div>
+        
+        <div class="films-container">
             <div class="filmcard"  
                 v-for="(film ,index) of dateFilms"
                 :key="film.film_id + index"
@@ -33,7 +31,6 @@ export default {
                 Rated: <b>{{ film.rated }}</b> <br>
             </div>
         </div>    
-      </div>
    </div>
     `,
     data() {

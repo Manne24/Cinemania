@@ -23,6 +23,7 @@ public class TicketService {
     }
 
 
-
-
+    public Ticket addNewTicket(Ticket ticket) {
+        return ticketRepo.save(ticket);
+    }
 }
