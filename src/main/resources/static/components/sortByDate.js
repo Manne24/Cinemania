@@ -22,7 +22,7 @@ export default {
     computed: {
         screenings() {
             let dates = this.$store.state.screenings.map(screening => screening.date)
-          return new Set([...dates])
+            return new Set([...dates])
         },
         films() {
             return this.$store.state.films
