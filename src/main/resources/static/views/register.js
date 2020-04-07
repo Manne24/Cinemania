@@ -3,7 +3,7 @@ export default {
       <div class="signup-page">
         <div class="signup-form">
           <div class="signup-header">
-            <h3>Sign up</h3><br>
+            <h3>Sign up</h3>
             <h4>Please fill in this form to create an account.</h4> 
           </div>
           <form @submit.prevent="submitNewUser" class="signup">
