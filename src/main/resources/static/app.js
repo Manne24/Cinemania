@@ -26,6 +26,7 @@ export default {
       fetch('/logout')
       console.log('Successfully logged out')
       this.$store.commit('setUser', null)
+      alert("Successfully logged out!")
       this.$router.push('/login').catch((err) => {
         throw new Error(`Problem handling something: ${err}.`);
       })
