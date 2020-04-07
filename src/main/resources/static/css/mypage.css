@@ -1,13 +1,26 @@
 /* --------------- My page --------------- */
 
-.container h2{
-    color: white;
+* {
+  box-sizing: border-box;
+}
+
+.container h2 {
+  color: white;
 }
 
 .booking-card {
-    background-color: rgb(212, 198, 219);
-    width: 500px;
-    padding: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
+  background-color: rgb(212, 198, 219);
+  width: 500px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.ticket-card {
+  background-color: #aaa;
+  width: 80%;
+  margin-top: 6px;
+  padding: 6px;
+  margin-right: auto;
+  margin-left: auto;
+}

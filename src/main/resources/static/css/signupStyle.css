@@ -1,79 +1,65 @@
-/* --------------- Sign up page --------------- */
+* {
+  box-sizing: border-box;
+}
 
-.addUser {
-  width: 55%;
-  position: relative;
+.signup-header h3{
+  font-size: 25px;
+  margin-top: -7px;
+}
+
+.signup-header{
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.signup-page {
+  width: 500px;
   margin: auto;
-  padding: 0.5em 1em;
-  border: solid 2px whitesmoke;
-  border-radius: 8px;
-  margin-top: 1em;
-  font-size: 20px;
 }
- 
-.addUser h1 {
-  position: absolute;
-  display: inline-block;
-  top: -45px;
-  padding: 0 9px;
-  line-height: 1;
-  font-size: 40px;
-  background: #FFF;
-  color: gray;
-  font-weight: bold;
-}
-
-.addUser p {
-  margin: 0;
-  padding: 0;
-}
-
-.addUser input[type="name"], .addUser input[type="email"],.addUser input[type="password"]{
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 2px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-  font-size: 17px;
-}
-
-.addUser input:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-.addUser span{
-  font-size: 17px;
-  color: darkblue;
+.signup-page .form .signup{
+  margin-top: -10px;
   margin-bottom: 10px;
-
 }
-
-.addUser hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
+.signup-form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 400px;
+  margin: 0 auto 15px;
+  padding: 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
-.addUser button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
+.signup input {
+  outline: 0;
+  background: #f2f2f2;
   width: 100%;
-  opacity: 0.9;
-  font-size: 20px;
+  border: 0;
+  margin: 0 0 8px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
-.addUser button:hover {
-  opacity: 1;
+.signup span.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: left;
 }
-
-@media screen and (max-width: 300px) {
-  .addUser {
-    width: 100%;
-  }
+.signup-form button {
+  text-transform: uppercase;
+  background-color: #328f8a;
+  background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
 }
- 
+.signup input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+     -moz-appearance: checkbox;
+          appearance: checkbox;
+  display: inline-block;
+  width: auto;
+}

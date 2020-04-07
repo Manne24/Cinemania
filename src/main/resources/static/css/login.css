@@ -1,41 +1,60 @@
 * {
     box-sizing: border-box;
   }
-  
-  /* Style the search field */
-  form.login input {
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 16px;
-    font-size: 17px;
-    border: 1px solid grey;
-    /* float: left; */
-    width: 30%;
-    background: #f1f1f1;
+
+  .login-header h3{
+    font-size: 25px;
+    margin-top: -7px;
   }
-  
-  /* Style the submit button */
-  form.login button {
-    /* float: left; */
-    margin-top: 10px;
-    margin-right: 10px;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
+
+  .login-header{
+    margin-bottom: 40px;
+  }
+
+  .login-page {
+    width: 400px;
+    margin: auto;
+  }
+  .login-page .form .login{
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 400px;
+    margin: 0 auto 15px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .form input {
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  .form button {
+    text-transform: uppercase;
+    background-color: #328f8a;
+    background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
     cursor: pointer;
   }
+
   
-  form.login button:hover {
-    background: #0b7dda;
-  }
-  
-  /* Clear floats */
-  form.login::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
+  /* body {
+    background-color: #328f8a;
+    background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }  */

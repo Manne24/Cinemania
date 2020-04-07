@@ -10,7 +10,11 @@ export const store = new Vuex.Store({
     screenings: [],
     seats: [],
     bookings: [],
-    user: null
+    user: null,
+    tickets: [],
+    totalTickets: 0,
+    listTicketTypes: [],
+    tickets: []
   },
   mutations: {
     setFilms(state, films) {
@@ -29,13 +33,19 @@ export const store = new Vuex.Store({
       state.seats = seats;
     },
     setUser(state, user) {
-      state.user = user
+      state.user = user;
     },
-    setBookings(state, bookings){
-      state.bookings = bookings
+    setBookings(state, bookings) {
+      state.bookings = bookings;
     },
     setTickets(state, tickets) {
       state.tickets = tickets;
     },
-  }
-})
+    setTotalTickets(state, totalTickets) {
+      state.totalTickets = totalTickets;
+    },
+    setListTicketTypes(state, listTicketTypes) {
+      state.listTicketTypes = listTicketTypes;
+    },
+  },
+});

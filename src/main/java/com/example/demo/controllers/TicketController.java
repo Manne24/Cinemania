@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.entities.Booking;
 import com.example.demo.entities.Seat;
 import com.example.demo.entities.Ticket;
 import com.example.demo.services.SeatService;
@@ -33,6 +34,5 @@ public class TicketController {
     public Ticket createNewTicket(@RequestBody Ticket ticket) {
         return ticketService.addNewTicket(ticket);
     }
-
 
 }

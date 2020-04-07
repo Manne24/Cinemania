@@ -1,18 +1,17 @@
+import sortByDate from '../components/sortByDate.js'
 
 export default {
+
+    components: {
+        sortByDate,
+    },
+
     template: `
-    <div>
-    <div class="sort-films">
-        <button
-        v-for="(rating, i) in filmFilterAge" 
-        :key="rating.age + i"
-        @click="filmFilterKey = rating.age"
-        >{{ rating.age }}
-        </button>
-    </div>
-    
-     <div class="films-container">
+    <div class="container">
+       
+    <section class="sort-and-select">
         <div>
+            <sortByDate @selectedDate="updateSelectedDate" /><br>
         <div class="filmcard"  
          v-for="film of films"
          :key="film.film_id"
@@ -21,12 +20,31 @@ export default {
          <h1>{{ film.title | to-uppercase }}</h1> <br>
         <p>{{ film.rated }}</p> <br>
         </div>
+        <div class="sort-films">
+            <label>Sort by rating: </label>
+            <button
+            v-for="(rating, i) in filmFilterAge" 
+            :key="rating.age + i"
+            @click="onFilterButtonClick(rating.age)"
+            >{{ rating.age }}
+            </button>
+        </div>
+    </section>    
+        <div class="films-container">
+            <div class="filmcard"  
+                v-for="(film ,index) of dateFilms"
+                :key="film.film_id + index"
+                @click="goToFilmInfo(film.film_id)">
+                    <img :src="film.image" alt="film image"><br>
+                    {{ film.title | to-uppercase }} <br>
+                Rated: <b>{{ film.rated }}</b> <br>
+            </div>
         </div>    
-    </div>
    </div>
     `,
     data() {
         return {
+            selectedDate: '',
             filmFilterKey: 'all',
            filmFilterAge: [
                 { age: "all" },
@@ -35,6 +53,12 @@ export default {
         }
     },
     methods: {
+        onFilterButtonClick(age) {
+            this.filmFilterKey = age
+        },
+        updateSelectedDate(date) {
+            this.selectedDate = date
+        },
         goToFilmInfo(film_id) {
             this.$router.push('/films/' + film_id)
         }, onButtonClick() {
@@ -43,6 +67,19 @@ export default {
         } 
     },
     computed: {
+        dateFilms() {
+            let filmIDs = this.$store.state.screenings
+                            .filter((screening) => {
+                                if(!this.selectedDate) {
+                                    return true
+                                } else {
+                                    return screening.date == this.selectedDate
+                                }
+                            })
+
+                            filmIDs = filmIDs.map(screening => screening.film_id)
+            return this.films.filter(film => filmIDs.includes(film.film_id))
+        },
         films() {
             console.log(this.filmFilterKey)
             return this[this.filmFilterKey]
