@@ -45,7 +45,6 @@ export default {
         film = await film.json()
         console.log(film)
         this.film = film
-
     },
 }
 
