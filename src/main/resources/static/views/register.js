@@ -4,9 +4,8 @@ export default {
         <div class="signup-form">
           <div class="signup-header">
             <h3>Sign up</h3>
-            <p>Please fill in this form to create an account.</p> 
+            <h4>Please fill in this form to create an account.</h4> 
           </div>
-          <hr>
           <form @submit.prevent="submitNewUser" class="signup">
             <div class="form-group">
               <input v-model="name" @input="$v.name.$touch()" type="name" placeholder="User name">
@@ -27,8 +26,7 @@ export default {
             <input v-model="password2" @input="$v.password2.$touch()" type="password" placeholder="Repeat Password"> 
             <span v-if="$v.password2.$error" class="error-message">Please make sure your passwords match</span>  
             </div> 
-            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-
+            <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
             <button type="reset" class="cancelbtn">Cancel</button><br><br>
             <button type="submit" class="signupbtn">Submit</button>
           
