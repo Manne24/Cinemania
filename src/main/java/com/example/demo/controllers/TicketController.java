@@ -35,4 +35,9 @@ public class TicketController {
         return ticketService.addNewTicket(ticket);
     }
 
+    @DeleteMapping("/tickets/{ticket_id}")
+    public Ticket deleteTicket(@PathVariable int ticket_id){
+        return ticketService.removeTicket(ticket_id);
+    }
+
 }
