@@ -6,9 +6,9 @@ export default {
         <div v-for="(film, i) of films"
             :key="film.film_id"
             :film="film">
-            Screening time: {{ screening.start_time}}<br>
-            Screening date: {{ screening.date}}<br>
-            Film title: {{ film.title}} <br>
+            <p>Screening time: {{ screening.start_time}}</p>
+            <p>Screening date: {{ screening.date}}</p>
+            <p>Film title: {{ film.title}}</p>
             </div>
       </div> 
     </div>

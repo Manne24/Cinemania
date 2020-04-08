@@ -15,7 +15,7 @@ export default {
             v-for="(seat, i) of seats"
             :key="seat.seat_id"
             :seat="seat">
-            Seat number: {{ seat.name }} </div>    
+            <p>Seat number: {{ seat.name }}</p> </div>    
       </div> 
     </div>
     `,

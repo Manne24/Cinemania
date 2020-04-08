@@ -7,8 +7,8 @@ export default {
   template: `
     <div class = "mypage-inside2">
       <div class="booking-card" >
-        Booking id: {{ booking.booking_id }} <br>
-        Booking time: {{ booking.booking_time }} <br> 
+        <p>Booking id: {{ booking.booking_id }}</p>
+        <p>Booking time: {{ booking.booking_time }}</p>
         <i class="far fa-trash-alt" @click="cancelBooking"></i>
         </div>
         <div>
