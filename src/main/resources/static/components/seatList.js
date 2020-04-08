@@ -1,6 +1,9 @@
 export default {
   template: `
      <div id="seat-layout">
+            <div class="film-screen">
+              SCREEN
+            </div>
         <div class="salon">
             <div class="seats"
                 v-for="seat of seats"
@@ -69,8 +72,8 @@ export default {
       }
     },
     async addBooking() {
-      let m = moment(); 
-      let currentTime = m.format('YYYY-MM-DD HH:mm:ss');
+      let m = moment();
+      let currentTime = m.format("YYYY-MM-DD HH:mm:ss");
       let booking = {
         user_id: this.user.user_id, //get id of current user
         booking_time: currentTime, //get current time
@@ -85,6 +88,7 @@ export default {
       });
 
       result = await result.json();
+      this.$store.commit('appendBooking', result);
 
       this.addTickets(result);
     },
@@ -114,6 +118,7 @@ export default {
           });
 
           result = await result.json();
+          this.$store.commit('appendTicket', result)
 
           seat.status = "reserved";
           this.counter = 0;
