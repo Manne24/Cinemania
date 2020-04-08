@@ -9,7 +9,7 @@ export default {
             Screening time: {{ screening.start_time}}<br>
             Screening date: {{ screening.date}}<br>
             Film title: {{ film.title}} <br>
-            </div><br>
+            </div>
       </div> 
     </div>
     `,

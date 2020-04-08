@@ -6,11 +6,16 @@ export default {
   },
   template: `
     <div>
-      <div>Ticket id: {{ ticket.ticket_id }} <br/>
-        <historyItemFilms v-for="(screening, i) of screenings"
+      <div>
+        <historyItemFilms 
+            v-for="(screening, i) of screenings"
             :key="screening.screening_id"
             :screening="screening"/>
-            <br>
+            <div
+            v-for="(seat, i) of seats"
+            :key="seat.seat_id"
+            :seat="seat">
+            Seat number: {{ seat.name }} </div>    
       </div> 
     </div>
     `,
@@ -18,6 +23,11 @@ export default {
   computed: {
     screenings() {
       return this.$store.state.screenings.filter((screening) => screening.screening_id === this.ticket.screening_id)
+    },
+    seats() {
+      return this.$store.state.seats.filter((seat) => seat.seat_id === this.ticket.seat_id)
     }
   }
 }
+
+/* Ticket id: {{ ticket.ticket_id }} */

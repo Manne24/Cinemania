@@ -1,8 +1,10 @@
 import historyItemScreening from './historyItemScreening.js'
+import historyItemSeats from './historyItemSeats.js'
 
 export default {
   components: {
-    historyItemScreening
+    historyItemScreening,
+    historyItemSeats
   },
   template: `
     <div class="booking-card" >
@@ -16,7 +18,7 @@ export default {
             :key="ticket.ticket_id"
             :ticket="ticket"/>
         </div>
-        
+       
     </div>
     `,
   props: ["booking"],
