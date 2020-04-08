@@ -8,29 +8,32 @@ export default {
 
     template: `
     <div class="container">
-    <section class="sort-and-select">
+        
         <div>
             <sortByDate @selectedDate="updateSelectedDate"/>
         </div>    
-    
-        <div class="sort-films">
-           <!--  <label>Sort by rating: </label> -->
-            <button
-            v-for="(rating, i) in filmFilterAge" 
-            :key="rating.age + i"
-            @click="onFilterButtonClick(rating.age)"
-            >{{ rating.age }}
-            </button>
-        </div>
+        <section class="sort-and-select">
+            <div class="sort-films">
+            <!--  <label>Sort by rating: </label> -->
+                <button
+                v-for="(rating, i) in filmFilterAge" 
+                :key="rating.age + i"
+                @click="onFilterButtonClick(rating.age)"
+                >{{ rating.age }}
+                </button>
+            </div>
         </section>
-        <div class="filmcard"  
-         v-for="film of films"
-         :key="film.film_id"
-         @click="goToFilmInfo(film.film_id)">
-        <img :src="film.image" alt="film image"><br>
-         <h2>{{ film.title | to-uppercase }}</h2> <br>
-        <h3>{{ film.rated }}</h3> <br>
-        </div>
+
+        <section class="films-info">
+            <div class="filmcard"  
+                v-for="film of films"
+                :key="film.film_id"
+                @click="goToFilmInfo(film.film_id)">
+            <img :src="film.image" alt="film image"><br>
+            <h2>{{ film.title | to-uppercase }}</h2> <br>
+            <h3>{{ film.rated }}</h3> <br>
+            </div>
+        </section>
 
 
    </div>

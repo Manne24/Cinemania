@@ -23,6 +23,21 @@
   overflow: hidden;
 }
 
+.films-info{
+  margin: auto;
+}
+
+.films-info:after{
+  content:'';
+  display: table;
+  clear:both;
+  width: 100%;
+}
+.films-info .filmcard{
+  border: 1px solid black;
+  float: left;
+}
+
 .films-container {
   display: flex;
   flex-direction: row;
