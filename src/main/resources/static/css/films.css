@@ -25,6 +25,8 @@
 
 .films-info{
   margin: auto;
+  width: 85%;
+  padding: 20px 20px;
 }
 
 .films-info:after{
