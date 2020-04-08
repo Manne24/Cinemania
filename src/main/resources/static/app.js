@@ -10,7 +10,7 @@ export default {
             <router-link to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
             <router-link to="/myPage" v-if="user"><i class="fas fa-user"></i></i></router-link>
             <router-link to="/addFilmAdmin" v-if="user && userAdmin"><i class="fas fa-user-lock"></i></router-link>
-            <a @click="doLogout"><i class="fas fa-door-open"></i></a>
+            <a @click="doLogout" v-if="user"><i class="fas fa-door-open"></i></a>
             <!-- <p>{{ userAdmin }}</p> -->
           </nav>
           </header>
