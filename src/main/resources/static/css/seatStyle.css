@@ -2,6 +2,16 @@
   display: grid;
 }
 
+#seat-layout > .film-screen {
+  background-color: #ddf;
+  width: 54%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  text-align: center;
+  height: 20px;
+}
+
 #seat-layout > .salon {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
@@ -12,6 +22,7 @@
   grid-gap: 5px;
   padding: 10px;
 }
+
 #seat-layout > .salon > .seats {
   background-color: #aaa;
   border: 1px solid #000;
