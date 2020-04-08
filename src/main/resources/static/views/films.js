@@ -25,14 +25,17 @@ export default {
 
         <section class="films-info">
             <div class="filmcard"  
-                v-for="film of films"
-                :key="film.film_id"
+                v-for="(film ,index) of dateFilms"
+                :key="film.film_id + index"
                 @click="goToFilmInfo(film.film_id)">
-            <img :src="film.image" alt="film image"><br>
-            <h2>{{ film.title | to-uppercase }}</h2> <br>
-            <h3>{{ film.rated }}</h3> <br>
+                <img :src="film.image" alt="film image"><br>
+                {{ film.title | to-uppercase }} <br>
+                Rated: <b>{{ film.rated }}</b> <br>
             </div>
         </section>
+        </div>    
+      </div>
+   </div>
 
 
    </div>
@@ -68,6 +71,7 @@ export default {
                     if (!this.selectedDate) {
                         return true
                     } else {
+                        console.log(this.selectedDate)
                         return screening.date == this.selectedDate
                     }
                 })
