@@ -9,7 +9,7 @@ export default {
       <div class="booking-card" >
         <p>Booking id: {{ booking.booking_id }}</p>
         <p>Booking time: {{ booking.booking_time }}</p>
-        <i class="far fa-trash-alt" @click="cancelBooking"></i>
+        <i class="far fa-trash-alt" @click="cancelBooking" v-if="booking.booking_time < todaysDate"></i>
         </div>
         <div>
         <historyItemScreening
@@ -35,6 +35,12 @@ export default {
   computed: {
     tickets() {
       return this.$store.state.tickets.filter((ticket) => ticket.booking_id === this.booking.booking_id)
+    },
+    todaysDate() {
+      let m = moment(); 
+      let currentTime = m.format('YYYY-MM-DD HH:mm:ss');
+      console.log(currentTime)
+      return currentTime
     }
   }
 }
