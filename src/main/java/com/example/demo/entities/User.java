@@ -16,6 +16,7 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private boolean admin;
 
     public User() {
     }
@@ -58,5 +59,13 @@ public class User {
     @JsonProperty
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }
