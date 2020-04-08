@@ -11,6 +11,11 @@
     margin-bottom: 40px;
   }
 
+  .login-header h4, .login h4{
+    text-align: center;
+    font-weight: lighter;
+  }
+
   .login-page {
     width: 400px;
     margin: auto;
@@ -50,11 +55,3 @@
     font-size: 14px;
     cursor: pointer;
   }
-
-  
-  /* body {
-    background-color: #328f8a;
-    background-image: linear-gradient(45deg,#328f8a,#08ac4b);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }  */

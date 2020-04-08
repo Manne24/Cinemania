@@ -2,7 +2,7 @@
 export default {
   template: `
     <div class="film-box">
-        <button class="screen-box" @click="onBoxClick">{{film.title}}</button>
+        <div class="screen-box" @click="onBoxClick">{{film.title}}</div>
          <div class="screencontent" ref="screencontent">
                  <div class="screening"
                     v-for="screening of screenings"
@@ -10,10 +10,10 @@ export default {
                         :key="screening.id"
                         @click="goToScreeningID(screening.screening_id)"
                         :screenings="screenings">
-                        <p class="screen-date" >Date: {{screening.date}}</p>
+                        <p class="screen-date" >{{screening.date}}</p>
                         <p class="screen-time">Start Time: {{screening.start_time}}</p>
+                        <p class="screen-salon">Salon {{screening.salon_id}}</p>
                        <p class="screen-endtime">End Time: {{screening.end_time}}</p>
-                       <p class="screen-salon">Salon: #{{screening.salon_id}}</p>
                     </div>
                 </div>
             </div> 
@@ -23,16 +23,23 @@ export default {
   computed: {
     screenings() {
       return this.$store.state.screenings;
-    }
+    },
+    user() {
+      return this.$store.state.user;
+    },
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
     };
   },
   methods: {
     goToScreeningID(screeningID) {
-      this.$router.push("/bokTickets/ticketChoice/screening/" + screeningID);
+      if (this.user === null) {
+        this.$router.push("/login");
+      } else {
+        this.$router.push("/bokTickets/ticketChoice/screening/" + screeningID);
+      }
     },
     goToTicketChoice() {
       this.$router.push("/ticketChoice");
@@ -43,6 +50,6 @@ export default {
         "display",
         this.isOpen ? "block" : "none"
       );
-    }
-  }
+    },
+  },
 };

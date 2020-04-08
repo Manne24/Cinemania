@@ -5,7 +5,8 @@ export default {
     historyItemScreening
   },
   template: `
-    <div class="booking-card" >
+    <div class = "mypage-inside2">
+      <div class="booking-card" >
         Booking id: {{ booking.booking_id }} <br>
         Booking time: {{ booking.booking_time }} <br> 
         <i class="far fa-trash-alt" @click="cancelBooking"></i>

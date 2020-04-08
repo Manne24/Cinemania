@@ -4,7 +4,7 @@ export default {
         <div id="app">
     <header>
           <nav id="meny-rad">
-            <router-link to="/">Cinemania</router-link>
+            <router-link to="/">Cinemania </router-link>
             <router-link to="/bokTickets">Tickets</router-link>
             <router-link to="/films">Films</router-link>
             <router-link to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
@@ -26,6 +26,7 @@ export default {
       fetch('/logout')
       console.log('Successfully logged out')
       this.$store.commit('setUser', null)
+      alert("Successfully logged out!")
       this.$router.push('/login').catch((err) => {
         throw new Error(`Problem handling something: ${err}.`);
       })
