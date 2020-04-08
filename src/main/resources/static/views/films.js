@@ -8,11 +8,10 @@ export default {
 
     template: `
     <div class="container">
-        
+    <section class="sort-and-select"> 
         <div>
             <sortByDate @selectedDate="updateSelectedDate"/>
         </div>    
-        <section class="sort-and-select">
             <div class="sort-films">
             <!--  <label>Sort by rating: </label> -->
                 <button

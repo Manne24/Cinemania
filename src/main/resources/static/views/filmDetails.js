@@ -7,24 +7,16 @@ export default {
         </section>
 
         <section>
-        title: {{ film.title }} <br>
-        director: {{ film.director }} <br>
-        description: {{ film.description }} <br>
-        language: {{film.language }}<br>
-        age: {{film.rated }} <br>
-        year of production: {{film.year}} <br>
-        genre: {{film.genre}}<br>
-        runtime: {{film.runtime}}<br>
+        <p>Title: {{ film.title }}</p>
+        <p>Director: {{ film.director }}</p>
+        <p>Description: {{ film.description }} </p>
+        <p>Language: {{film.language }}</p>
+        <p>Age: {{film.rated }}</p>
+        <p>Year of production: {{film.year}}</p>
+        <p>Genre: {{film.genre}}</p>
+        <p>Runtime: {{film.runtime}}</p>
         <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
         </section><br>
-        
-       <!--   
-       TRAILER????
-       <form @submit.prevent="addNewFilm">
-        <input v-model="title" type="text"><br>
-        <button type="submit">ADD NEW FILM</button>
-        </form> -->
-
         </div>  
   
     `,
