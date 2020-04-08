@@ -2,7 +2,7 @@
 export default {
     template: `
         <div class="sort-films-date">
-            <label>Sort by date : </label>
+           <!--  <label>Sort by date : </label> -->
             <select v-model="selectedDate" @change="onChange">
                 <option value="">Select a date</option>
                 <option 
