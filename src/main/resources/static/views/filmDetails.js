@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         goToTickets(id) {
-            this.$router.push('/tickets/')
+            this.$router.push('/bokTickets/')
             console.log(id)
         },
     },

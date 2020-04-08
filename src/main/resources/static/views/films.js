@@ -8,13 +8,13 @@ export default {
 
     template: `
     <div class="container">
-       
     <section class="sort-and-select">
         <div>
-            <sortByDate @selectedDate="updateSelectedDate" /><br>
-        </div>
+            <sortByDate @selectedDate="updateSelectedDate"/>
+        </div>    
+    
         <div class="sort-films">
-            <label>Sort by rating: </label>
+           <!--  <label>Sort by rating: </label> -->
             <button
             v-for="(rating, i) in filmFilterAge" 
             :key="rating.age + i"
@@ -22,24 +22,24 @@ export default {
             >{{ rating.age }}
             </button>
         </div>
-    </section>    
-        <div class="films-container">
-            <div class="filmcard"  
-                v-for="(film ,index) of dateFilms"
-                :key="film.film_id + index"
-                @click="goToFilmInfo(film.film_id)">
-                    <img :src="film.image" alt="film image"><br>
-                    {{ film.title | to-uppercase }} <br>
-                Rated: <b>{{ film.rated }}</b> <br>
-            </div>
-        </div>    
+        </section>
+        <div class="filmcard"  
+         v-for="film of films"
+         :key="film.film_id"
+         @click="goToFilmInfo(film.film_id)">
+        <img :src="film.image" alt="film image"><br>
+         <h2>{{ film.title | to-uppercase }}</h2> <br>
+        <h3>{{ film.rated }}</h3> <br>
+        </div>
+
+
    </div>
     `,
     data() {
         return {
             selectedDate: '',
             filmFilterKey: 'all',
-           filmFilterAge: [
+            filmFilterAge: [
                 { age: "all" },
                 { age: "children" },
                 { age: "adult" }],
@@ -56,21 +56,21 @@ export default {
             this.$router.push('/films/' + film_id)
         }, onButtonClick() {
             console.log('pressed')
-            $(this).toggleClass( "selected" );
-        } 
+            $(this).toggleClass("selected");
+        }
     },
     computed: {
         dateFilms() {
             let filmIDs = this.$store.state.screenings
-                            .filter((screening) => {
-                                if(!this.selectedDate) {
-                                    return true
-                                } else {
-                                    return screening.date == this.selectedDate
-                                }
-                            })
+                .filter((screening) => {
+                    if (!this.selectedDate) {
+                        return true
+                    } else {
+                        return screening.date == this.selectedDate
+                    }
+                })
 
-                            filmIDs = filmIDs.map(screening => screening.film_id)
+            filmIDs = filmIDs.map(screening => screening.film_id)
             return this.films.filter(film => filmIDs.includes(film.film_id))
         },
         films() {
@@ -82,7 +82,7 @@ export default {
         },
         children() {
             return this.$store.state.films.filter((film) => film.rated === 'G'
-            || film.rated === 'PG' || film.rated === 'PG-13')
+                || film.rated === 'PG' || film.rated === 'PG-13')
         },
         adult() {
             return this.$store.state.films.filter((film) => film.rated === 'R')
