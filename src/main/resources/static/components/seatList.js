@@ -69,9 +69,11 @@ export default {
       }
     },
     async addBooking() {
+      let m = moment(); 
+      let currentTime = m.format('YYYY-MM-DD HH:mm:ss');
       let booking = {
         user_id: this.user.user_id, //get id of current user
-        booking_time: new Date(), //get current time
+        booking_time: currentTime, //get current time
       };
 
       let result = await fetch("/rest/bookings", {
