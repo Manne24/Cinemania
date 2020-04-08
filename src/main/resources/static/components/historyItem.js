@@ -1,10 +1,8 @@
 import historyItemScreening from './historyItemScreening.js'
-import historyItemSeats from './historyItemSeats.js'
 
 export default {
   components: {
-    historyItemScreening,
-    historyItemSeats
+    historyItemScreening
   },
   template: `
     <div class="booking-card" >
