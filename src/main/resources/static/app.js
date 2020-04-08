@@ -4,7 +4,7 @@ export default {
         <div id="app">
     <header>
           <nav id="meny-rad">
-            <router-link to="/">Cinemania</router-link>
+            <router-link to="/">Cinemania </router-link>
             <router-link to="/bokTickets">Tickets</router-link>
             <router-link to="/films">Films</router-link>
             <router-link to="/login"><i class="fas fa-sign-in-alt"></i></router-link>
