@@ -38,8 +38,8 @@ export default {
       } ,
       userAdmin() {
         let user = this.$store.state.user 
+        console.log(user.admin)
         return user.admin
-        console.log(test)
       } 
     }
   , 
