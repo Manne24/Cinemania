@@ -88,6 +88,7 @@ export default {
       });
 
       result = await result.json();
+      this.$store.commit('appendBooking', result);
 
       this.addTickets(result);
     },
@@ -117,6 +118,7 @@ export default {
           });
 
           result = await result.json();
+          this.$store.commit('appendTicket', result)
 
           seat.status = "reserved";
           this.counter = 0;
