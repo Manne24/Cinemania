@@ -1,11 +1,12 @@
 export default {
   template: `
-    <div class="booking-card" >
+    <div class = "mypage-inside2">
+      <div class="booking-card" >
         Booking id: {{ booking.booking_id }} <br>
-        Booking time: {{ booking.booking_time }} <br>
+        Booking time: {{ booking.booking_time }}
         <i class="far fa-trash-alt" @click="cancelBooking"></i>
-        <div
-            class="ticket-card" 
+      </div>  
+      <div class="ticket-card" 
             v-for="(ticket, i) of tickets"
             v-if="ticket.booking_id === booking.booking_id"
             :key="ticket.ticket_id"
@@ -15,8 +16,8 @@ export default {
                     Screening id: {{ ticket.screening_id }}<br/>
                     Seat id: {{ ticket.seat_id.row }}<br/>
                     ticket type id: {{ ticket.ticket_type_id }}<br/>
-        </div>  
-    </div>
+      </div>  
+</div>
     `,
   props: ["booking"],
   methods: {
