@@ -7,15 +7,14 @@ export default {
   template: `
     <div>
       <div>
-        <historyItemFilms 
+      <div v-for="(seat, i) of seats"
+          :key="seat.seat_id"
+          :seat="seat">
+            <p>Seat number: {{ seat.name }}</p> </div>
+            <historyItemFilms 
             v-for="(screening, i) of screenings"
             :key="screening.screening_id"
             :screening="screening"/>
-            <div
-            v-for="(seat, i) of seats"
-            :key="seat.seat_id"
-            :seat="seat">
-            <p>Seat number: {{ seat.name }}</p> </div>    
       </div> 
     </div>
     `,

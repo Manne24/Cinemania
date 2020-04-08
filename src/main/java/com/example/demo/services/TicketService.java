@@ -26,4 +26,10 @@ public class TicketService {
     public Ticket addNewTicket(Ticket ticket) {
         return ticketRepo.save(ticket);
     }
+
+    public Ticket removeTicket(int ticket_id) {
+        ticketRepo.deleteById(ticket_id);
+        return null;
+    }
+    
 }
