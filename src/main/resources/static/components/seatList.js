@@ -1,6 +1,6 @@
 export default {
   template: `
-        <div>
+     <div id="seat-layout">
         <div class="salon">
             <div class="seats"
                 v-for="seat of seats"
@@ -9,12 +9,12 @@ export default {
                 :key="seat.name.id"
                 @click="chooseSeat(seat)"
             >
-                <p>{{ seat.row }}-{{ seat.name }}</p>
-                </div>
-            </div>  
-            <button @click="addBooking">BOOK</button>
-            <p v-if="errorBooking">Error, could not execute booking</p>      
-        </div>
+                {{ seat.row }}-{{ seat.name }}
+            </div>
+        </div>  
+        <button id="seat-button" @click="addBooking">BOOK</button>
+        <p v-if="errorBooking">Error, could not execute booking</p>      
+     </div>
     
     `,
   data() {
@@ -69,9 +69,11 @@ export default {
       }
     },
     async addBooking() {
+      let m = moment(); 
+      let currentTime = m.format('YYYY-MM-DD HH:mm:ss');
       let booking = {
         user_id: this.user.user_id, //get id of current user
-        booking_time: new Date(), //get current time
+        booking_time: currentTime, //get current time
       };
 
       let result = await fetch("/rest/bookings", {
