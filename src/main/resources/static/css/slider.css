@@ -1,0 +1,75 @@
+ .fade-enter-active,
+.fade-leave-active {
+    transition: all 0.8s ease;
+    overflow: hidden;
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    width: 48.7%;
+}
+
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+    visibility: hidden;
+}
+.slider-img {
+    width: 50%;
+    height: 100%;
+    background-size: contain;
+    border: 5px;
+    /* box-shadow: 5px 10px 18px rgb(110, 110, 110); */
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  color:#444;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.7s ease;
+  border-radius: 10px;
+  text-decoration: none;
+  user-select: none;
+}
+
+.next {
+  right: 28%;
+  top:60%;
+}
+
+.prev {
+  left: 26%;
+  top: 60%;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(97, 96, 96, 0.24);
+}
+
+@media only screen and (max-width: 600px) {
+    .center {
+      width: 100%;
+    }
+  
+    .prev {
+      left: -2%;
+      top: 35%;
+    }
+  
+    .next {
+      right: 4%;
+      top: 35%;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+    width: 89.4%;
+}
+  }
+
+

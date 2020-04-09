@@ -1,0 +1,84 @@
+#seat-layout {
+  display: grid;
+}
+
+#seat-layout > .film-screen {
+  background-color: #ddf;
+  width: 54%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  text-align: center;
+  height: 20px;
+  border-radius: 5px;
+}
+
+#seat-layout > .salon {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  width: 50%;
+  background-color: #777;
+  margin-left: 25%;
+  margin-right: 25%;
+  grid-gap: 5px;
+  padding: 10px;
+}
+
+#seat-layout > .salon > .seats {
+  background-color: #aaa;
+  border: 1px solid #000;
+  text-align: center;
+  padding: 10px;
+}
+
+#seat-layout > .salon > .reservedSeats {
+  background-color: #ff0000;
+  border: 1px solid #000;
+  text-align: center;
+  padding: 10px;
+  cursor: not-allowed;
+}
+
+#seat-layout > .salon > .selectedSeats {
+  background-color: #00ff00;
+  border: 1px solid #000;
+  text-align: center;
+  padding: 10px;
+}
+
+#seat-layout > #seat-button {
+  text-transform: uppercase;
+  background-color: #328f8a;
+  background-image: linear-gradient(45deg, #328f8a, #08ac4b);
+  width: 10%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+   .salon {
+    width: 100% !important ; 
+    margin: 0 !important;
+  }
+  .film-screen {
+    margin-left: 23% !important;
+  }
+
+  .seats {
+    height: 35px;
+    font-size: 10px;
+    padding: 0 !important;
+  }
+ #seat-button {
+   width: 32% !important;
+ }
+
+}

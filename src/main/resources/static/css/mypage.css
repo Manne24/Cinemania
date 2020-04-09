@@ -1,0 +1,72 @@
+/* --------------- My page --------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+.mypage-container{
+  width: 500px;
+  margin: auto;
+}
+
+
+.mypage-form{
+  text-align: left;
+}
+
+.mypage-inside h2 {
+  color: white;
+  text-align: left;
+}
+
+.mypage-inside2 {
+  text-align: left;
+  width: 500px;
+  margin-left: 10px;
+}
+
+.user-info {
+  font-size: 18px;
+  margin-left: 100px;
+}
+
+form.booking-form{
+  text-align: left;
+  
+} 
+.booking-card i {
+  font-size: 20px;
+}
+
+.booking-card {
+  background-color: #328f8a;
+  background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+  width: 500px;
+  padding: 10px;
+  margin-bottom: 3px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.ticket-card {
+  background: #f2f2f2;
+  width: 500px;
+  margin-top: 6px;
+  padding: 6px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 375px) {
+  .mypage-container{
+    font-size: 15px;
+    width: 340px;
+  }
+
+  .mypage-inside2, .booking-card, .ticket-card{
+    width: 270px;
+  }
+  .user-info {
+    margin-left: 30px;
+  }
+}

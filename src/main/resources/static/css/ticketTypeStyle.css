@@ -1,0 +1,112 @@
+.ticketBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.ticketTitle {
+  font-size: 2em;
+  align-self: center;
+  color: white;
+  margin: 0px;
+}
+
+.goToSeatsButton {
+  width: 26%;
+  border: none;
+  outline: none;
+  background-color: #328f8a;
+  background-image: linear-gradient(45deg, #328f8a, #08ac4b);
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+  align-self: center;
+  height: 60px;
+  border-radius: 15px;
+}
+
+.goToSeatsButton:hover {
+    border: 1px solid rgba(180, 180, 180, 0.753);
+}
+
+.ticketForm {
+  margin: 50px;
+  align-self: center;
+  width: 36%;
+}
+
+.inputBox {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.inputBox p {
+  font-size: 20px;
+  text-align: left;
+  flex: 1;
+  color: white;
+}
+
+span {
+    font-size: 12px;
+}
+
+.priceText {
+    color: white;
+}
+
+#decrease,
+#increase {
+  text-align: center;
+}
+
+.value-button {
+    font-size: 30px;
+  width: 56px;
+  height: 45px;
+  vertical-align: middle;
+  padding: 5px;
+  user-select: none;
+  border-radius: 20px;
+}
+
+.value-button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.438);
+  transition: 1s;
+}
+
+#number {
+    font-size: 30px;
+  text-align: center;
+  border: none;
+  margin: 0;
+  height: 30px;
+  width: 50px;
+  border-radius: 15px;
+  background-color: gray;
+  color: white;
+  outline: none;
+  pointer-events: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .ticketForm {
+    margin: 50px;
+    align-self: center;
+    width: 100%;
+}
+.goToSeatsButton {
+  width: 72%;
+}
+
+}
+
+
