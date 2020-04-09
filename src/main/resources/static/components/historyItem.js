@@ -10,8 +10,8 @@ export default {
         <p>Booking id: {{ booking.booking_id }}</p>
         <p>Booking time: {{ booking.booking_time }}</p>
         <i class="far fa-trash-alt" @click="cancelBooking"></i>
-        </div>
-        <div>
+      </div>
+      <div>
         <historyItemScreening
             class="ticket-card" 
             v-for="(ticket, i) of tickets"
