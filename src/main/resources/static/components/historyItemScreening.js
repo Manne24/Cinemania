@@ -10,7 +10,9 @@ export default {
       <div v-for="(seat, i) of seats"
           :key="seat.seat_id"
           :seat="seat">
-          <p>Seat number: {{ seat.name }}</p> </div>
+          <p>Seat row: {{ seat.row }}</p>
+          <p>Seat number: {{ seat.name }}</p> 
+          </div>
           <historyItemFilms 
           v-for="(screening, i) of screenings"
           :key="screening.screening_id"
