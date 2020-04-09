@@ -68,3 +68,9 @@
   display: inline-block;
   width: auto;
 }
+
+@media screen and (max-width: 375px) {
+  .signup-page {
+    width: 340px;
+  }
+}

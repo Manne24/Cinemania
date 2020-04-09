@@ -10,12 +10,15 @@ export default {
       <div v-for="(seat, i) of seats"
           :key="seat.seat_id"
           :seat="seat">
-          <p>Seat number: {{ seat.name }}</p> </div>
+          <p>Seat row: {{ seat.row }}</p>
+          <p>Seat number: {{ seat.name }}</p> 
+          </div>
           <historyItemFilms 
           v-for="(screening, i) of screenings"
           :key="screening.screening_id"
           :screening="screening"/>
           <i class="far fa-trash-alt" @click="deleteTicket" ></i>
+          <!-- /* v-if="screening.date > todaysDate" ska ligga i <i></i>*/ -->
       </div> 
     </div>
     `,
@@ -45,6 +48,3 @@ export default {
     }
   }
 }
-
-/* Ticket id: {{ ticket.ticket_id }} */
-/*   */
