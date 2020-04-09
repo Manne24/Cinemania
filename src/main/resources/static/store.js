@@ -29,6 +29,12 @@ export const store = new Vuex.Store({
     appendUser(state, user) {
       state.users.push(user);
     },
+    appendBooking(state, book) {
+      state.bookings.push(book);
+    },
+    appendTicket(state, ticket) {
+      state.tickets.push(ticket);
+    },
     setSeats(state, seats) {
       state.seats = seats;
     },

@@ -14,11 +14,9 @@ export default {
                     Name: {{ user.name }}<br>
                     Email: {{ user.email }}<br>
                 </div>
-
                 <h2>My booking history</h2>
             </div>    
             <history/>
-            
         </div>
     </div>    
     `,
