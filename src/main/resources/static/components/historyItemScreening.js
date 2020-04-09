@@ -15,10 +15,21 @@ export default {
             v-for="(screening, i) of screenings"
             :key="screening.screening_id"
             :screening="screening"/>
+            <i class="far fa-trash-alt" @click="deleteTicket"></i>
       </div> 
     </div>
     `,
   props: ['ticket'],
+  methods: {
+    async deleteTicket() {
+      let response = await fetch("/rest/tickets/" + this.ticket.ticket_id, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: this.ticket.ticket_id,
+      });
+      console.log(response);
+    } 
+  },
   computed: {
     screenings() {
       return this.$store.state.screenings.filter((screening) => screening.screening_id === this.ticket.screening_id)
@@ -30,3 +41,4 @@ export default {
 }
 
 /* Ticket id: {{ ticket.ticket_id }} */
+/*  v-if="screening.date > todaysDate" */
