@@ -31,7 +31,7 @@
   section, p{
     width: 75%; 
     text-align: left;
-    margin-left: 110px;
+    margin-left: 10px;
     color: #444;
 
   }
@@ -73,4 +73,10 @@
     display: table;
   }
 
-.
+h4 {
+  color:#444;
+}
+
+.search-result {
+  margin-left: 110px;
+}
