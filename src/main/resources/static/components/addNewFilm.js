@@ -8,7 +8,7 @@ export default {
                     <div class="search-form">
                         <form class="example" @submit.prevent="checkIfFilmExists">
                             <input v-model="titleAdd" type="text" 
-                            placeholder="TITLE of film to add" required>
+                            placeholder="TITLE of film to add" required >
                             <input v-model="screeningDate" type="text" 
                             placeholder="Screening DATE (YYYY-MM-DD)" required>
                             <input v-model="salonID" type="text" 
@@ -168,7 +168,15 @@ export default {
             })
 
             resultScreening = await resultScreening.json()
+            console.log(resultScreening)
             this.$store.commit("appendScreening", resultScreening);
+
+            this.screeningDate = '',
+            this.salonID = '',
+            this.startTimeScreening = '',
+            this.endTimeScreening = ''
+            this.filmFound = 'Film ADDED.'
+
 
         },
         async deleteFilmByTitle() {

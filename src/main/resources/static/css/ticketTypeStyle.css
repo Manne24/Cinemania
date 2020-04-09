@@ -12,7 +12,7 @@
 }
 
 .goToSeatsButton {
-  width: 40%;
+  width: 26%;
   border: none;
   outline: none;
   background-color: #328f8a;
@@ -32,7 +32,7 @@
 .ticketForm {
   margin: 50px;
   align-self: center;
-  width: 453px;
+  width: 36%;
 }
 
 .inputBox {
@@ -45,6 +45,7 @@
   font-size: 20px;
   text-align: left;
   flex: 1;
+  color: white;
 }
 
 span {
@@ -94,3 +95,18 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .ticketForm {
+    margin: 50px;
+    align-self: center;
+    width: 100%;
+}
+.goToSeatsButton {
+  width: 72%;
+}
+
+}
+
+
