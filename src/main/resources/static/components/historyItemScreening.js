@@ -10,12 +10,12 @@ export default {
       <div v-for="(seat, i) of seats"
           :key="seat.seat_id"
           :seat="seat">
-            <p>Seat number: {{ seat.name }}</p> </div>
-            <historyItemFilms 
-            v-for="(screening, i) of screenings"
-            :key="screening.screening_id"
-            :screening="screening"/>
-            <i class="far fa-trash-alt" @click="deleteTicket"></i>
+          <p>Seat number: {{ seat.name }}</p> </div>
+          <historyItemFilms 
+          v-for="(screening, i) of screenings"
+          :key="screening.screening_id"
+          :screening="screening"/>
+          <i class="far fa-trash-alt" @click="deleteTicket" ></i>
       </div> 
     </div>
     `,
@@ -28,7 +28,7 @@ export default {
         body: this.ticket.ticket_id,
       });
       console.log(response);
-    } 
+    }
   },
   computed: {
     screenings() {
@@ -36,6 +36,12 @@ export default {
     },
     seats() {
       return this.$store.state.seats.filter((seat) => seat.seat_id === this.ticket.seat_id)
+    },
+    todaysDate() {
+      let m = moment();
+      let currentTime = m.format('YYYY-MM-DD');
+      console.log(currentTime)
+      return currentTime
     }
   }
 }
