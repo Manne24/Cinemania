@@ -30,7 +30,7 @@ export default {
     ,
     methods: {
         startSlide: function() {
-          this.timer = setInterval(this.next, 5000);
+        //   this.timer = setInterval(this.next, 5000);
         }, 
         next: function() {
           this.currentIndex += 1;
