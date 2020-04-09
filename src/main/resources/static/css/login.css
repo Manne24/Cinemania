@@ -60,4 +60,8 @@
     .login-page {
       width: 340px;
     }
+    .login-header h4, .login h4{
+      text-align: left;
+      font-weight: lighter;
+    }
   }
