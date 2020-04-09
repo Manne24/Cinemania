@@ -2,6 +2,12 @@
     box-sizing: border-box;
   }
 
+  .title-admin {
+    text-align: center;
+    color: #444;
+
+  }
+
   .add-new-film, .admin-userform {
     text-align: center;
     width: 60%;
@@ -25,7 +31,9 @@
   section, p{
     width: 75%; 
     text-align: left;
-    margin-left: 10px;
+    margin-left: 110px;
+    color: #444;
+
   }
  
   .admin-form button, .admin-userform button {
@@ -64,3 +72,5 @@
     clear: both;
     display: table;
   }
+
+.
