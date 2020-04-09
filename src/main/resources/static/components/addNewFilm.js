@@ -169,6 +169,11 @@ export default {
             resultScreening = await resultScreening.json()
             this.$store.commit("appendScreening", resultScreening);
 
+            this.screeningDate = '',
+            this.salonID = '',
+            this.startTimeScreening = '',
+            this.endTimeScreening = ''
+
         },
         async deleteFilmByTitle() {
             let rawResponse = await fetch('/rest/films/' + this.titleDelete, {
