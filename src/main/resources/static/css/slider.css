@@ -50,3 +50,26 @@
 .prev:hover, .next:hover {
   background-color: rgba(97, 96, 96, 0.24);
 }
+
+@media only screen and (max-width: 600px) {
+    .center {
+      width: 100%;
+    }
+  
+    .prev {
+      left: -2%;
+      top: 35%;
+    }
+  
+    .next {
+      right: 4%;
+      top: 35%;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+    width: 89.4%;
+}
+  }
+
+
