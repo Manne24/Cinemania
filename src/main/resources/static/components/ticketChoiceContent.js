@@ -79,14 +79,31 @@ export default {
     },
 
     increaseValue(selectedValue) {
-      if (selectedValue === 1) {
-        (this.value += 1), (this.price += 65);
-      } else if (selectedValue === 2) {
-        (this.value2 += 1), (this.price += 85);
-      } else if (selectedValue === 3) {
-        (this.value3 += 1), (this.price += 75);
+      if (
+        this.value + this.value2 + this.value3 <
+        this.checkHowManyPlaceAreLeft()
+      ) {
+        if (selectedValue === 1) {
+          (this.value += 1), (this.price += 65);
+        } else if (selectedValue === 2) {
+          (this.value2 += 1), (this.price += 85);
+        } else if (selectedValue === 3) {
+          (this.value3 += 1), (this.price += 75);
+        }
       }
     },
+    checkHowManyPlaceAreLeft() {
+      let placeReserved = 0;
+      for (let ticket of this.tickets) {
+        if (ticket.screening_id == this.$route.params.id) {
+          placeReserved += 1;
+        }
+      }
+      return 50 - placeReserved;
+    },
+  },
+  created() {
+    this.checkHowManyPlaceAreLeft();
   },
   computed: {
     totalTickets() {
@@ -94,6 +111,9 @@ export default {
     },
     listTicketTypes() {
       return this.$store.state.listTicketTypes;
+    },
+    tickets() {
+      return this.$store.state.tickets;
     },
   },
 };
