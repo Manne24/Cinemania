@@ -15,7 +15,7 @@ export default {
                 {{ seat.row }}-{{ seat.name }}
             </div>
         </div>  
-        <button id="seat-button" @click="addBooking">BOOK</button>
+        <button id="seat-button" v-if="counter === totalTickets" @click="addBooking">BOOK</button>
         <p v-if="errorBooking">Error, could not execute booking</p>      
      </div>
     
