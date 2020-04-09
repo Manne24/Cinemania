@@ -36,15 +36,6 @@ export default {
     tickets() {
       return this.$store.state.tickets.filter((ticket) => ticket.booking_id === this.booking.booking_id)
     }
-  },
-  todaysDate() {
-    let m = moment();
-    let currentTime = m.format('YYYY-MM-DD');
-    console.log(currentTime)
-    return currentTime
   }
 }
-
-/*
-v-if="screening.date > todaysDate" */
 
