@@ -3,7 +3,10 @@ package com.example.demo.controllers;
 import com.example.demo.entities.Screening;
 import com.example.demo.services.ScreeningService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,10 +28,4 @@ public class ScreeningController {
     public Optional<Screening> getOneScreening(@PathVariable int screening_id){
         return screeningService.findOneScreening(screening_id);
     }
-
-    @PostMapping("/screenings")
-    public Screening createNewScreening(@RequestBody Screening screening) {
-        return screeningService.addNewScreening(screening);
-    }
-
 }
