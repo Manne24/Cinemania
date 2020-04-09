@@ -68,9 +68,9 @@ export default {
         }
     },
     computed: {
-        films() {
-            let film = this.$store.state.films.filter((film) => film.film_id === this.filmID)
-            return
+        film() {
+            return this.$store.state.films.filter((film) => film.film_id === this.filmID)
+            
         }
     }, methods: {
         checkIfFilmExists() {
@@ -80,7 +80,7 @@ export default {
                     this.imdbInfo = res;
                     console.log(this.imdbInfo)
                 })
-                
+
             fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=[YOUR_API_KEY]&q=' + this.titleAdd + 'trailer')
                 .then((res) => { return res.json() })
                 .then((res) => {
@@ -141,9 +141,18 @@ export default {
             this.titleDelete = ''
         },
         async updateFilm() {
+
+                let film = await fetch("/rest/films/" + this.filmID);
+                film = await film.json();
+                console.log(film);
+                this.film = film;
+            
+
+            console.log(this.film)
+
             let data = {
                 film_id: this.filmID,
-                title: 'ww',
+                title: this.film.title,
                 director: 'ww',
                 description: 'ww',
                 image: 'ww',
