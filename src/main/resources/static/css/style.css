@@ -30,9 +30,9 @@ main {
 .title {
   margin-top: 10px;
   text-align: center;
-  color: white;
+  color:#444;
   font-size: 3em;
-}
+} 
 
 .title p {
   box-shadow: 5px 10px 18px rgb(110, 110, 110);
