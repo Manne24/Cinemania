@@ -5,6 +5,7 @@
   box-shadow: 5px 10px 18px rgb(110, 110, 110);
 }
 .screen-box {
+  display: flex;
   background-color: #eee;
   color: #444;
   cursor: pointer;
@@ -70,6 +71,22 @@
   margin: -27px;
 }
 
+.screen-ticket-left{
+  margin-left: 9%;
+}
+
+.ticket-movie-title {
+  align-self: center;
+  font-size: 1em;
+  width: 100%;
+  padding-left: 3%;
+}
+
+.ticket-movie-poster {
+  width: 10%;
+  height: 100%;
+  background-size: contain;
+}
 
 @media only screen and (max-width: 600px) {
   .screening {
@@ -78,5 +95,12 @@
 
   .screen-time, .screen-endtime {
     margin: 0;
+  }
+
+  .screen-date {
+    font-size: 17px;
+  }
+  .ticket-movie-poster {
+    width: 28%;
   }
 }
