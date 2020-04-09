@@ -8,7 +8,7 @@ export default {
             <div class="seats"
                 v-for="seat of seats"
                 v-if="seat.salon_id === currentScreening.salon_id"
-                v-bind:style="[(seat.status !== 'available') ? (seat.status === 'reserved') ? {backgroundColor: bgColorReserved} : {backgroundColor: bgColorSelected} : {backgroundColor: bgColor}]"
+                v-bind:class="[(seat.status !== 'available') ? (seat.status === 'reserved') ? 'reservedSeats' : 'selectedSeats' : 'seats']"
                 :key="seat.name.id"
                 @click="chooseSeat(seat)"
             >
@@ -22,9 +22,6 @@ export default {
     `,
   data() {
     return {
-      bgColor: "#aaa",
-      bgColorSelected: "#00ff00",
-      bgColorReserved: "#ff0000",
       currentScreening: {},
       errorBooking: false,
       counter: 0,

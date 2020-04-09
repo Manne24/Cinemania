@@ -73,4 +73,9 @@
   .signup-page {
     width: 340px;
   }
+
+  .signup-header h4{
+    font-weight: lighter;
+    text-align: left;
+  }
 }

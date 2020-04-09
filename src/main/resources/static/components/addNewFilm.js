@@ -47,6 +47,7 @@ export default {
                     <button type="submit" >DELETE</button>
                     </form><br>
                     </div>
+                    <hr>
 <!-- 
                     <hr>
                     <h4>Update Movie</h4>

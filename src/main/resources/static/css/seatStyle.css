@@ -30,6 +30,21 @@
   padding: 10px;
 }
 
+#seat-layout > .salon > .reservedSeats {
+  background-color: #ff0000;
+  border: 1px solid #000;
+  text-align: center;
+  padding: 10px;
+  cursor: not-allowed;
+}
+
+#seat-layout > .salon > .selectedSeats {
+  background-color: #00ff00;
+  border: 1px solid #000;
+  text-align: center;
+  padding: 10px;
+}
+
 #seat-layout > #seat-button {
   text-transform: uppercase;
   background-color: #328f8a;

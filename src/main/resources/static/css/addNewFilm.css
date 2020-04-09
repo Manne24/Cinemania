@@ -85,3 +85,13 @@ h4 {
 .search-result {
   margin-left: 13%;
 }
+
+@media screen and (max-width: 375px) {
+  .add-new-film, .admin-userform{
+    font-size: 15px;
+    width: 100%;
+  }
+  .admin-form input, .admin-userform input {
+    font-size: 15px;
+  }
+}
