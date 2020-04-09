@@ -16,6 +16,7 @@ export default {
           :key="screening.screening_id"
           :screening="screening"/>
           <i class="far fa-trash-alt" @click="deleteTicket" ></i>
+          <!-- /* v-if="screening.date > todaysDate" ska ligga i <i></i>*/ -->
       </div> 
     </div>
     `,
@@ -45,6 +46,3 @@ export default {
     }
   }
 }
-
-/* Ticket id: {{ ticket.ticket_id }} */
-/*   */
