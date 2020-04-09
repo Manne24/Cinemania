@@ -13,7 +13,6 @@ export default {
             <sortByDate @selectedDate="updateSelectedDate"/>
         </div>    
             <div class="sort-films">
-            <!--  <label>Sort by rating: </label> -->
                 <button
                 v-for="(rating, i) in filmFilterAge" 
                 :key="rating.age + i"
@@ -28,9 +27,9 @@ export default {
                 v-for="(film ,index) of dateFilms"
                 :key="film.film_id + index"
                 @click="goToFilmInfo(film.film_id)">
-                <img :src="film.image" alt="film image"><br>
-                {{ film.title | to-uppercase }} <br>
-                Rated: <b>{{ film.rated }}</b> <br>
+                <img :src="film.image" alt="film image">
+                <h2>{{ film.title | to-uppercase }}</h2>
+                <h4>{{ film.rated }}</h4>
             </div>
         </section>
         </div>    
