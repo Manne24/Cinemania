@@ -13,12 +13,12 @@ export default {
             <sortByDate @selectedDate="updateSelectedDate"/>
         </div>    
             <div class="sort-films">
-                <button
-                v-for="(rating, i) in filmFilterAge" 
-                :key="rating.age + i"
-                @click="onFilterButtonClick(rating.age)"
-                >{{ rating.age }}
-                </button>
+                    <button
+                    v-for="(rating, i) in filmFilterAge" 
+                    :key="rating.age + i"
+                    @click="onFilterButtonClick(rating.age)"
+                    >{{ rating.age }}
+                    </button>
             </div>
         </section>
 
