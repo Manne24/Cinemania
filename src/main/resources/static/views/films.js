@@ -71,7 +71,6 @@ export default {
                     if (!this.selectedDate) {
                         return true
                     } else {
-                        console.log(this.selectedDate)
                         return screening.date == this.selectedDate
                     }
                 })
