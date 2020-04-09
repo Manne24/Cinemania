@@ -12,7 +12,7 @@
 }
 
 .sort-and-select {
-  background-color: rgb(129, 128, 128);
+  background-color: #8d8f93;
   margin-bottom: 20px;
   width: 100%;
   display: flex;
@@ -34,8 +34,8 @@
   clear: both;
   width: 100%;
 }
-.films-info,
-.filmcard {
+
+.films-info, .filmcard {
   float: left;
 }
 
@@ -98,8 +98,15 @@
   width: 300px;
   height: 30px;
   font-size: 16px;
+  background-color: #f2f2f2;
 }
 
+/* .button-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+} */
 .sort-films button {
   font-size: 16px;
   cursor: pointer;
@@ -137,7 +144,7 @@
   margin-left: auto;
 }
 
-.film-details-page > h1 {
+.film-details-page>h1 {
   text-align: center;
 }
 
@@ -145,6 +152,37 @@
   margin-left: 0;
 }
 
+@media screen and (max-width: 375px) {
+  .filmcard {
+    width: 300px;
+    margin-left: 0;
+  }
+  .films-info {
+    margin-left: 5%;
+  }
+  .sort-and-select {
+    width: 100%;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  .sort-films-date {
+    width: 300px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .sort-films {
+    width: 100%;
+    margin-left: 36px;
+  }
+
+  .sort-films button {
+    margin-left: 10px;
+  }
+  
+}
 .iframe-container {
   overflow: hidden;
   padding-top: 56.25%;
