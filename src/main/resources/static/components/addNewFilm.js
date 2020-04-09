@@ -1,18 +1,21 @@
 export default {
     template: `
         <div> 
+            <h1 class="title-admin">Admin Panel</h1>
             <div class="add-new-film">
                 <div class="admin-form">
-                    <form class="example" @submit.prevent="checkIfFilmExists">
-                    <input v-model="titleAdd" type="text" 
-                    placeholder="Enter TITLE of film to add" required><br>
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                    <button @click.prevent="addNewFilm">ADD</button>
-                    <button type="reset" value="Reset">RESET</button>
-                    </form>
-
+                    <h4>Search For Movie</h4>
+                    <div class="search-form">
+                        <form class="example" @submit.prevent="checkIfFilmExists">
+                            <input v-model="titleAdd" type="text" 
+                            placeholder="Enter TITLE of film to add" required><br>
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                            <button @click.prevent="addNewFilm">ADD</button>
+                            <button type="reset" value="Reset">RESET</button>
+                        </form>
+                    </div>
                     <p :style="{color: 'red'}">{{ imdbInfo.Error }}</p><br> 
-                    <section>
+                    <section class= "search-result">
                     Title: {{ imdbInfo.Title }} <br>
                     Director: {{ imdbInfo.Director }} <br>
                     Description: {{ imdbInfo.Plot}} <br>
@@ -25,14 +28,20 @@ export default {
                     <p style="color:red">{{ filmFound }}</p><br>
                     </section>
                     <hr>
-            
+
+                    
+                    <h4>Delete Movie</h4>
+                    <div class="delete-form">
                     <form class="delete" @submit.prevent="deleteFilmByTitle">
                     <input v-model="titleDelete" type="text" 
                     placeholder="Enter TITLE of film to delete" required><br>
                     <button type="submit" >DELETE</button>
                     </form><br>
+                    </div>
 
                     <hr>
+                    <h4>Update Movie</h4>
+                    <div class="update-form">
                     <form class="update" @submit.prevent="updateFilm">
                     <input v-model="trailerUpdate" type="text" 
                     placeholder="Enter new YouTube ID for trailer" required><br><br>
@@ -40,6 +49,7 @@ export default {
                     placeholder="Enter ID of film to update (need some adjusting to work)" required><br>
                     <button type="submit">UPDATE</button>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 export default {
     template:`
          <div class="admin-userform">
+           <h4>Delete User</h4>
             <br><hr>
               <form class="user-delete" @submit.prevent="quitUser">
               <input v-model="user_id" required type="id" placeholder="Enter ID of user to remove"><br>

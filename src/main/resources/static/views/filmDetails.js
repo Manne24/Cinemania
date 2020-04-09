@@ -1,44 +1,40 @@
 export default {
-    template: `
-     <div>
+  template: `
+     <div class="film-details-page">
         <h1>{{ film.title }}</h1>
         <section class="iframe">
         <iframe width="640" height="360" :src="film.trailer" frameborder="0" allowtransparency="true" ></iframe>
         </section>
 
         <section>
-        <p>Title: {{ film.title }}</p>
-        <p>Director: {{ film.director }}</p>
-        <p>Description: {{ film.description }} </p>
-        <p>Language: {{film.language }}</p>
-        <p>Age: {{film.rated }}</p>
-        <p>Year of production: {{film.year}}</p>
-        <p>Genre: {{film.genre}}</p>
-        <p>Runtime: {{film.runtime}}</p>
+        <p><b>Title:</b> {{ film.title }}</p>
+        <p><b>Director:</b> {{ film.director }}</p>
+        <p><b>Description:</b> {{ film.description }} </p>
+        <p><b>Language:</b> {{film.language }}</p>
+        <p><b>Age:</b> {{film.rated }}</p>
+        <p><b>Year of production:</b> {{film.year}}</p>
+        <p><b>Genre:</b> {{film.genre}}</p>
+        <p><b>Runtime:</b> {{film.runtime}}</p>
         <button class="button-buy-ticket" @click="goToTickets(film.id)" >Buy ticket</button>
         </section><br>
         </div>  
   
     `,
-    data() {
-        return {
-            film: {
-            }
-        }
+  data() {
+    return {
+      film: {},
+    };
+  },
+  methods: {
+    goToTickets(id) {
+      this.$router.push("/bokTickets/");
+      console.log(id);
     },
-    methods: {
-        goToTickets(id) {
-            this.$router.push('/bokTickets/')
-            console.log(id)
-        },
-    },
-    async created() {
-        let film = await fetch('/rest/films/' + this.$route.params.id)
-        film = await film.json()
-        console.log(film)
-        this.film = film
-    },
-}
-
-
-
+  },
+  async created() {
+    let film = await fetch("/rest/films/" + this.$route.params.id);
+    film = await film.json();
+    console.log(film);
+    this.film = film;
+  },
+};
