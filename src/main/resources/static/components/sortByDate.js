@@ -2,7 +2,6 @@
 export default {
     template: `
         <div class="sort-films-date">
-           <!--  <label>Sort by date : </label> -->
             <select v-model="selectedDate" @change="onChange">
                 <option value="">Select a date</option>
                 <option 
@@ -22,14 +21,11 @@ export default {
     computed: {
         screenings() {
             let dates = this.$store.state.screenings.map(screening => screening.date)
-            return new Set([...dates])
+            return new Set([...dates])          //skapa en list förutom duplicated date
         },
         films() {
             return this.$store.state.films
-        },
-        dagensFilms() {
-            return this.$store.state.screenings.filter((screening) => screening.date === this.selectedDate)
-        },
+        }
        },
 
     methods:{

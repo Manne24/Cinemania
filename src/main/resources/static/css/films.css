@@ -10,21 +10,21 @@
 }
 
 .sort-and-select {
-  margin: auto;
   background-color: rgb(129, 128, 128);
   margin-bottom: 20px;
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
   padding: 16px 20px;
-  /* border-radius: 5px; */
   overflow: hidden;
 }
 
 .films-info{
   margin: auto;
+  width: 100%;
+  padding: 20px 20px;
 }
 
 .films-info:after{
@@ -33,8 +33,7 @@
   clear:both;
   width: 100%;
 }
-.films-info .filmcard{
-  border: 1px solid black;
+.films-info, .filmcard{
   float: left;
 }
 
@@ -46,11 +45,11 @@
 }
 
 .filmcard {
-  background-color: #515254;
+  background-color: #8d8f93;
   width: 340px;
   margin-bottom: 20px;
   cursor: pointer;
-  height: 660px;
+  height: 600px;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(6, 6, 6, 0.2);
   transition: 0.3s;
@@ -58,11 +57,11 @@
   margin-left: 20px;
 }
 
-.filmcard h2 {
+.filmcard h3 {
   font-weight: 1em;
 }
 
-.filmcard h3 {
+.filmcard h4 {
   background-image: linear-gradient(45deg,#634fee,#6098f7);
   font-weight: 1em;
   color: red;
@@ -106,18 +105,12 @@
   width: 99px;
   height: 30px;
   text-align: center;
- /*  border-radius: 5px; */
   border-color: none;
-  /* margin-bottom: 4px; */
 }
 
 .sort-films button:hover {
   background: #7bbcf1;
 }
-
-/* .sort-films button:active {
-  background: red
-} */
 
 .button-buy-ticket {
     text-transform: uppercase;
