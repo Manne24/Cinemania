@@ -15,7 +15,8 @@ export default {
         return {
             images: ["https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
                     "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_SX300.jpg",
-                    "https://m.media-amazon.com/images/M/MV5BMTIzNjg0MzgwNF5BMl5BanBnXkFtZTcwMTQ1MzczMQ@@._V1_SX300.jpg",
+                    "https://m.media-amazon.com/images/M/MV5BNTdiOTQ0YmUtOGE3YS00NDg5LWI3YTEtNDAxZmE0MzRmZWM5L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+                    // "https://m.media-amazon.com/images/M/MV5BMTIzNjg0MzgwNF5BMl5BanBnXkFtZTcwMTQ1MzczMQ@@._V1_SX300.jpg", Shark
                     "https://m.media-amazon.com/images/M/MV5BMTQzOTYwMzA4NF5BMl5BanBnXkFtZTgwMDQyODIzNjE@._V1_SX300.jpg",
                     "https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
                     

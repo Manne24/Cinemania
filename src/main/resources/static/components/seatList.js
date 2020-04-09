@@ -56,6 +56,9 @@ export default {
       }
     },
     async checkReservedSeats() {
+      for (let seat of this.seats) {
+        seat.status = "available";
+      }
       for (let ticket of this.tickets) {
         if (ticket.screening_id === this.currentScreening.screening_id) {
           let seatID = ticket.seat_id;
@@ -88,7 +91,7 @@ export default {
       });
 
       result = await result.json();
-      this.$store.commit('appendBooking', result);
+      this.$store.commit("appendBooking", result);
 
       this.addTickets(result);
     },
@@ -118,7 +121,7 @@ export default {
           });
 
           result = await result.json();
-          this.$store.commit('appendTicket', result)
+          this.$store.commit("appendTicket", result);
 
           seat.status = "reserved";
           this.counter = 0;
