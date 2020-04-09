@@ -144,3 +144,28 @@
 .film-details p {
   margin-left: 0;
 }
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  margin-left: 20px;;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+
+@media only screen and (max-device-width: 375px) {
+  .film-details-page{
+    font-size: 17px;
+    width: 360px;
+    margin-left: 10px;
+  }
+}

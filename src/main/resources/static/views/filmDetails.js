@@ -2,11 +2,10 @@ export default {
   template: `
      <div class="film-details-page">
         <h1>{{ film.title }}</h1>
-        <section class="iframe">
-        <iframe width="640" height="360" :src="film.trailer" frameborder="0" allowtransparency="true" ></iframe>
+        <section class="iframe-container">
+        <iframe :src="film.trailer" frameborder="0" allowtransparency="true" ></iframe>
         </section>
-
-        <section>
+        <section class="details">
         <p><b>Title:</b> {{ film.title }}</p>
         <p><b>Director:</b> {{ film.director }}</p>
         <p><b>Description:</b> {{ film.description }} </p>
