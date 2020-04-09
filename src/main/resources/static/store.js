@@ -35,6 +35,12 @@ export const store = new Vuex.Store({
     appendTicket(state, ticket) {
       state.tickets.push(ticket);
     },
+    appendFilm(state, film) {
+      state.films.push(film);
+    },
+    appendScreening(state, screening) {
+      state.films.push(screening);
+    },
     setSeats(state, seats) {
       state.seats = seats;
     },

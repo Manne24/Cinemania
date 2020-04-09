@@ -22,4 +22,8 @@ public class ScreeningService {
        return screeningRepo.findById(id);
    }
 
+    public Screening addNewScreening(Screening screening) {
+       return screeningRepo.save(screening);
+    }
+
 }

@@ -4,11 +4,19 @@ export default {
             <h1 class="title-admin">Admin Panel</h1>
             <div class="add-new-film">
                 <div class="admin-form">
-                    <h4>Search For Movie</h4>
+                    <h4>Search and add Movie</h4>
                     <div class="search-form">
                         <form class="example" @submit.prevent="checkIfFilmExists">
                             <input v-model="titleAdd" type="text" 
-                            placeholder="Enter TITLE of film to add" required><br>
+                            placeholder="TITLE of film to add" required>
+                            <input v-model="screeningDate" type="text" 
+                            placeholder="Screening DATE (YYYY-MM-DD)" required>
+                            <input v-model="salonID" type="text" 
+                            placeholder="SALON id (1 OR 2)" required>
+                            <input v-model="startTimeScreening" type="text" 
+                            placeholder="START time (00:00:00)" required><br>
+                            <input v-model="endTimeScreening" type="text" 
+                            placeholder="END time time (00:00:00)" required><br>
                             <button type="submit"><i class="fa fa-search"></i></button>
                             <button @click.prevent="addNewFilm">ADD</button>
                             <button type="reset" value="Reset">RESET</button>
@@ -33,12 +41,13 @@ export default {
                     <h4>Delete Movie</h4>
                     <div class="delete-form">
                     <form class="delete" @submit.prevent="deleteFilmByTitle">
+                    <p style="color:red">{{ filmDeletedMessage }}</p>
                     <input v-model="titleDelete" type="text" 
-                    placeholder="Enter TITLE of film to delete" required><br>
+                    placeholder="TITLE of film to delete" required><br>
                     <button type="submit" >DELETE</button>
                     </form><br>
                     </div>
-
+<!-- 
                     <hr>
                     <h4>Update Movie</h4>
                     <div class="update-form">
@@ -48,7 +57,7 @@ export default {
                     <input v-model="filmID" type="text" 
                     placeholder="Enter ID of film to update (need some adjusting to work)" required><br>
                     <button type="submit">UPDATE</button>
-                    </form>
+                    </form> -->
                     </div>
                 </div>
             </div>
@@ -64,13 +73,18 @@ export default {
             deleteFilmWithID: '',
             youTubeURL: '',
             youTubeId: '',
-            titleDelete: ''
+            titleDelete: '',
+            filmDeletedMessage: '',
+            screeningDate: '',
+            salonID: '',
+            startTimeScreening: '',
+            endTimeScreening: ''
         }
     },
     computed: {
         film() {
             return this.$store.state.films.filter((film) => film.film_id === this.filmID)
-            
+
         }
     }, methods: {
         checkIfFilmExists() {
@@ -81,7 +95,7 @@ export default {
                     console.log(this.imdbInfo)
                 })
 
-            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=[YOUR_API_KEY]&q=' + this.titleAdd + 'trailer')
+            fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&maxResult=1&topicId=%2Fm%2F02vxn&key=AIzaSyDp2IZWeSoUqhiVPn2AKyFyHm0NT1gUjWs&q=' + this.titleAdd + 'trailer')
                 .then((res) => { return res.json() })
                 .then((res) => {
                     this.youTubeURL = res;
@@ -125,9 +139,35 @@ export default {
             })
 
             result = await result.json()
-            console.log(result)
-
+            this.$store.commit("appendFilm", result);
+            console.log(result.film_id)
             this.titleAdd = ''
+
+            if (!this.screeningDate.trim() &&
+                !this.salonID.trim() &&
+                !this.startTimeScreening.trim() &&
+                !this.endTimeScreening.trim()) {
+                return
+            }
+
+            let newScreening = {
+                date: this.screeningDate,
+                film_id: result.film_id,
+                salon_id: this.salonID,
+                start_time: this.startTimeScreening,
+                end_time: this.endTimeScreening
+            }
+
+            let resultScreening = await fetch('/rest/screenings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newScreening)
+            })
+
+            resultScreening = await resultScreening.json()
+            this.$store.commit("appendScreening", resultScreening);
 
         },
         async deleteFilmByTitle() {
@@ -138,15 +178,15 @@ export default {
             });
             this.$store.state.films
             console.log('Successfully removed the film')
+            this.filmDeletedMessage = 'Successfully removed the film'
             this.titleDelete = ''
         },
         async updateFilm() {
 
-                let film = await fetch("/rest/films/" + this.filmID);
-                film = await film.json();
-                console.log(film);
-                this.film = film;
-            
+            let film = await fetch("/rest/films/" + this.filmID);
+            film = await film.json();
+            console.log(film);
+            this.film = film;
 
             console.log(this.film)
 
