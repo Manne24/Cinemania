@@ -47,4 +47,4 @@ export default {
 }
 
 /* Ticket id: {{ ticket.ticket_id }} */
-/*  v-if="screening.date > todaysDate" */
+/*   */

@@ -21,19 +21,19 @@
   overflow: hidden;
 }
 
-.films-info{
-  margin: auto;
+.films-info {
+  margin-left: 10%;
   width: 100%;
-  padding: 20px 20px;
 }
 
-.films-info:after{
-  content:'';
+.films-info:after {
+  content: "";
   display: table;
-  clear:both;
+  clear: both;
   width: 100%;
 }
-.films-info, .filmcard{
+.films-info,
+.filmcard {
   float: left;
 }
 
@@ -53,7 +53,7 @@
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(6, 6, 6, 0.2);
   transition: 0.3s;
-  border-radius: 5px; 
+  border-radius: 5px;
   margin-left: 20px;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .filmcard h4 {
-  background-image: linear-gradient(45deg,#634fee,#6098f7);
+  background-image: linear-gradient(45deg, #634fee, #6098f7);
   font-weight: 1em;
   color: red;
 }
@@ -73,7 +73,7 @@
 }
 
 .filmcard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .sort-films {
@@ -101,7 +101,7 @@
 .sort-films button {
   font-size: 16px;
   cursor: pointer;
-  background-image: linear-gradient(45deg,#634fee,#6098f7);
+  background-image: linear-gradient(45deg, #634fee, #6098f7);
   width: 99px;
   height: 30px;
   text-align: center;
@@ -113,21 +113,32 @@
 }
 
 .button-buy-ticket {
-    text-transform: uppercase;
-    background-color: #f5ed17;
-    background-image: linear-gradient(45deg,#8f6d32,#96ac08);
-    width: 40%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    cursor: pointer;
+  text-transform: uppercase;
+  background-color: #f5ed17;
+  background-image: linear-gradient(45deg, #8f6d32, #96ac08);
+  width: 40%;
+  border: 0;
+  padding: 15px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 45%;
 }
 
 /* .iframe {
   padding-bottom: 20px;
 } */
 
-.film-details p{
+.film-details-page {
+  width: 43%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.film-details-page > h1 {
+  text-align: center;
+}
+
+.film-details p {
   margin-left: 0;
 }
