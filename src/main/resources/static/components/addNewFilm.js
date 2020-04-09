@@ -68,9 +68,9 @@ export default {
         }
     },
     computed: {
-        films() {
-            let film = this.$store.state.films.filter((film) => film.film_id === this.filmID)
-            return
+        film() {
+            return this.$store.state.films.filter((film) => film.film_id === this.filmID)
+            
         }
     }, methods: {
         checkIfFilmExists() {
@@ -142,18 +142,17 @@ export default {
         },
         async updateFilm() {
 
-            {
                 let film = await fetch("/rest/films/" + this.filmID);
                 film = await film.json();
                 console.log(film);
                 this.film = film;
-            }
+            
 
             console.log(this.film)
 
             let data = {
-                film_id: this.film.film_id,
-                title: 'ww',
+                film_id: this.filmID,
+                title: this.film.title,
                 director: 'ww',
                 description: 'ww',
                 image: 'ww',
