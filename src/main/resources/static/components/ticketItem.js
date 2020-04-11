@@ -14,7 +14,7 @@ export default {
                         <p class="screen-time">Start Time: {{screening.start_time}}</p>
                         <p class="screen-salon">Salon {{screening.salon_id}}</p>
                        <p class="screen-endtime">End Time: {{screening.end_time}}</p>
-                       <p class="screen-ticket-left">Tickets Left: </p>
+                      <!--  <p class="screen-ticket-left">Tickets Left: {{seatleft}} </p> -->
                     </div>
                 </div>
             </div> 
@@ -28,10 +28,17 @@ export default {
     user() {
       return this.$store.state.user;
     },
+    tickets() {
+      return this.$store.state.tickets;
+    },
+    seats() {
+      return this.$store.state.seats;
+    },
   },
   data() {
     return {
       isOpen: false,
+      /* seatleft: this.checkHowManyPlaceAreLeft(), */
     };
   },
   methods: {
@@ -52,5 +59,15 @@ export default {
         this.isOpen ? "block" : "none"
       );
     },
+/*     checkHowManyPlaceAreLeft() {
+      let placeReserved = 0;
+      for (let ticket of this.tickets) {
+        if (ticket.screening_id == this.$route.params.id) {
+          placeReserved += 1;
+        }
+      }
+      console.log(placeReserved);
+      return 50 - placeReserved
+    } */
   },
 };
