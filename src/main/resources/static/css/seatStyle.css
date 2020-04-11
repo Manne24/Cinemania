@@ -10,6 +10,7 @@
   margin-bottom: 10px;
   text-align: center;
   height: 20px;
+  border-radius: 5px;
 }
 
 #seat-layout > .salon {
@@ -57,4 +58,27 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
+  border-radius: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+   .salon {
+    width: 100% !important ; 
+    margin: 0 !important;
+  }
+  .film-screen {
+    margin-left: 23% !important;
+  }
+
+  .seats {
+    height: 35px;
+    font-size: 10px;
+    padding: 0 !important;
+  }
+ #seat-button {
+   width: 32% !important;
+ }
+
 }
